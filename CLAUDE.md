@@ -26,7 +26,8 @@ telefono.
 ## Voce dei testi
 - **Solo per il tono, da non scrivere mai nel sito**: i tre fratelli sono giovani. Nei testi niente età, niente
   "giovani", niente riferimenti che invecchiano ("nuova generazione", "da poco", "freschi di…").
-- Usa formule che restano vere nel tempo: "tre fratelli", "un'officina sola", "dal 2022" (anno da confermare).
+- Usa formule che restano vere nel tempo: "tre fratelli", "un'officina sola". **Niente nomi** per ora. Niente
+  "dal 2022" finché non è chiarito: l'officina esisteva già prima della S.r.l.s. (vedi `MANCANTI.md`).
 - Tono: diretto, fresco, poco formale, da persona a persona, col "noi". Mai da startup, mai da social, niente
   gergo da concessionaria, niente punti esclamativi a raffica ed emoji.
 - In primo piano la competenza concreta:
