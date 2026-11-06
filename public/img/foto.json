@@ -1,0 +1,200 @@
+[
+ {
+  "nome": "cambio-coppa",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 12847,
+    "webp": 21852
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 18348,
+    "webp": 34706
+   }
+  ]
+ },
+ {
+  "nome": "freni-disco",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 19551,
+    "webp": 30760
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 28769,
+    "webp": 48694
+   }
+  ]
+ },
+ {
+  "nome": "gomme-pressione",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 8844,
+    "webp": 15614
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 12776,
+    "webp": 25050
+   }
+  ]
+ },
+ {
+  "nome": "lavoro-recupero-olio",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 22223,
+    "webp": 32496
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 32644,
+    "webp": 52032
+   }
+  ]
+ },
+ {
+  "nome": "lavoro-sottoscocca",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 18919,
+    "webp": 29010
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 27164,
+    "webp": 46698
+   }
+  ]
+ },
+ {
+  "nome": "motore-vano",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 23896,
+    "webp": 37138
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 34492,
+    "webp": 58822
+   }
+  ]
+ },
+ {
+  "nome": "officina-bussole",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 17683,
+    "webp": 27856
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 25147,
+    "webp": 44520
+   }
+  ]
+ },
+ {
+  "nome": "officina-esterno",
+  "originale": "1464×996",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 435,
+    "avif": 31292,
+    "webp": 39306
+   },
+   {
+    "larghezza": 1464,
+    "altezza": 996,
+    "avif": 223353,
+    "webp": 256686
+   }
+  ]
+ },
+ {
+  "nome": "revisione-ponte",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 12104,
+    "webp": 19670
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 17225,
+    "webp": 31436
+   }
+  ]
+ },
+ {
+  "nome": "sospensioni-ammortizzatore",
+  "originale": "720×982",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 873,
+    "avif": 12643,
+    "webp": 19990
+   },
+   {
+    "larghezza": 720,
+    "altezza": 982,
+    "avif": 14730,
+    "webp": 24008
+   }
+  ]
+ },
+ {
+  "nome": "tagliando-filtro-olio",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 15490,
+    "webp": 28464
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 22729,
+    "webp": 45970
+   }
+  ]
+ }
+]

@@ -2,16 +2,16 @@
 // Regola: mai più grandi dell'originale (niente ingrandimenti), solo riduzioni.
 //
 //   node scripts/foto.mjs [cartella-sorgente] [cartella-uscita]
-//   default: materiale/foto-pulite -> public/img
+//   default: materiale/foto-scelte -> public/img
 //
-// Per ogni sorgente <nome>.png scrive <nome>-640.avif, <nome>-640.webp (telefono)
+// Per ogni sorgente <nome>.webp|png|jpg scrive <nome>-640.avif, <nome>-640.webp (telefono)
 // e <nome>-<larghezza>.avif / .webp (computer, larghezza piena dell'originale fino a 1464 px),
 // poi stampa una tabella dei pesi e salva public/img/foto.json con misure e pesi.
 import { readdir, mkdir, stat, writeFile } from 'node:fs/promises';
 import { join, parse } from 'node:path';
 import sharp from 'sharp';
 
-const src = process.argv[2] || 'materiale/foto-pulite';
+const src = process.argv[2] || 'materiale/foto-scelte';
 const out = process.argv[3] || 'public/img';
 const TELEFONO = 640;
 const COMPUTER_MAX = 1464;
