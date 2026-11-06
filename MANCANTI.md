@@ -34,8 +34,8 @@ Nel sito, i dati ancora da confermare vanno come segnaposto evidenziati con l'at
 | Elettrauto, luci e fari | directory ("elettrauto"), due recensioni su luci e fari sistemati a fine giornata | sì |
 | Diagnosi | reel, vano motore | sì, insieme al motore e all'elettrauto |
 | Auto sportive e d'epoca, restauri | reel GT86, i20N, Focus RS, restauro Z3 '96; **confermato dal cliente** per le sportive | sì |
-| Mappatura centraline | una directory | **non pubblicare** senza conferma esplicita |
-| Clima | nessuna prova (nel vecchio sito c'era solo una foto generata) | da confermare |
+| Centraline | una directory, **confermato dal cliente** (6/11) | sì. Formula proposta: "diagnosi e programmazione centraline". Se si vuole scrivere "mappatura" (elaborazioni di potenza), va concordato: tocca omologazione e assicurazione |
+| Clima | **confermato dal cliente** (6/11) | sì, senza foto: nessuna foto vera (quella del vecchio sito era generata). Spazio predisposto per una foto futura |
 | Carrozzeria, auto di cortesia | nessuna prova | no |
 
 ## Temi delle recensioni (solo per orientare il tono, non citarle)
@@ -56,7 +56,9 @@ usarle.
 ## Da ricevere dal cliente
 - Orari, email e la frase "su WhatsApp solo messaggi".
 - Da quando i tre fratelli lavorano lì e la storia dell'officina in una o due frasi (senza nomi per ora).
-- Quali veicoli si portano in revisione. Clima e mappatura sì o no.
+- Quali veicoli si portano in revisione.
+- Per le centraline: solo diagnosi e programmazione, o anche mappature di potenza da citare.
+- Una foto vera del lavoro sul clima, quando capita.
 - Recensioni Google vere (testo, iniziali, data) e voto aggiornato, quando arrivano.
 - Foto vere dell'officina, più nitide dei fotogrammi Instagram.
 - Conferma che si può scrivere "officina autorizzata Renault e Dacia". Nessun logo delle case senza le loro
