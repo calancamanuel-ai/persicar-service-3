@@ -24,11 +24,14 @@ con l'attributo `data-da-confermare`.
   regole d'uso del marchio.
 
 ## Rete
-- Bloccati: www.theelectrifiedgarage.com, lusciousgarage.com, www.awwwards.com, api.netlify.com, vercel.com.
-- Riferimenti non visibili dal vivo, perché dipendono da CDN bloccati: Sapphic Bar Index (st-p.rmcdn1.net),
-  Mosby's Files (a.storyblok.com) ed Earthling Automotive (squarespace). Sarah & Matt rimanda a
-  www.sarahandmatt.wedding, anch'esso bloccato. Sono stati studiati dalle schede della libreria
-  design-taste-frontend e dalle ricerche, come da indicazione del cliente.
+- Dal 6/11 la rete è aperta a tutti i domini.
+  - Si visitano solo domini che servono al lavoro: niente login, niente consenso ai cookie, nessun dato inviato.
+- I riferimenti di A (Sarah & Matt, Mosby's Files, Sapphic Bar Index) ed Earthling Automotive sono stati
+  visti dal vivo, con screenshot a 1440 e 390 px.
+- Non raggiungibili per problemi dei siti stessi, non della rete:
+  - theelectrifiedgarage.com: il server non risponde (502);
+  - lusciousgarage.com: certificato non valido, sito dismesso (l'officina ora è Earthling Automotive);
+  - awwwards.com: chiude la connessione ai browser automatici.
 - Google Maps e la scheda dell'attività rispondono col captcha: i dati non si possono leggere da qui.
 
 ## Lavori fatti in ripiego
