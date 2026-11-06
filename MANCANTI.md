@@ -7,13 +7,13 @@ Nel sito, i dati ancora da confermare vanno come segnaposto evidenziati con l'at
 | --- | --- | --- |
 | Telefono fisso | 051 687 1521 | **confermato** dal cliente (scheda Google), 6/11. Il 051 682 1026 trovato online non va usato |
 | Cellulare e WhatsApp | 366 721 2576 | **confermato** dal cliente (scheda Google), 6/11 |
-| "Su WhatsApp solo messaggi" | dal vecchio sito | da confermare |
+| "Su WhatsApp solo messaggi" | vero, ma **non va nel sito** (cliente, 6/11): chi scrive lo legge già su WhatsApp | il bottone dice "Scrivici su WhatsApp" |
 | Email | officinapersicarservice@gmail.com | da confermare. Una directory riporta anche persicarservice@gmail.com |
 | Orari | lun–ven 8:30–12:30 e 14:30–18:15; sabato e domenica chiuso | **confermato** dallo screenshot della scheda Google (cliente), 6/11 |
 | P.IVA | 04045401207 | da confermare. Coincide col registro imprese (CompanyReports) |
 | Indirizzo | Via Cento 60, 40017 San Giovanni in Persiceto (BO) | **confermato**, CAP compreso (scheda Google), 6/11 |
 | Ragione sociale | Persicar Service S.r.l.s., costituita il 24/06/2022 | da confermare. Le directory riportano anche una "Persicar Service Sas" e una "S.N.C." precedenti |
-| Anno da citare | "dal 2022" | **da chiarire**: l'officina esisteva già prima. Il 2022 potrebbe essere l'anno in cui l'hanno presa i tre fratelli. Finché non è chiaro, non scrivere "dal 2022" |
+| Anno da citare | 2022 | i tre fratelli **hanno preso l'officina nel 2022** (cliente, 6/11), ma **per ora non si scrive** nel sito |
 | Voto Google | 4,8 su 86 recensioni | **verificato** sulla scheda Google (screenshot del cliente, 6/11), ma **non usare** finché il cliente non decide: lo spazio resta predisposto |
 | Instagram | @persicarservice | visto nelle registrazioni. Link: https://www.instagram.com/persicarservice/ |
 | Facebook | facebook.com/PersicarService | trovato nelle ricerche, da confermare se va linkato |
@@ -25,7 +25,7 @@ Nel sito, i dati ancora da confermare vanno come segnaposto evidenziati con l'at
 | Servizio | Prova | Nel sito |
 | --- | --- | --- |
 | Officina autorizzata Renault e Dacia, anche multimarca | brief, directory (Cylex) | sì |
-| Revisioni | brief | sì (da confermare quali veicoli) |
+| Revisioni | **cliente, 6/11**: non in sede, l'auto la portano loro; si lascia l'auto | sì. Frase guida: "Alla revisione pensiamo noi". Mai "centro revisioni" né "la facciamo qui". Veicoli: solo "la tua auto" finché non è chiarito |
 | Tagliando e manutenzione | reel Focus RS ("tagliando", olio, pulizia alimentazione, additivi), directory | sì |
 | Cambio automatico: olio e manutenzione | reel Mercedes Classe E (scarico, pulizia dei tappi magnetici, riempimento), **confermato dal cliente** | sì |
 | Freni | fotogrammi | sì |
@@ -54,9 +54,9 @@ usarle.
   - Verificare se anche gli altri reel sono suoi.
 
 ## Da ricevere dal cliente
-- Orari, email e la frase "su WhatsApp solo messaggi".
-- Da quando i tre fratelli lavorano lì e la storia dell'officina in una o due frasi (senza nomi per ora).
-- Quali veicoli si portano in revisione.
+- Email.
+- La storia dell'officina in una o due frasi, per quando si potrà raccontare (nomi e anno per ora no).
+- Revisione: se oltre alle auto portano anche furgoni, camper o moto.
 - Per le centraline: solo diagnosi e programmazione, o anche mappature di potenza da citare.
 - Una foto vera del lavoro sul clima, quando capita.
 - Recensioni Google vere (testo, iniziali, data) e voto aggiornato, quando arrivano.

@@ -26,8 +26,11 @@ telefono.
 ## Voce dei testi
 - **Solo per il tono, da non scrivere mai nel sito**: i tre fratelli sono giovani. Nei testi niente età, niente
   "giovani", niente riferimenti che invecchiano ("nuova generazione", "da poco", "freschi di…").
-- Usa formule che restano vere nel tempo: "tre fratelli", "un'officina sola". **Niente nomi** per ora. Niente
-  "dal 2022" finché non è chiarito: l'officina esisteva già prima della S.r.l.s. (vedi `MANCANTI.md`).
+- Usa formule che restano vere nel tempo: "tre fratelli", "un'officina sola". **Niente nomi** e **niente anno**
+  per ora: hanno preso l'officina nel 2022, ma non si scrive.
+- **Revisioni**: l'auto in revisione la portano loro e il cliente la lascia. Frase guida: "Alla revisione pensiamo
+  noi". Mai "centro revisioni" né "la facciamo qui". Si scrive "la tua auto", senza elencare veicoli.
+- **WhatsApp**: il bottone dice "Scrivici su WhatsApp". La frase "solo messaggi" non va nel sito.
 - Tono: diretto, fresco, poco formale, da persona a persona, col "noi". Mai da startup, mai da social, niente
   gergo da concessionaria, niente punti esclamativi a raffica ed emoji.
 - In primo piano la competenza concreta:
