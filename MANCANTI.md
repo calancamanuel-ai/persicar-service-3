@@ -9,12 +9,12 @@ Nel sito, i dati ancora da confermare vanno come segnaposto evidenziati con l'at
 | Cellulare e WhatsApp | 366 721 2576 | **confermato** dal cliente (scheda Google), 6/11 |
 | "Su WhatsApp solo messaggi" | dal vecchio sito | da confermare |
 | Email | officinapersicarservice@gmail.com | da confermare. Una directory riporta anche persicarservice@gmail.com |
-| Orari | lun–ven 8:30–12:30 e 14:30–18:15; sabato e domenica chiuso | da confermare |
+| Orari | lun–ven 8:30–12:30 e 14:30–18:15; sabato e domenica chiuso | **confermato** dallo screenshot della scheda Google (cliente), 6/11 |
 | P.IVA | 04045401207 | da confermare. Coincide col registro imprese (CompanyReports) |
-| Indirizzo | Via Cento 60, 40017 San Giovanni in Persiceto (BO) | da confermare il CAP |
+| Indirizzo | Via Cento 60, 40017 San Giovanni in Persiceto (BO) | **confermato**, CAP compreso (scheda Google), 6/11 |
 | Ragione sociale | Persicar Service S.r.l.s., costituita il 24/06/2022 | da confermare. Le directory riportano anche una "Persicar Service Sas" e una "S.N.C." precedenti |
 | Anno da citare | "dal 2022" | **da chiarire**: l'officina esisteva già prima. Il 2022 potrebbe essere l'anno in cui l'hanno presa i tre fratelli. Finché non è chiaro, non scrivere "dal 2022" |
-| Voto Google | 4,8 (78–86 recensioni secondo le fonti) | **non usare**: lo spazio resta predisposto |
+| Voto Google | 4,8 su 86 recensioni | **verificato** sulla scheda Google (screenshot del cliente, 6/11), ma **non usare** finché il cliente non decide: lo spazio resta predisposto |
 | Instagram | @persicarservice | visto nelle registrazioni. Link: https://www.instagram.com/persicarservice/ |
 | Facebook | facebook.com/PersicarService | trovato nelle ricerche, da confermare se va linkato |
 

@@ -1,5 +1,23 @@
 [
  {
+  "nome": "arrivo-focus",
+  "originale": "940×1440",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 980,
+    "avif": 38832,
+    "webp": 56648
+   },
+   {
+    "larghezza": 940,
+    "altezza": 1440,
+    "avif": 63353,
+    "webp": 93204
+   }
+  ]
+ },
+ {
   "nome": "cambio-coppa",
   "originale": "940×1440",
   "varianti": [

@@ -28,14 +28,18 @@ I numeri si riferiscono a `anteprima-fotogrammi.jpg`.
 | `officina-bussole` | Chi siamo | fotogramma 11 (v5, 15,5 s) |
 | `lavoro-sottoscocca` | Dal lavoro di tutti i giorni | fotogramma 15 (v4, 28,75 s) |
 | `lavoro-recupero-olio` | Dal lavoro di tutti i giorni | fotogramma 9 (v3, 14 s) |
+| `arrivo-focus` | Orari e dove siamo, come immagine di arrivo (aggiunta il 6/11) | fotogramma 4 (v5, 118,5 s), Ford e RS sfocati |
 
+- **`arrivo-focus`**: viene dal reel "Tagliando lampo sulla Focus RS". Didascalia onesta: "Una Focus RS appena
+  uscita dal tagliando". Non va presentata come l'esterno dell'officina, perché lo sfondo non si riconosce. È
+  l'auto di un cliente: la cornice targa è la vostra, la targa non si vede.
 - **Miglioramento senza generare nulla** (`scripts/tratta-foto.py`, da `foto-scelte/` a `foto-trattate/`):
   - denoise spaziale leggero (nlmeans), poi livelli allo 0,4% e mezza correzione verso un'unica temperatura
     colore, saturazione al 94% e maschera di contrasto leggera;
   - provata anche la media dei fotogrammi vicini: scartata, perché i video sono girati a mano e i contorni si
     sdoppiano.
-- **Pesi in `public/img/`** (AVIF): circa 230 KB su telefono (640 px) e circa 424 KB su computer (fino a
-  1200 px; l'esterno a 1200×816 pesa 153 KB). In WebP circa il 50% in più. I dettagli sono in
+- **Pesi in `public/img/`** (AVIF, 12 foto): circa 268 KB su telefono (640 px) e circa 486 KB su computer
+  (fino a 1200 px; l'esterno a 1200×816 pesa 153 KB). In WebP circa il 50% in più. I dettagli sono in
   `public/img/foto.json`.
 - **Compressione**: provate AVIF q52 4:2:0 e q56, q58, q62 a colore pieno. Sono indistinguibili al 100%, quindi
   q52.
@@ -44,8 +48,7 @@ I numeri si riferiscono a `anteprima-fotogrammi.jpg`.
   `lavoro-sottoscocca` (vedi `MANCANTI.md`).
 
 ## Foto di riserva (`foto-riserva/`, non pubblicate)
-Fotogrammi 1, 5, 8, 10, 13 e 4 (la Focus al tramonto: l'auto è di un cliente e il logo sfocato si vede), più
-quattro vecchie foto (Z3 sul ponte, carrello attrezzi, vano motore col guanto, straccio sulla coppa).
+Fotogrammi 1, 5, 8, 10 e 13, più quattro vecchie foto (Z3 sul ponte, carrello attrezzi, vano motore col guanto, straccio sulla coppa).
 
 ## Foto di persicar-service-2 (`foto-originali/`)
 - Copiate tutte, tranne `hero.webp` (doppione di `esterno.webp`) e `clima.webp` (generata con l'IA).
