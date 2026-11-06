@@ -23,6 +23,20 @@ telefono.
 - **Niente**: prezzi, voto Google (spazio predisposto), deploy.
 - **Stack**: Vite + JavaScript vanilla, `three`, `gsap`, `lenis` da npm con versioni esatte.
 
+## Voce dei testi
+- **Solo per il tono, da non scrivere mai nel sito**: i tre fratelli sono giovani. Nei testi niente età, niente
+  "giovani", niente riferimenti che invecchiano ("nuova generazione", "da poco", "freschi di…").
+- Usa formule che restano vere nel tempo: "tre fratelli", "un'officina sola", "dal 2022" (anno da confermare).
+- Tono: diretto, fresco, poco formale, da persona a persona, col "noi". Mai da startup, mai da social, niente
+  gergo da concessionaria, niente punti esclamativi a raffica ed emoji.
+- In primo piano la competenza concreta:
+  - officina autorizzata Renault e Dacia;
+  - revisioni;
+  - i lavori veri che si vedono nelle foto.
+- Instagram (@persicarservice) come richiamo sobrio, dove ha senso: "I lavori di tutti i giorni li mettiamo su
+  Instagram", vicino alle foto del lavoro e nel footer. Mai un feed incorporato.
+- La direzione visiva non cambia: "officina di paese seria". La freschezza sta solo nelle parole.
+
 ## Regole sulle skill
 Dove le skill si contraddicono vincono il piano e gli stop di fase del cliente. Lo stack del progetto vince sugli
 esempi delle skill (CDN, React, Netlify o Vercel).

@@ -29,9 +29,19 @@ I numeri si riferiscono a `anteprima-fotogrammi.jpg`.
 | `lavoro-sottoscocca` | Dal lavoro di tutti i giorni | fotogramma 15 (v4, 28,75 s) |
 | `lavoro-recupero-olio` | Dal lavoro di tutti i giorni | fotogramma 9 (v3, 14 s) |
 
-- Pesi in `public/img/` (AVIF): circa 191 KB su telefono (640 px) e circa 447 KB su computer, di cui 218 KB per
-  l'esterno a 1464 px. In WebP circa il 50% in più. I dettagli sono in `public/img/foto.json`.
-- Sono le foto dell'officina stessa (dal suo Instagram), quindi non serve una riga di crediti.
+- **Miglioramento senza generare nulla** (`scripts/tratta-foto.py`, da `foto-scelte/` a `foto-trattate/`):
+  - denoise spaziale leggero (nlmeans), poi livelli allo 0,4% e mezza correzione verso un'unica temperatura
+    colore, saturazione al 94% e maschera di contrasto leggera;
+  - provata anche la media dei fotogrammi vicini: scartata, perché i video sono girati a mano e i contorni si
+    sdoppiano.
+- **Pesi in `public/img/`** (AVIF): circa 230 KB su telefono (640 px) e circa 424 KB su computer (fino a
+  1200 px; l'esterno a 1200×816 pesa 153 KB). In WebP circa il 50% in più. I dettagli sono in
+  `public/img/foto.json`.
+- **Compressione**: provate AVIF q52 4:2:0 e q56, q58, q62 a colore pieno. Sono indistinguibili al 100%, quindi
+  q52.
+- **Diritti**: sono foto dell'officina, dal suo Instagram. Il reel della Mercedes cita però il videomaker
+  @matthewpalazz. Va chiesto il consenso, ed eventualmente il credito, per `revisione-ponte`, `cambio-coppa` e
+  `lavoro-sottoscocca` (vedi `MANCANTI.md`).
 
 ## Foto di riserva (`foto-riserva/`, non pubblicate)
 Fotogrammi 1, 5, 8, 10, 13 e 4 (la Focus al tramonto: l'auto è di un cliente e il logo sfocato si vede), più
@@ -70,5 +80,6 @@ quattro vecchie foto (Z3 sul ponte, carrello attrezzi, vano motore col guanto, s
 - `anteprima-fotogrammi.jpg`: griglia dei 15 candidati. Scelta fatta: vedi "Foto scelte".
 
 ## Script
-- `scripts/foto.mjs`: genera AVIF e WebP per telefono (640 px) e computer (larghezza piena fino a 1464 px),
+- `scripts/tratta-foto.py`: pulizia, toni e nitidezza da `foto-scelte/` a `foto-trattate/`.
+- `scripts/foto.mjs`: genera AVIF e WebP per telefono (640 px) e computer (larghezza piena fino a 1200 px),
   senza mai ingrandire, e stampa i pesi (`npm run foto`).

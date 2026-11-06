@@ -2,21 +2,24 @@
 // Regola: mai più grandi dell'originale (niente ingrandimenti), solo riduzioni.
 //
 //   node scripts/foto.mjs [cartella-sorgente] [cartella-uscita]
-//   default: materiale/foto-scelte -> public/img
+//   default: materiale/foto-trattate -> public/img (prima: python3 scripts/tratta-foto.py)
 //
 // Per ogni sorgente <nome>.webp|png|jpg scrive <nome>-640.avif, <nome>-640.webp (telefono)
-// e <nome>-<larghezza>.avif / .webp (computer, larghezza piena dell'originale fino a 1464 px),
+// e <nome>-<larghezza>.avif / .webp (computer, larghezza piena dell'originale fino a 1200 px),
 // poi stampa una tabella dei pesi e salva public/img/foto.json con misure e pesi.
 import { readdir, mkdir, stat, writeFile } from 'node:fs/promises';
 import { join, parse } from 'node:path';
 import sharp from 'sharp';
 
-const src = process.argv[2] || 'materiale/foto-scelte';
+const src = process.argv[2] || 'materiale/foto-trattate';
 const out = process.argv[3] || 'public/img';
 const TELEFONO = 640;
-const COMPUTER_MAX = 1464;
+// 1200 px bastano per un riquadro medio (fino a 600 px CSS) anche su schermi a densità 2.
+const COMPUTER_MAX = 1200;
+// Provato il 6/11: q52 4:2:0, q56/q58/q62 4:4:4 sono indistinguibili al 100% (anche sui bordi rossi
+// e arancioni) mentre q62 pesa il 46% in più. La qualità la dà scripts/tratta-foto.py, non la compressione.
 const AVIF = { quality: 52, effort: 6, chromaSubsampling: '4:2:0' };
-const WEBP = { quality: 74, effort: 6 };
+const WEBP = { quality: 76, effort: 6, smartSubsample: true };
 
 await mkdir(out, { recursive: true });
 const files = (await readdir(src)).filter((f) => /\.(png|jpe?g|webp)$/i.test(f)).sort();
