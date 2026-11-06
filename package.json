@@ -1,0 +1,13 @@
+{
+  "name": "persicar-service-3",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Sito di Persicar Service, officina a San Giovanni in Persiceto",
+  "scripts": {
+    "foto": "node scripts/foto.mjs"
+  },
+  "devDependencies": {
+    "sharp": "0.34.5"
+  }
+}
