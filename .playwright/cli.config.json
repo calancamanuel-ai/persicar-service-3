@@ -1,0 +1,8 @@
+{
+  "browser": {
+    "browserName": "chromium",
+    "isolated": true,
+    "launchOptions": { "executablePath": "/opt/pw-browsers/chromium", "headless": true, "args": ["--no-sandbox"] },
+    "contextOptions": { "viewport": { "width": 1440, "height": 900 }, "locale": "it-IT" }
+  }
+}

@@ -1,0 +1,163 @@
+/* Componenti di Persicar Service. Solo token, nessun valore scritto a mano fuori da qui e da tokens.css.
+   Regole della casa: niente ombre a riposo, niente gradienti visibili, niente righe sottili, niente vetro.
+   I bordi veri del foglio sono maschere SVG (denti) e puntini pieni da 4px (perforazioni, righe di guida). */
+
+/* ---------- logo ---------- */
+.logo { display: inline-block; line-height: 0; }
+.logo img { width: clamp(9.5rem, 7rem + 7vw, 13.75rem); height: auto; aspect-ratio: 4268 / 1004; }
+
+/* ---------- testata ---------- */
+.testata {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-5);
+  min-height: 4.5rem; padding-block: var(--sp-4);
+}
+.testata__nav { display: flex; align-items: center; gap: clamp(var(--sp-4), 2vw, var(--sp-6)); }
+.testata__link { font-weight: 600; text-decoration: none; padding-block: var(--sp-2); }
+.testata__link:hover { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 0.08em; }
+@media (max-width: 63.99em) { .testata__link { display: none; } }
+/* su telefono il bottone WhatsApp sta nella barra del pollice: niente doppione in testata */
+@media (max-width: 47.99em) { .testata .testata__azione { display: none; } }
+
+/* ---------- bottoni: rettangolo pieno, un solo raggio (zero) ---------- */
+.bottone {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-3);
+  min-height: var(--tocco); padding: 0 1.5rem;
+  border-radius: var(--raggio);
+  font-family: var(--font-testo); font-size: var(--misura-testo); font-weight: 600; line-height: 1.1;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: transform var(--t-pressione) var(--ease-ui), background-color var(--t-hover) var(--ease-ui);
+}
+.bottone:active { transform: scale(var(--scala-pressione)); }
+.bottone--whatsapp { background: var(--verde); color: var(--sul-verde); }
+.bottone--secondario { background: var(--foglio-2); color: var(--inchiostro); }
+.bottone--su-campo { background: var(--foglio); color: var(--inchiostro); }
+.bottone--largo { width: 100%; }
+@media (hover: hover) and (pointer: fine) {
+  .bottone--whatsapp:hover { background: var(--verde-premuto); }
+  .bottone--secondario:hover { background: color-mix(in srgb, var(--foglio-2) 82%, var(--inchiostro)); }
+}
+.bottone--whatsapp:active { background: var(--verde-premuto); }
+
+/* ---------- caselle dei lavori: la scheda di accettazione ---------- */
+/* 2 colonne su telefono, 3 o 4 dove c'è spazio: le righe si chiudono sempre (7 voci = 4+3) */
+.voci-contenitore { container-type: inline-size; }
+.voci { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); }
+@container (max-width: 33.99rem) { .voce:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@container (min-width: 34rem) { .voci { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@container (min-width: 52rem) { .voci { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.voce {
+  position: relative; display: flex; align-items: center; gap: var(--sp-3);
+  min-height: var(--tocco); padding: var(--sp-2) var(--sp-4) var(--sp-2) var(--sp-3);
+  background: var(--foglio-2); cursor: pointer; user-select: none;
+  transition: transform var(--t-pressione) var(--ease-ui), background-color var(--t-hover) var(--ease-ui);
+}
+.voce:active { transform: scale(var(--scala-pressione)); }
+.voce input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.voce:has(input:focus-visible) { outline: 3px solid var(--inchiostro); outline-offset: 3px; }
+.voce__casella {
+  flex: none; display: grid; place-items: center;
+  width: 1.75rem; height: 1.75rem; background: var(--foglio); color: var(--sul-verde);
+  /* è un campo di un modulo: il bordo serve a vederla (contrasto 15:1), come su una scheda stampata */
+  border: 2px solid var(--inchiostro);
+  transition: background-color var(--t-hover) var(--ease-ui), border-color var(--t-hover) var(--ease-ui);
+}
+.voce__casella svg { width: 1.125rem; height: 1.125rem; opacity: 0; transform: scale(0.6); transition: opacity var(--t-hover) var(--ease-ui), transform var(--t-ui) var(--ease-ui); }
+.voce__testo { font-weight: 600; line-height: 1.2; }
+.voce:has(input:checked) .voce__casella { background: var(--verde); border-color: var(--verde); }
+.voce:has(input:checked) .voce__casella svg { opacity: 1; transform: none; }
+@media (hover: hover) and (pointer: fine) {
+  .voce:hover { background: color-mix(in srgb, var(--foglio-2) 88%, var(--inchiostro)); }
+}
+
+/* ---------- il foglio: un pannello di carta coi bordi veri ---------- */
+.foglio { position: relative; background: var(--foglio); padding: var(--dentro-foglio); }
+.foglio--denti-sotto {
+  padding-bottom: calc(var(--dentro-foglio) + var(--dente));
+  -webkit-mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Crect width='1' height='1'/%3E%3C/svg%3E") top / 100% calc(100% - var(--dente) + 1px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='0' r='14'/%3E%3C/svg%3E") bottom / 28px 14px round no-repeat;
+  mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Crect width='1' height='1'/%3E%3C/svg%3E") top / 100% calc(100% - var(--dente) + 1px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='0' r='14'/%3E%3C/svg%3E") bottom / 28px 14px round no-repeat;
+}
+.foglio--denti-sopra {
+  padding-top: calc(var(--dentro-foglio) + var(--dente));
+  -webkit-mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Crect width='1' height='1'/%3E%3C/svg%3E") bottom / 100% calc(100% - var(--dente) + 1px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='14' r='14'/%3E%3C/svg%3E") top / 28px 14px round no-repeat;
+  mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Crect width='1' height='1'/%3E%3C/svg%3E") bottom / 100% calc(100% - var(--dente) + 1px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='14' r='14'/%3E%3C/svg%3E") top / 28px 14px round no-repeat;
+}
+.foglio__intestazione {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3) var(--sp-6);
+  margin: calc(var(--dentro-foglio) * -1) calc(var(--dentro-foglio) * -1) var(--dentro-foglio);
+  padding: var(--sp-4) var(--dentro-foglio);
+  background: var(--foglio-2);
+}
+/* la perforazione: una fila di puntini del colore del piano, come i fori di un modulo da strappare */
+.strappo {
+  margin-inline: calc(var(--dentro-foglio) * -1);
+  margin-top: var(--dentro-foglio);
+  padding: var(--sp-5) var(--dentro-foglio) 0;
+  border-top: var(--puntino) dotted var(--piano);
+}
+
+/* ---------- la banda dell'indirizzo: il pezzetto tipografico che torna in tutta la pagina ---------- */
+.banda {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-5);
+  padding: var(--sp-3) var(--sp-4); background: var(--foglio-2);
+  font-weight: 600; font-variant-numeric: tabular-nums;
+}
+
+/* ---------- il listino dei lavori: righe con la guida a puntini ---------- */
+.listino { display: grid; gap: var(--sp-7); }
+.listino__gruppo { display: grid; gap: var(--sp-4); }
+.listino__nome-gruppo { font-family: var(--font-testo); font-size: var(--misura-lead); font-weight: 600; letter-spacing: 0; line-height: 1.2; }
+/* la guida resta sempre sulla prima riga, anche quando il valore va a capo su telefono */
+.riga { display: grid; grid-template-columns: max-content minmax(var(--sp-5), 1fr) minmax(0, max-content); align-items: start; column-gap: var(--sp-3); }
+.riga__nome { font-weight: 600; }
+.riga__guida { margin-top: calc(var(--interlinea-testo) * 1em - 0.42em); border-bottom: var(--puntino) dotted var(--puntini); }
+.riga__valore { font-variant-numeric: tabular-nums; text-align: right; text-wrap: balance; }
+.riga__nota { grid-column: 1 / -1; max-width: 40ch; margin-top: var(--sp-1); color: var(--inchiostro-tenue); }
+
+/* ---------- foto: angoli vivi, mai a tutta larghezza; cartellino attaccato sotto ---------- */
+.foto { margin: 0; }
+.foto picture { display: block; }
+.foto img { width: 100%; height: auto; object-fit: cover; background: var(--foglio-2); }
+.foto--riempi, .foto--riempi picture { height: 100%; }
+.foto--riempi img { height: 100%; }
+.foto--verticale img { aspect-ratio: 4 / 5; }
+.foto--alta img { aspect-ratio: 2 / 3; }
+.foto--orizzontale img { aspect-ratio: 3 / 2; }
+.foto__didascalia { margin-top: var(--sp-2); font-size: var(--misura-piccola); color: var(--inchiostro-tenue); }
+.cartellino {
+  display: grid; gap: var(--sp-1); padding: var(--sp-3);
+  font-size: var(--misura-piccola); line-height: 1.35; font-variant-numeric: tabular-nums;
+  background: var(--foglio-2); color: var(--inchiostro);
+}
+.cartellino__riga { display: flex; justify-content: space-between; gap: var(--sp-3); }
+.cartellino__riga > :first-child { font-weight: 600; }
+.cartellino--scuro { background: var(--campo); color: var(--sul-campo); }
+.cartellino--intonaco { background: var(--intonaco); color: var(--inchiostro); }
+
+/* ---------- campi pieni: il rosa del capannone e l'unico campo scuro ---------- */
+.campo-intonaco { background: var(--intonaco); }
+.campo-scuro { background: var(--campo); color: var(--sul-campo); }
+.campo-scuro .tenue { color: color-mix(in srgb, var(--sul-campo) 78%, var(--campo)); }
+
+/* ---------- stato dell'officina: un'informazione piccola, non un gioco ---------- */
+.stato { font-size: var(--misura-piccola); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* ---------- la barra del pollice: solo su telefono, piatta, sempre raggiungibile ---------- */
+.barra-pollice {
+  position: fixed; inset: auto 0 0 0; z-index: 50;
+  display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-2);
+  padding: var(--sp-2) var(--margine) calc(var(--sp-2) + env(safe-area-inset-bottom));
+  background: var(--foglio);
+}
+.barra-pollice .bottone { min-height: var(--tocco-barra); padding-inline: var(--sp-4); }
+@media (max-width: 47.99em) {
+  body:has(.barra-pollice) { padding-bottom: calc(var(--tocco-barra) + var(--sp-4) + env(safe-area-inset-bottom)); }
+}
+@media (min-width: 48em) { .barra-pollice { display: none; } }

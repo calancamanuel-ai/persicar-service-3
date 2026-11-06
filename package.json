@@ -8,6 +8,13 @@
     "foto": "node scripts/foto.mjs"
   },
   "devDependencies": {
-    "sharp": "0.34.5"
+    "@playwright/cli": "0.1.22",
+    "sharp": "0.34.5",
+    "vite": "8.3.5"
+  },
+  "dependencies": {
+    "gsap": "3.15.0",
+    "lenis": "1.3.26",
+    "three": "0.186.1"
   }
 }

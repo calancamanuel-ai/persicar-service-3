@@ -1,0 +1,80 @@
+/* Base: reset, tipografia, griglia, stati. Parte da assets/base.css di design-taste-frontend,
+   con i token di Persicar Service. Nessun aspetto proprio: i componenti stanno in componenti.css. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: auto; }
+body {
+  margin: 0;
+  background: var(--piano);
+  color: var(--inchiostro);
+  font-family: var(--font-testo);
+  font-size: var(--misura-testo);
+  line-height: var(--interlinea-testo);
+  font-kerning: normal;
+  font-variant-numeric: lining-nums;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4, p, figure, blockquote, ul, ol, dl, dd { margin: 0; }
+ul[class], ol[class] { padding: 0; list-style: none; }
+img, video, svg, canvas { display: block; max-width: 100%; }
+img { height: auto; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { background: none; border: 0; padding: 0; cursor: pointer; }
+a { color: inherit; }
+:target { scroll-margin-top: 6rem; }
+::selection { background: var(--inchiostro); color: var(--foglio); }
+:focus-visible { outline: 3px solid var(--inchiostro); outline-offset: 3px; }
+.su-campo :focus-visible { outline-color: var(--sul-campo); }
+
+/* ---------- tipo ---------- */
+h1, h2, h3, .display, .titolo {
+  font-family: var(--font-titoli);
+  font-weight: 800;
+  line-height: var(--interlinea-titoli);
+  letter-spacing: var(--spaziatura-titoli);
+  text-wrap: balance;
+  hyphens: none;
+}
+.display { font-size: var(--misura-display); line-height: var(--interlinea-display); }
+.titolo { font-size: var(--misura-titolo); }
+.lead { font-size: var(--misura-lead); line-height: 1.35; max-width: 34ch; }
+.piccolo { font-size: var(--misura-piccola); line-height: 1.45; }
+.tenue { color: var(--inchiostro-tenue); }
+.forte { font-weight: 600; }
+.cifre { font-variant-numeric: tabular-nums; }
+p { max-width: var(--misura-riga); text-wrap: pretty; }
+p + p { margin-top: 0.85em; }
+
+/* ---------- impaginazione ---------- */
+.pagina { max-width: var(--larghezza-max); margin-inline: auto; padding-inline: var(--margine); }
+.griglia { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--colonna-gap); }
+.sezione { padding-block: calc(var(--sezione) / 2); }
+.solo-schermo-lettore {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; /* taste-skill-ignore: testo per lettori di schermo, non una riga */
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ---------- collegamenti ---------- */
+.link {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.08em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  transition: text-decoration-color var(--t-hover) var(--ease-ui);
+}
+@media (hover: hover) and (pointer: fine) {
+  .link:hover { text-decoration-color: currentColor; }
+}
+
+/* ---------- segnaposto da confermare: evidenziati finché il cliente non li conferma ---------- */
+[data-da-confermare] {
+  background: var(--evidenziatore);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding-inline: 0.15em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

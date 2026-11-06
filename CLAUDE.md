@@ -60,5 +60,8 @@ esempi delle skill (CDN, React, Netlify o Vercel).
 8. Barra WhatsApp/Chiama su telefono: piatta, bersagli di almeno 44 px, margine in fondo alla pagina.
 9. Nessuna prova sociale, nessun numero e nessun prezzo inventati.
 10. Se la rete blocca qualcosa lo si dice subito e lo si annota in `MANCANTI.md`.
-11. Test con playwright-cli (`@playwright/cli`) sul Chromium preinstallato `/opt/pw-browsers/chromium`. Niente
+11. Eccezione decisa: a 390px `inspect.mjs` si lancia con `--allow covered-text`, perché la barra del pollice è
+    fissa e copre per un attimo ciò che le passa sotto. Le sovrapposizioni vere si controllano a vista e a 1440px.
+    Nell'hero l'intestazione del foglio è la testata del sito, in cima (vedi `docs/design-system.md`).
+12. Test con playwright-cli (`@playwright/cli`) sul Chromium preinstallato `/opt/pw-browsers/chromium`. Niente
     `playwright install`.

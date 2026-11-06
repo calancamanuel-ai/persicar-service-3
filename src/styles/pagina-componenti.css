@@ -1,0 +1,32 @@
+/* Solo per componenti.html: impaginazione della pagina interna del design system. */
+.dsc-sezione { padding-block: calc(var(--sezione) / 2); }
+.dsc-sezione > h2 { margin-bottom: var(--sp-4); }
+.dsc-sezione > p { margin-bottom: var(--sp-6); }
+.dsc-colori { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: var(--sp-2); }
+.dsc-colore { display: grid; align-content: end; gap: var(--sp-1); min-height: 9rem; padding: var(--sp-4); }
+.dsc-colore strong { font-weight: 600; }
+.dsc-tipo { display: grid; gap: var(--sp-6); }
+.dsc-tipo__riga { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: var(--sp-4) var(--sp-6); align-items: baseline; }
+@media (max-width: 47.99em) {
+  .dsc-tipo__riga { grid-template-columns: 1fr; gap: var(--sp-2); }
+  .dsc-tipo__riga > span { order: 2; } /* l'etichetta sotto il campione, non sopra come un'etichetta da titolo */
+}
+.dsc-loghi { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--sp-2); }
+.dsc-loghi > div { display: grid; place-items: center; min-height: 10rem; padding: var(--sp-6); }
+.dsc-loghi img { width: min(100%, 15rem); height: auto; }
+.dsc-fila { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
+.dsc-focus { outline: 3px solid var(--inchiostro); outline-offset: 3px; }
+.dsc-hero { display: grid; gap: var(--sp-6); }
+.dsc-hero .lead { margin-top: calc(var(--sp-4) * -1); }
+.dsc-hero__azioni { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
+.dsc-due { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--sp-6) var(--colonna-gap); align-items: start; }
+.dsc-due > :first-child { grid-column: 1 / span 6; }
+.dsc-due > :last-child { grid-column: 8 / span 5; }
+@media (max-width: 63.99em) { .dsc-due > :first-child, .dsc-due > :last-child { grid-column: 1 / -1; } }
+.dsc-foto { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-3); }
+@media (max-width: 47.99em) { .dsc-foto { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.dsc-campi { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--sp-2); }
+.dsc-campi > div { display: grid; gap: var(--sp-4); align-content: start; padding: var(--dentro-foglio); }
+.dsc-campi > div > img { width: min(100%, 14rem); height: auto; }
+.dsc-telefono { max-width: 24rem; background: var(--piano); }
+.dsc-telefono .barra-pollice { position: static; display: grid; }

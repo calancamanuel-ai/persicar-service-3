@@ -1,0 +1,73 @@
+/* Persicar Service: token del design system.
+   Tutti i colori, le misure del testo, gli spazi e i tempi del movimento passano da qui.
+   Direzione "La scheda": la pagina è la scheda di accettazione dell'officina, un foglio su un piano di pietra. */
+
+:root {
+  /* ---------- colore: carta, inchiostro e il piano su cui sta il foglio ---------- */
+  --piano: #E3DFD6;            /* pietra chiara: il fondo della pagina */
+  --foglio: #F2F1EE;           /* carta del modulo: i pannelli */
+  --foglio-2: #E9E6DF;         /* un passo di tono sotto il foglio: bande, campi, stati scelti */
+  --inchiostro: #1C211F;       /* nero officina: tutto il testo */
+  --inchiostro-tenue: #4D5551; /* note secondarie (contrasto 6,8:1 sul foglio, 5,8:1 sul piano) */
+  --verde: #2E7D55;            /* l'accento: SOLO bottone WhatsApp e spunte (5:1 col bianco) */
+  --verde-premuto: #256846;    /* hover e pressione del bottone verde */
+  --sul-verde: #FFFFFF;        /* testo sul verde */
+  --intonaco: #E8CBBE;         /* rosa del capannone di Via Cento: campo della sezione "l'officina" */
+  --campo: #1C211F;            /* l'unico campo scuro: retro della scheda, logo originale bianco */
+  --sul-campo: #F2F1EE;
+  --evidenziatore: #F1E39A;    /* segnaposto da confermare (data-da-confermare): sparisce al lancio */
+  --puntini: #A7AAA4;          /* puntini delle righe di guida: decorazione, non testo */
+
+  /* colori del marchio: solo dentro il logo, mai nell'interfaccia */
+  --logo-verde: #3B8F64;
+  --logo-rosso: #B35058;
+
+  /* ---------- tipo: due famiglie, cinque misure ---------- */
+  --font-titoli: "Besley", "Besley ripiego", Georgia, serif;
+  --font-testo: "Libre Franklin", "Libre Franklin ripiego", Arial, sans-serif;
+
+  --misura-piccola: 0.875rem;                                   /* 14px: note, cartellini, imprint */
+  --misura-testo: clamp(1.0625rem, 1.02rem + 0.18vw, 1.1875rem); /* 17–19px: il testo corrente */
+  --misura-lead: clamp(1.25rem, 1.12rem + 0.55vw, 1.5rem);      /* 20–24px: frasi d'apertura, voci della scheda */
+  --misura-titolo: clamp(2rem, 1.35rem + 2.6vw, 3.5rem);        /* 32–56px: titoli di sezione */
+  --misura-display: clamp(2.125rem, 0.4rem + 6.6vw, 6.5rem);    /* 34–104px: il titolo del primo schermo (34px tiene "Noi la tua auto" su una riga a 390) */
+
+  --interlinea-display: 0.95;  /* solo per il titolo grande del primo schermo */
+  --interlinea-titoli: 1.05;   /* titoli di sezione: a 32px su telefono le righe non si toccano */
+  --interlinea-testo: 1.55;
+  --spaziatura-titoli: -0.02em;
+
+  /* ---------- spazio: una griglia, un paio di margini ---------- */
+  --margine: clamp(1rem, 0.6rem + 1.8vw, 2rem);  /* margini laterali della pagina, 16–32px */
+  --colonna-gap: clamp(1rem, 0.7rem + 1.2vw, 1.75rem);
+  --sezione: clamp(7.5rem, 4rem + 9vw, 15rem);   /* fra una sezione e l'altra: 120–240px */
+  --dentro-foglio: clamp(1.25rem, 0.6rem + 3vw, 4rem); /* imbottitura del foglio: 20px su telefono, 64px su computer */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --misura-riga: 62ch;
+  --larghezza-max: 90rem;                         /* 1440px: oltre, il piano cresce e il foglio no */
+
+  /* ---------- forme: un raggio solo, zero; bordi veri del foglio ---------- */
+  --raggio: 0px;
+  --dente: 14px;                 /* raggio dei denti della dentellatura (bordi del foglio) */
+  --puntino: 4px;                /* puntini delle righe e della perforazione: 4px, rotondi */
+  --tocco: 3.25rem;              /* 52px: altezza minima di bottoni e caselle (pollice) */
+  --tocco-barra: 3.5rem;         /* 56px: la barra fissa su telefono */
+
+  /* ---------- movimento: un solo set di valori per tutto il sito ---------- */
+  --ease-ui: cubic-bezier(0.23, 1, 0.32, 1);     /* interfaccia: forte ease-out, anche per le uscite */
+  --ease-entrata: cubic-bezier(0.22, 1, 0.36, 1);/* entrate delle sezioni */
+  --t-pressione: 120ms;
+  --t-hover: 180ms;
+  --t-ui: 240ms;                                  /* sotto i 300ms per tutto ciò che risponde a un gesto */
+  --t-entrata: 720ms;
+  --ritardo-parti: 70ms;                          /* fra titolo, testo e immagine di una sezione */
+  --salita: 24px;                                 /* quanto salgono le parti entrando */
+  --scala-pressione: 0.97;
+}

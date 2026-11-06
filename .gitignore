@@ -1,4 +1,5 @@
 node_modules/
 dist/
-.taste-skill/inspect/
+.taste-skill/inspect*/
+.playwright-cli/
 .DS_Store
