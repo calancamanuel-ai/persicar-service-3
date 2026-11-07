@@ -117,7 +117,7 @@ Regole della voce: sempre del tu, col "noi"; niente età, nomi o anno; "Alla rev
 - **Contatti** (link):
   - WhatsApp 366 721 2576
   - Telefono 051 687 1521
-  - officinapersicarservice@gmail.com **[da confermare]**
+  - officinapersicarservice@gmail.com
   - Instagram @persicarservice
 - **Timbro**: Persicar Service · Via Cento 60 · San Giovanni in Persiceto
-- **Imprint**: Persicar Service S.r.l.s. · P.IVA 04045401207 **[da confermare]** · Privacy · Cookie
+- **Imprint**: Persicar Service S.r.l.s. · P.IVA 04045401207 · Privacy · Cookie

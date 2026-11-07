@@ -23,7 +23,8 @@ telefono.
   persicar-service-2.
   - Mani e braccia sì; niente volti, loghi di terzi, interfaccia Instagram o targhe leggibili.
   - Riquadri medi o piccoli, mai a tutta larghezza, mai ingrandite. L'hero non dipende da una foto.
-- **Contatti**: segnaposto evidenziati (`data-da-confermare`), elenco in `MANCANTI.md`.
+- **Contatti**: tutti confermati (7/11). Quello che resta da confermare va come segnaposto evidenziato
+  (`data-da-confermare`), con l'elenco in `MANCANTI.md`.
 - **Niente**: prezzi, voto Google (spazio predisposto), deploy.
 - **Stack**: Vite + JavaScript vanilla, `three`, `gsap`, `lenis` da npm con versioni esatte.
 

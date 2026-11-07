@@ -108,6 +108,8 @@ JSONLD = {
     "@context": "https://schema.org", "@type": "AutoRepair", "name": "Persicar Service",
     "description": "Officina autorizzata Renault e Dacia a San Giovanni in Persiceto. Tagliandi, freni, gomme, cambio automatico, clima, diagnosi e revisioni.",
     "telephone": "+39 051 687 1521",
+    "email": "officinapersicarservice@gmail.com",
+    "vatID": "IT04045401207",
     "address": {"@type": "PostalAddress", "streetAddress": "Via Cento, 60", "postalCode": "40017", "addressLocality": "San Giovanni in Persiceto", "addressRegion": "BO", "addressCountry": "IT"},
     "openingHoursSpecification": [
         {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:30", "closes": "12:30"},
@@ -339,11 +341,11 @@ html = f'''<!doctype html>
         <ul class="piede__lista">
           <li><a class="link" href="{WA}" data-whatsapp>WhatsApp 366 721 2576</a></li>
           <li><a class="link" href="{TEL}">Telefono 051 687 1521</a></li>
-          <li><a class="link" href="mailto:officinapersicarservice@gmail.com"><span data-da-confermare>officinapersicarservice@<wbr>gmail.com</span></a></li>
+          <li><a class="link" href="mailto:officinapersicarservice@gmail.com">officinapersicarservice@<wbr>gmail.com</a></li>
           <li><a class="link" href="https://www.instagram.com/persicarservice/">Instagram @persicarservice</a></li>
         </ul>
       </div>
-      <p class="piccolo tenue piede__imprint">Persicar Service S.r.l.s. · Via Cento 60, 40017 San Giovanni in Persiceto (BO) · P.IVA <span data-da-confermare>04045401207</span> · <a class="link" href="/privacy.html">Privacy</a> · <a class="link" href="/cookie.html">Cookie</a></p>
+      <p class="piccolo tenue piede__imprint">Persicar Service S.r.l.s. · Via Cento 60, 40017 San Giovanni in Persiceto (BO) · P.IVA 04045401207 · <a class="link" href="/privacy.html">Privacy</a> · <a class="link" href="/cookie.html">Cookie</a></p>
     </div>
   </footer>
 

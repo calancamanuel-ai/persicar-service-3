@@ -1,15 +1,15 @@
 """Genera le pagine di servizio: privacy.html, cookie.html e 404.html.
 
 Testi semplici e onesti, del tu. Sono bozze: prima del lancio vanno fatte verificare a un consulente
-(vedi MANCANTI.md). Le parti ancora da confermare portano data-da-confermare e restano evidenziate.
+(vedi MANCANTI.md). Restano evidenziati (data-da-confermare) solo il fornitore di hosting e la riga della bozza.
 Uso: python3 scripts/genera-pagine.py
 """
 
 AGGIORNATO = "7 novembre 2026"
 WA = "https://wa.me/393667212576"
 TEL = "tel:+390516871521"
-PIVA = '<span data-da-confermare>04045401207</span>'
-EMAIL = '<a class="link" href="mailto:officinapersicarservice@gmail.com"><span data-da-confermare>officinapersicarservice@gmail.com</span></a>'
+PIVA = '04045401207'
+EMAIL = '<a class="link" href="mailto:officinapersicarservice@gmail.com">officinapersicarservice@<wbr>gmail.com</a>'
 BOZZA = ('<p class="piccolo legale__bozza"><span data-da-confermare>Bozza da far verificare a un consulente '
          'prima della pubblicazione.</span></p>')
 

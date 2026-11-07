@@ -43,9 +43,8 @@ I numeri si riferiscono a `anteprima-fotogrammi.jpg`.
   `public/img/foto.json`.
 - **Compressione**: provate AVIF q52 4:2:0 e q56, q58, q62 a colore pieno. Sono indistinguibili al 100%, quindi
   q52.
-- **Diritti**: sono foto dell'officina, dal suo Instagram. Il reel della Mercedes cita però il videomaker
-  @matthewpalazz. Va chiesto il consenso, ed eventualmente il credito, per `revisione-ponte`, `cambio-coppa` e
-  `lavoro-sottoscocca` (vedi `MANCANTI.md`).
+- **Diritti**: sono foto dell'officina, dal suo Instagram. I video sono stati girati per l'officina, compreso
+  il reel della Mercedes: non serve chiedere permessi (cliente, 7/11).
 
 ## Foto di riserva (`foto-riserva/`, non pubblicate)
 Fotogrammi 1, 5, 8, 10 e 13, più quattro vecchie foto (Z3 sul ponte, carrello attrezzi, vano motore col guanto, straccio sulla coppa).

@@ -8,11 +8,11 @@ Nel sito, i dati ancora da confermare vanno come segnaposto evidenziati con l'at
 | Telefono fisso | 051 687 1521 | **confermato** dal cliente (scheda Google), 6/11. Il 051 682 1026 trovato online non va usato |
 | Cellulare e WhatsApp | 366 721 2576 | **confermato** dal cliente (scheda Google), 6/11 |
 | "Su WhatsApp solo messaggi" | vero, ma **non va nel sito** (cliente, 6/11): chi scrive lo legge già su WhatsApp | il bottone dice "Scrivici su WhatsApp" |
-| Email | officinapersicarservice@gmail.com | da confermare. Una directory riporta anche persicarservice@gmail.com |
+| Email | officinapersicarservice@gmail.com | **confermato** dal cliente, 7/11 |
 | Orari | lun–ven 8:30–12:30 e 14:30–18:15; sabato e domenica chiuso | **confermato** dallo screenshot della scheda Google (cliente), 6/11 |
-| P.IVA | 04045401207 | da confermare. Coincide col registro imprese (CompanyReports) |
+| P.IVA | 04045401207 | **confermato** dal cliente, 7/11. Coincide col registro imprese (CompanyReports) |
 | Indirizzo | Via Cento 60, 40017 San Giovanni in Persiceto (BO) | **confermato**, CAP compreso (scheda Google), 6/11 |
-| Ragione sociale | Persicar Service S.r.l.s., costituita il 24/06/2022 | da confermare. Le directory riportano anche una "Persicar Service Sas" e una "S.N.C." precedenti |
+| Ragione sociale | Persicar Service S.r.l.s., costituita il 24/06/2022 | **confermata** con la P.IVA (cliente, 7/11): al registro imprese quella P.IVA è della S.r.l.s. |
 | Anno da citare | 2022 | i tre fratelli **hanno preso l'officina nel 2022** (cliente, 6/11), ma **per ora non si scrive** nel sito |
 | Voto Google | 4,8 su 86 recensioni | **verificato** sulla scheda Google (screenshot del cliente, 6/11), ma **non usare** finché il cliente non decide: lo spazio resta predisposto |
 | Instagram | @persicarservice | visto nelle registrazioni. Link: https://www.instagram.com/persicarservice/ |
@@ -48,13 +48,10 @@ Nessuna di queste frasi va nel sito come citazione finché non arrivano le recen
 usarle.
 
 ## Diritti sulle foto
-- Il reel della Mercedes (8 luglio 2025) riporta "Videomaker: @matthewpalazz". Da quel video vengono
-  `revisione-ponte`, `cambio-coppa` e `lavoro-sottoscocca`.
-  - **Chiedere il consenso** a usare i fotogrammi sul sito e se vuole un credito (es. "Riprese: @matthewpalazz").
-  - Verificare se anche gli altri reel sono suoi.
+- I video sono stati girati per l'officina: per i fotogrammi, compresi quelli del reel della Mercedes,
+  **non serve chiedere permessi** (cliente, 7/11).
 
 ## Da ricevere dal cliente
-- Email.
 - La storia dell'officina in una o due frasi, per quando si potrà raccontare (nomi e anno per ora no).
 - Revisione: se oltre alle auto portano anche furgoni, camper o moto.
 - Per le centraline: solo diagnosi e programmazione, o anche mappature di potenza da citare.
@@ -74,17 +71,18 @@ usarle.
   - font e foto ospitati nel sito.
   Se cambia qualcosa (statistiche, mappa incorporata), vanno aggiornate e serve il banner.
 - Manca il **fornitore di hosting** (segnaposto evidenziato nella privacy), che si saprà quando si decide il deploy.
-- Email e P.IVA sono ancora segnaposto evidenziati, come nel resto del sito.
 
 ## Decisioni sulla home (fase 3)
 - Delle 6 foto servizi previste in "Cosa facciamo", **2 restano spillate al listino** (tagliando e freni).
   - Le altre 4 (gomme, sospensioni, cambio, motore) sono passate in "Dal lavoro di tutti i giorni", insieme ai 2
     fotogrammi già previsti lì: 6 riquadri.
   - Ogni foto tiene il cartellino col nome del servizio.
-  - Da approvare dal cliente.
+  - **Approvato** dal cliente, 7/11.
 - Su telefono la scheda non ha bottoni propri: il bottone verde della barra del pollice diventa quello della
   scheda ("Manda la richiesta · N lavori").
   - Nel biglietto degli orari su telefono resta solo "Indicazioni".
+- Listino su telefono: nome e voce su una riga ("Freni · dischi e pastiglie"), i puntini solo da tablet in su.
+  **Approvato** dal cliente, 7/11.
 
 ## Rete
 - Dal 6/11 la rete della sessione è aperta a tutti i domini.
