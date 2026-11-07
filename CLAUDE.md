@@ -49,13 +49,16 @@ telefono.
 - La direzione visiva non cambia: "officina di paese seria". La freschezza sta solo nelle parole.
 
 ## Come fare i riepiloghi
-Nei riepiloghi al cliente (a fine fase e in ogni aggiornamento) si scrivono **solo** tre cose:
-1. cosa non si è riusciti a risolvere, e cosa serve dal cliente per farlo;
-2. quando deve verificare lui il risultato: cosa guardare, con link o screenshot;
-3. le decisioni che spettano a lui.
-
-Non si elencano i problemi trovati e risolti da soli. Se in una fase va tutto bene basta una riga: "Fase X
-completata, nessun problema aperto".
+- **Durante il lavoro, in silenzio.** Non si racconta cosa si sta facendo, né cosa si è trovato e corretto.
+- **Si interrompe il cliente solo per due motivi**, e in quel caso bastano poche righe:
+  - serve una sua decisione;
+  - si è bloccati.
+- **A fine fase si spiega bene, senza fretta**:
+  1. cosa non si è riusciti a risolvere, e perché;
+  2. cosa deve fare il cliente, passo per passo se serve;
+  3. cosa deve verificare, con link o screenshot.
+- **I problemi già risolti da soli non si elencano.**
+- **Se è andato tutto bene** basta "Fase X completata, nessun problema aperto", più cosa guardare.
 
 ## Regole sulle skill
 Dove le skill si contraddicono vincono il piano e gli stop di fase del cliente. Lo stack del progetto vince sugli
