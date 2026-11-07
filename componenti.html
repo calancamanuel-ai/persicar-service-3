@@ -33,12 +33,12 @@
 
       <section id="colori" class="dsc-sezione" aria-labelledby="t-colori">
         <h2 id="t-colori" class="titolo">Colori</h2>
-        <p>Carta e inchiostro su un piano di pietra, come un modulo stampato a due colori. Il verde del logo si usa solo per il bottone WhatsApp e per le spunte.</p>
+        <p>Carta e inchiostro su un piano di pietra grigia, come un modulo stampato a due colori. Il verde del logo serve solo al bottone WhatsApp e alle spunte; il rosso del logo, scurito, solo al timbro dell'officina.</p>
         <div class="dsc-colori">
-          <div class="dsc-colore" style="background: var(--piano)"><strong>Piano</strong><span class="piccolo cifre">#E3DFD6 · fondo della pagina</span></div>
+          <div class="dsc-colore" style="background: var(--piano)"><strong>Piano</strong><span class="piccolo cifre">#D7D6D1 · fondo della pagina</span></div>
           <div class="dsc-colore" style="background: var(--foglio)"><strong>Foglio</strong><span class="piccolo cifre">#F2F1EE · carta del modulo</span></div>
-          <div class="dsc-colore" style="background: var(--foglio-2)"><strong>Foglio 2</strong><span class="piccolo cifre">#E9E6DF · bande e caselle</span></div>
-          <div class="dsc-colore" style="background: var(--intonaco)"><strong>Intonaco</strong><span class="piccolo cifre">#E8CBBE · il muro del capannone</span></div>
+          <div class="dsc-colore" style="background: var(--foglio-2)"><strong>Foglio 2</strong><span class="piccolo cifre">#E8E7E2 · bande e caselle</span></div>
+          <div class="dsc-colore" style="background: var(--foglio)"><span class="timbro" aria-hidden="true" style="justify-self: start; margin-bottom: var(--sp-3)"><span class="timbro__grande">Ricevuto</span></span><strong>Timbro</strong><span class="piccolo cifre">#A4444C · solo il timbro, piccolo</span></div>
           <div class="dsc-colore campo-scuro"><strong>Inchiostro</strong><span class="piccolo cifre">#1C211F · testo e campo scuro</span></div>
           <div class="dsc-colore" style="background: var(--verde); color: var(--sul-verde)"><strong>Verde</strong><span class="piccolo cifre">#2E7D55 · WhatsApp e spunte</span></div>
         </div>
@@ -58,10 +58,10 @@
 
       <section class="dsc-sezione" aria-labelledby="t-logo">
         <h2 id="t-logo" class="titolo">Il logo sui tre fondi</h2>
-        <p>Versione per fondo chiaro sul piano e sul rosa, originale bianco sul campo scuro. Ridisegnato in SVG dal file originale.</p>
+        <p>Versione per fondo chiaro sul foglio e sul piano, originale bianco sul campo scuro. Ridisegnato in SVG dal file originale.</p>
         <div class="dsc-loghi">
           <div style="background: var(--foglio)"><img src="/brand/logo-chiaro.svg" alt="Logo Persicar Service per fondo chiaro" width="240" height="56"></div>
-          <div class="campo-intonaco"><img src="/brand/logo-chiaro.svg" alt="Logo Persicar Service sul rosa intonaco" width="240" height="56"></div>
+          <div style="background: var(--piano)"><img src="/brand/logo-chiaro.svg" alt="Logo Persicar Service sul piano di pietra" width="240" height="56"></div>
           <div class="campo-scuro"><img src="/brand/logo-scuro.svg" alt="Logo Persicar Service originale, bianco" width="240" height="56"></div>
         </div>
       </section>
@@ -78,7 +78,7 @@
 
       <section id="foglio" class="dsc-sezione" aria-labelledby="t-foglio">
         <h2 id="t-foglio" class="titolo">Il foglio e le caselle</h2>
-        <p>La scheda di accettazione: intestazione, titolo, lavori da spuntare, azione e la perforazione in fondo. Le caselle si usano col pollice e con la tastiera.</p>
+        <p>La scheda di accettazione: intestazione, titolo, lavori da spuntare, azione e la perforazione in fondo. Quando spunti un lavoro compare il timbro "Ricevuto". Le caselle si usano col pollice e con la tastiera.</p>
         <div class="foglio foglio--denti-sotto dsc-hero">
           <header class="foglio__intestazione">
             <img src="/brand/logo-chiaro.svg" alt="Persicar Service" width="180" height="42" style="width: 11rem; height: auto">
@@ -87,8 +87,13 @@
           </header>
           <p class="display" style="max-width: 15ch">Noi la tua auto la conosciamo.</p>
           <p class="lead">Scegli cosa serve alla tua auto: ti rispondiamo noi, su WhatsApp.</p>
+          <div class="scheda-lavori">
+          <div class="scheda-lavori__testa" aria-hidden="true">
+            <p class="forte">Lavori richiesti</p>
+            <span class="timbro timbro--ricevuto"><span class="timbro__grande">Ricevuto</span><span class="timbro__piccolo">Persicar Service · Via Cento 60</span></span>
+          </div>
           <fieldset class="voci-contenitore" style="border: 0; margin: 0; padding: 0; min-width: 0">
-            <legend class="forte" style="margin-bottom: var(--sp-3)">Lavori richiesti</legend>
+            <legend class="solo-schermo-lettore">Lavori richiesti</legend>
             <div class="voci">
               <label class="voce"><input type="checkbox" name="lavori" value="tagliando" checked><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="voce__testo">Tagliando</span></label>
               <label class="voce"><input type="checkbox" name="lavori" value="freni"><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="voce__testo">Freni</span></label>
@@ -99,6 +104,7 @@
               <label class="voce"><input type="checkbox" name="lavori" value="revisione" checked><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="voce__testo">Revisione</span></label>
             </div>
           </fieldset>
+          </div>
           <div class="dsc-hero__azioni">
             <a class="bottone bottone--whatsapp" href="https://wa.me/393667212576?text=Buongiorno%2C%20vorrei%20prenotare%20tagliando%20e%20revisione.">Scrivici su WhatsApp</a>
             <a class="bottone bottone--secondario" href="tel:+390516871521">Chiama</a>
@@ -151,7 +157,7 @@
           </figure>
           <figure class="foto foto--verticale">
             <picture><source type="image/avif" srcset="/img/gomme-pressione-640.avif 640w, /img/gomme-pressione-940.avif 940w" sizes="(min-width: 48em) 25vw, 50vw"><source type="image/webp" srcset="/img/gomme-pressione-640.webp 640w, /img/gomme-pressione-940.webp 940w" sizes="(min-width: 48em) 25vw, 50vw"><img src="/img/gomme-pressione-640.webp" alt="Guanto arancione col manometro sulla valvola della gomma" width="940" height="1440" loading="lazy" decoding="async"></picture>
-            <figcaption class="cartellino cartellino--intonaco"><span class="cartellino__riga"><span>Gomme</span><span>pressione</span></span></figcaption>
+            <figcaption class="cartellino cartellino--foglio"><span class="cartellino__riga"><span>Gomme</span><span>pressione</span></span></figcaption>
           </figure>
           <figure class="foto foto--verticale">
             <picture><source type="image/avif" srcset="/img/motore-vano-640.avif 640w, /img/motore-vano-940.avif 940w" sizes="(min-width: 48em) 25vw, 50vw"><source type="image/webp" srcset="/img/motore-vano-640.webp 640w, /img/motore-vano-940.webp 940w" sizes="(min-width: 48em) 25vw, 50vw"><img src="/img/motore-vano-640.webp" alt="Vano motore di una spider anni Novanta col cofano aperto" width="940" height="1440" loading="lazy" decoding="async"></picture>
@@ -161,20 +167,22 @@
       </section>
 
       <section class="dsc-sezione" aria-labelledby="t-campi">
-        <h2 id="t-campi" class="titolo">I due campi pieni</h2>
-        <p>Il rosa del capannone di Via Cento per la sezione sull'officina. L'unico campo scuro per il retro della scheda.</p>
+        <h2 id="t-campi" class="titolo">Il campo scuro e il retro della scheda</h2>
+        <p>La sezione sull'officina sta sul campo scuro: la foto del capannone ci risalta e torna il logo originale bianco. Il retro della scheda è di nuovo carta, col timbro dell'officina.</p>
         <div class="dsc-campi">
-          <div class="campo-intonaco">
-            <h3 class="titolo">Un'officina sola</h3>
-            <p>Tre fratelli, un capannone rosa in Via Cento. Chi ti risponde su WhatsApp è chi lavora sulla tua auto.</p>
-            <figure class="foto foto--orizzontale" style="max-width: 32rem">
-              <picture><source type="image/avif" srcset="/img/officina-esterno-640.avif 640w, /img/officina-esterno-1200.avif 1200w" sizes="(min-width: 48em) 32rem, 90vw"><source type="image/webp" srcset="/img/officina-esterno-640.webp 640w, /img/officina-esterno-1200.webp 1200w" sizes="(min-width: 48em) 32rem, 90vw"><img src="/img/officina-esterno-640.webp" alt="Il capannone rosa dell'officina in Via Cento, con due auto parcheggiate davanti" width="1200" height="816" loading="lazy" decoding="async"></picture>
-            </figure>
-          </div>
           <div class="campo-scuro su-campo">
             <img src="/brand/logo-scuro.svg" alt="Persicar Service" width="224" height="53">
+            <h3 class="titolo">Un'officina sola</h3>
+            <p>Tre fratelli, un capannone in Via Cento. Chi ti risponde su WhatsApp è chi lavora sulla tua auto.</p>
+            <figure class="foto foto--orizzontale">
+              <picture><source type="image/avif" srcset="/img/officina-esterno-640.avif 640w, /img/officina-esterno-1200.avif 1200w" sizes="(min-width: 64em) 40vw, 90vw"><source type="image/webp" srcset="/img/officina-esterno-640.webp 640w, /img/officina-esterno-1200.webp 1200w" sizes="(min-width: 64em) 40vw, 90vw"><img src="/img/officina-esterno-640.webp" alt="Il capannone dell'officina in Via Cento, con due auto parcheggiate davanti" width="1200" height="816" loading="lazy" decoding="async"></picture>
+            </figure>
+          </div>
+          <div class="foglio foglio--denti-sopra">
+            <h3 class="titolo">Ci vediamo in Via Cento</h3>
             <p>I lavori di tutti i giorni li mettiamo su Instagram: <a class="link" href="https://www.instagram.com/persicarservice/">@persicarservice</a>.</p>
-            <a class="bottone bottone--su-campo" href="tel:+390516871521">Chiama 051 687 1521</a>
+            <a class="bottone bottone--secondario" href="tel:+390516871521" style="justify-self: start">Chiama 051 687 1521</a>
+            <span class="timbro" aria-hidden="true" style="justify-self: end; margin-top: var(--sp-4)"><span class="timbro__grande">Persicar Service</span><span class="timbro__piccolo">Via Cento 60 · San Giovanni in Persiceto</span></span>
           </div>
         </div>
       </section>

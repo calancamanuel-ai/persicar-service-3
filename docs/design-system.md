@@ -16,12 +16,12 @@ ogni pezzo.
 ## Colori (ruoli)
 | Token | Valore | Uso |
 | --- | --- | --- |
-| `--piano` | #E3DFD6 | fondo della pagina |
-| `--foglio` / `--foglio-2` | #F2F1EE / #E9E6DF | carta del modulo, e il passo di tono per bande e caselle |
-| `--inchiostro` / `--inchiostro-tenue` | #1C211F / #4D5551 | testo, note secondarie (6,8:1 sul foglio) |
+| `--piano` | #D7D6D1 | fondo della pagina: grigio pietra, poco caldo (foglio/piano 1,29:1) |
+| `--foglio` / `--foglio-2` | #F2F1EE / #E8E7E2 | carta del modulo, e il passo di tono per bande e caselle |
+| `--inchiostro` / `--inchiostro-tenue` | #1C211F / #4D5551 | testo, note secondarie (6,8:1 sul foglio, 5,3:1 sul piano) |
 | `--verde` | #2E7D55 | **solo** bottone WhatsApp e spunte (testo bianco 5:1) |
-| `--intonaco` | #E8CBBE | campo della sezione sull'officina |
-| `--campo` | #1C211F | l'unico campo scuro (retro della scheda), logo bianco |
+| `--timbro` | #A4444C | rosso del logo scurito: **solo** il timbro dell'officina, piccolo (5,3:1 sul foglio) |
+| `--campo` | #1C211F | il campo scuro: sezione sull'officina con la foto dell'esterno, logo bianco |
 | `--evidenziatore` | #F1E39A | dati da confermare: sparisce al lancio |
 
 ## Tipo
@@ -45,8 +45,15 @@ testo.
   quando il valore va a capo.
 - **Banda**: la riga dell'indirizzo e degli orari, ricorrente.
 - **Foto**: angoli vivi, `--verticale` 4:5, `--alta` 2:3, `--orizzontale` 3:2, `--riempi` per riempire
-  un'altezza data. `.cartellino` attaccato sotto, in tre coppie di colori (foglio-2, scuro, intonaco).
-- **Campi**: `.campo-intonaco`, `.campo-scuro` (`.su-campo` per il focus chiaro).
+  un'altezza data. `.cartellino` attaccato sotto, in tre coppie di colori (foglio-2, scuro, foglio).
+- **Campo scuro**: `.campo-scuro` (`.su-campo` per il focus chiaro), per la sezione sull'officina. Il rosa
+  intonaco è stato tolto il 7/11.
+- **Timbro** (`.timbro`, `.timbro__grande`, `.timbro__piccolo`):
+  - riquadro rosso da 3px, inchiostro `--timbro`, ruotato di −4°, `mix-blend-mode: multiply`;
+  - statico per il retro della scheda ("Persicar Service · Via Cento 60");
+  - `.timbro--ricevuto` dentro `.scheda-lavori` compare ("Ricevuto") appena c'è una spunta, solo con CSS
+    (`:has`). È `aria-hidden`: per chi usa un lettore di schermo contano le caselle;
+  - mai campi rossi, mai vicino al bottone WhatsApp.
 - **Stato**: "aperto adesso", testo piccolo e niente di più.
 - **Barra del pollice**: fissa in fondo sotto i 48em, WhatsApp 2/3 e Chiama 1/3. Piatta, con margine in fondo
   alla pagina.

@@ -7,9 +7,13 @@ telefono.
 ## Decisioni fissate dal cliente
 - **Direzione A "La scheda"**: la pagina è la scheda di accettazione dell'officina, un foglio su piano di pietra.
   - Titoli in **Besley 800**, testo in **Libre Franklin 400/600**, font ospitati nel sito. Mai Inter.
-  - Colori: `--piano #E3DFD6`, `--foglio #F2F1EE`, `--inchiostro #1C211F`, accento `--verde #2E7D55` (solo
-    bottone WhatsApp e spunte).
-  - `--intonaco #E8CBBE` (rosa del capannone) come campo della sezione "chi siamo / l'officina".
+  - Colori: `--piano #D7D6D1` (grigio pietra, poco caldo), `--foglio #F2F1EE`, `--inchiostro #1C211F`, accento
+    `--verde #2E7D55` (solo bottone WhatsApp e spunte).
+  - **Niente rosa intonaco** (tolto il 7/11: col beige era troppo zuccherato). La sezione sull'officina sta sul
+    **campo scuro** `--campo #1C211F`, con la foto dell'esterno e il logo bianco.
+  - **Rosso del logo** scurito a `--timbro #A4444C` (5,3:1 sul foglio): solo come accento piccolo, cioè il timbro
+    dell'officina ("Persicar Service · Via Cento 60") e il "Ricevuto" che compare quando si spuntano i lavori.
+    Mai campi grandi rossi, mai vicino al bottone WhatsApp né in concorrenza con lui.
   - Logo: `materiale/brand/logo-chiaro.svg` sul chiaro, `logo-scuro.svg` sullo scuro.
 - **Unica cosa viva**: auto 3D generica e stilizzata, costruita in three.js, senza loghi, in luce naturale.
   - Si toccano le parti dell'auto, si spuntano i lavori e si compone il messaggio WhatsApp.

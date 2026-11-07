@@ -4,16 +4,16 @@
 
 :root {
   /* ---------- colore: carta, inchiostro e il piano su cui sta il foglio ---------- */
-  --piano: #E3DFD6;            /* pietra chiara: il fondo della pagina */
+  --piano: #D7D6D1;            /* grigio pietra, poco caldo: il fondo della pagina (foglio/piano 1,29:1) */
   --foglio: #F2F1EE;           /* carta del modulo: i pannelli */
-  --foglio-2: #E9E6DF;         /* un passo di tono sotto il foglio: bande, campi, stati scelti */
-  --inchiostro: #1C211F;       /* nero officina: tutto il testo */
-  --inchiostro-tenue: #4D5551; /* note secondarie (contrasto 6,8:1 sul foglio, 5,8:1 sul piano) */
+  --foglio-2: #E8E7E2;         /* un passo di tono sotto il foglio: bande, caselle, stati scelti */
+  --inchiostro: #1C211F;       /* nero officina: tutto il testo (11:1 sul piano) */
+  --inchiostro-tenue: #4D5551; /* note secondarie (6,8:1 sul foglio, 5,3:1 sul piano) */
   --verde: #2E7D55;            /* l'accento: SOLO bottone WhatsApp e spunte (5:1 col bianco) */
   --verde-premuto: #256846;    /* hover e pressione del bottone verde */
   --sul-verde: #FFFFFF;        /* testo sul verde */
-  --intonaco: #E8CBBE;         /* rosa del capannone di Via Cento: campo della sezione "l'officina" */
-  --campo: #1C211F;            /* l'unico campo scuro: retro della scheda, logo originale bianco */
+  --timbro: #A4444C;           /* rosso del logo scurito (5,3:1 sul foglio): SOLO il timbro dell'officina, piccolo */
+  --campo: #1C211F;            /* il campo scuro: la sezione sull'officina, con la foto dell'esterno e il logo bianco */
   --sul-campo: #F2F1EE;
   --evidenziatore: #F1E39A;    /* segnaposto da confermare (data-da-confermare): sparisce al lancio */
   --puntini: #A7AAA4;          /* puntini delle righe di guida: decorazione, non testo */

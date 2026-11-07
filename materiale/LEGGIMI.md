@@ -24,7 +24,7 @@ I numeri si riferiscono a `anteprima-fotogrammi.jpg`.
 | `cambio-coppa` | Cosa facciamo: cambio automatico (se confermato) | fotogramma 7 (v4, 53,25 s) |
 | `motore-vano` | Cosa facciamo: diagnosi e motore | fotogramma 12 (v3, 12,75 s), marchio sfocato |
 | `revisione-ponte` | Revisioni | fotogramma 2 (v4, 15,75 s), ovale sfocato |
-| `officina-esterno` | Chi siamo (campo rosa) | vecchia `esterno.webp`, marchi sfocati |
+| `officina-esterno` | Chi siamo (campo scuro) | vecchia `esterno.webp`, marchi sfocati |
 | `officina-bussole` | Chi siamo | fotogramma 11 (v5, 15,5 s) |
 | `lavoro-sottoscocca` | Dal lavoro di tutti i giorni | fotogramma 15 (v4, 28,75 s) |
 | `lavoro-recupero-olio` | Dal lavoro di tutti i giorni | fotogramma 9 (v3, 14 s) |
@@ -59,8 +59,8 @@ Fotogrammi 1, 5, 8, 10 e 13, più quattro vecchie foto (Z3 sul ponte, carrello a
   - Scartate per loghi grandi, interfaccia Instagram o adesivi: `lavoro-gt86` (Toyota, UI Instagram),
     `lavoro-i20n` (Sprint Filter), `gomme` (Hyundai N), `lavoro-focus` (Ford RS). Scartate anche `freni` e
     `olio`, sostituite da fotogrammi più nitidi della stessa scena.
-- Colore dell'intonaco misurato su `esterno` (cielo coperto): `#CDB2A1`. Il token del sito `#E8CBBE` è la
-  stessa tinta in luce di giorno.
+- Colore dell'intonaco misurato su `esterno` (cielo coperto): `#CDB2A1`. Nel sito il rosa non si usa più come
+  colore (tolto il 7/11); resta solo nella foto.
 
 ## Fotogrammi dai video Instagram (Drive, cartella "Video Instagram persicar")
 - 5 registrazioni schermo 1080×2400. I video **non** sono nel repo e non si usano come video nel sito.

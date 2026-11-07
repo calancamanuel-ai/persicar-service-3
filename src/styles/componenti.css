@@ -139,12 +139,35 @@
 .cartellino__riga { display: flex; justify-content: space-between; gap: var(--sp-3); }
 .cartellino__riga > :first-child { font-weight: 600; }
 .cartellino--scuro { background: var(--campo); color: var(--sul-campo); }
-.cartellino--intonaco { background: var(--intonaco); color: var(--inchiostro); }
+.cartellino--foglio { background: var(--foglio); color: var(--inchiostro); }
 
 /* ---------- campi pieni: il rosa del capannone e l'unico campo scuro ---------- */
-.campo-intonaco { background: var(--intonaco); }
 .campo-scuro { background: var(--campo); color: var(--sul-campo); }
 .campo-scuro .tenue { color: color-mix(in srgb, var(--sul-campo) 78%, var(--campo)); }
+
+/* ---------- il timbro dell'officina: l'unico rosso, sempre piccolo ----------
+   Statico ("Persicar Service · Via Cento 60") o come "Ricevuto" che compare sulla scheda quando spunti un lavoro.
+   Mai un campo pieno rosso, mai vicino al bottone WhatsApp. */
+.timbro {
+  display: inline-grid; justify-items: center; gap: 0.15rem;
+  padding: 0.45rem 0.9rem 0.5rem;
+  border: 3px solid var(--timbro); color: var(--timbro);
+  transform: rotate(-4deg);
+  mix-blend-mode: multiply; /* l'inchiostro prende la carta sotto, come un timbro vero */
+  user-select: none; pointer-events: none;
+}
+.timbro__grande {
+  font-family: var(--font-titoli); font-weight: 800; font-size: var(--misura-lead);
+  line-height: 1; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.timbro__piccolo { font-size: var(--misura-piccola); font-weight: 600; line-height: 1.2; white-space: nowrap; }
+/* il "Ricevuto" sulla scheda: invisibile finché non c'è almeno una spunta, poi si stampa */
+.timbro--ricevuto { opacity: 0; transform: rotate(-4deg) scale(1.18); transition: opacity var(--t-hover) var(--ease-ui), transform var(--t-ui) var(--ease-ui); }
+/* la riga sopra le caselle: titolo a sinistra, timbro a destra, con lo spazio già riservato (niente sovrapposizioni) */
+.scheda-lavori__testa { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); min-height: 3.5rem; margin-bottom: var(--sp-4); }
+.scheda-lavori:has(input:checked) .timbro--ricevuto { opacity: 0.92; transform: rotate(-4deg) scale(1); }
+@media (max-width: 29.99em) { .timbro--ricevuto .timbro__piccolo { display: none; } }
+@media (prefers-reduced-motion: reduce) { .timbro--ricevuto { transform: rotate(-4deg); } }
 
 /* ---------- stato dell'officina: un'informazione piccola, non un gioco ---------- */
 .stato { font-size: var(--misura-piccola); font-weight: 600; font-variant-numeric: tabular-nums; }
