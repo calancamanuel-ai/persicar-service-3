@@ -48,10 +48,20 @@ telefono.
   Instagram", vicino alle foto del lavoro e nel footer. Mai un feed incorporato.
 - La direzione visiva non cambia: "officina di paese seria". La freschezza sta solo nelle parole.
 
+## Come fare i riepiloghi
+Nei riepiloghi al cliente (a fine fase e in ogni aggiornamento) si scrivono **solo** tre cose:
+1. cosa non si è riusciti a risolvere, e cosa serve dal cliente per farlo;
+2. quando deve verificare lui il risultato: cosa guardare, con link o screenshot;
+3. le decisioni che spettano a lui.
+
+Non si elencano i problemi trovati e risolti da soli. Se in una fase va tutto bene basta una riga: "Fase X
+completata, nessun problema aperto".
+
 ## Regole sulle skill
 Dove le skill si contraddicono vincono il piano e gli stop di fase del cliente. Lo stack del progetto vince sugli
 esempi delle skill (CDN, React, Netlify o Vercel).
-1. A fine fase ci si ferma con un riepilogo breve. Dentro una fase le scelte minori si decidono e si elencano.
+1. A fine fase ci si ferma con un riepilogo fatto come in "Come fare i riepiloghi". Dentro una fase le scelte
+   minori si decidono da soli.
 2. Al massimo 3 giri di revisione per fase: screenshot a 1440 e 390 px, `inspect.mjs` (si legge la riga RESULT,
    non il codice di uscita), i 3 punti più deboli corretti. Niente "voto 8" né "minimo 2 giri".
 3. Font e colori restano quelli fissati qui (`draw.mjs --keep palette,type`). La libreria dà solo le
