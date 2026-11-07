@@ -1,0 +1,14 @@
+/* 7. Il retro della scheda: saluto, contatti, timbro dell'officina e i dati della società. */
+.piede { padding-bottom: var(--margine); }
+.piede__retro { display: grid; gap: var(--sp-7) var(--colonna-gap); }
+.piede__saluto { display: grid; gap: var(--sp-4); align-content: start; }
+.piede__contatti { display: grid; gap: var(--sp-5); justify-items: start; }
+.piede__retro > * { min-width: 0; }
+.piede__lista a { overflow-wrap: anywhere; } /* l'email è una parola sola: su schermi stretti va a capo */
+.piede__lista { display: grid; gap: var(--sp-3); font-size: var(--misura-lead); line-height: 1.3; }
+.piede__timbro { justify-self: end; max-width: 100%; }
+@media (max-width: 22.49em) { .piede__timbro .timbro__piccolo { white-space: normal; } }
+.piede__imprint { grid-column: 1 / -1; max-width: none; }
+@media (min-width: 48em) {
+  .piede__retro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

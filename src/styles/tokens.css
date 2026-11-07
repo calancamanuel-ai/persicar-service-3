@@ -17,6 +17,10 @@
   --sul-campo: #F2F1EE;
   --evidenziatore: #F1E39A;    /* segnaposto da confermare (data-da-confermare): sparisce al lancio */
   --puntini: #A7AAA4;          /* puntini delle righe di guida: decorazione, non testo */
+  /* il disegno dell'auto (e poi il 3D): una carrozzeria color creta, neutra, senza marca */
+  --creta: #B5B1A8;
+  --creta-scura: #8F8B84;
+  --ombra-auto: rgb(28 33 31 / 0.14);
 
   /* colori del marchio: solo dentro il logo, mai nell'interfaccia */
   --logo-verde: #3B8F64;
@@ -30,7 +34,7 @@
   --misura-testo: clamp(1.0625rem, 1.02rem + 0.18vw, 1.1875rem); /* 17–19px: il testo corrente */
   --misura-lead: clamp(1.25rem, 1.12rem + 0.55vw, 1.5rem);      /* 20–24px: frasi d'apertura, voci della scheda */
   --misura-titolo: clamp(2rem, 1.35rem + 2.6vw, 3.5rem);        /* 32–56px: titoli di sezione */
-  --misura-display: clamp(2.125rem, 0.4rem + 6.6vw, 6.5rem);    /* 34–104px: il titolo del primo schermo (34px tiene "Noi la tua auto" su una riga a 390) */
+  --misura-display: clamp(2.125rem, 0.4rem + 5.6vw, 5.5rem);    /* 34–88px: il titolo della scheda, su due righe nella colonna di sinistra a 1440 e a 390 */
 
   --interlinea-display: 0.95;  /* solo per il titolo grande del primo schermo */
   --interlinea-titoli: 1.05;   /* titoli di sezione: a 32px su telefono le righe non si toccano */

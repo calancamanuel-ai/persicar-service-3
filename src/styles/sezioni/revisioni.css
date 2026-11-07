@@ -1,0 +1,18 @@
+/* 4. Revisioni: a sinistra cosa sapere, a destra il percorso stampato su una ricevuta. */
+.revisioni { display: grid; gap: var(--sp-7) var(--colonna-gap); }
+.revisioni__testo { display: grid; gap: var(--sp-5); align-content: start; }
+.revisioni__fatti { display: grid; gap: var(--sp-4); margin: 0; }
+.revisioni__fatti dd { margin: 0; max-width: 44ch; }
+.revisioni__foto { width: min(100%, 28rem); margin-top: var(--sp-3); }
+.revisioni__foto img { aspect-ratio: 3 / 2; object-position: 50% 62%; }
+.revisioni__ricevuta { max-width: 30rem; width: 100%; }
+.revisioni__ricevuta-titolo { font-size: var(--misura-lead); margin-bottom: var(--sp-5); }
+.percorso { display: grid; gap: var(--sp-4); margin: 0; }
+.percorso__passo { display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--sp-3); align-items: baseline; }
+.percorso__passo dt { font-weight: 600; }
+.percorso__passo dd { margin: 0; }
+@media (min-width: 64em) {
+  .revisioni { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
+  .revisioni__testo { grid-column: 1 / span 6; }
+  .revisioni__ricevuta { grid-column: 8 / span 5; align-self: center; }
+}

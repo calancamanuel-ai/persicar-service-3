@@ -1,0 +1,22 @@
+/* 5. L'officina, sul campo scuro: la lettera dei tre fratelli su carta, accanto alle foto del posto. */
+.officina__griglia { display: grid; gap: var(--sp-7) var(--colonna-gap); }
+.officina__lettera-colonna { display: grid; gap: var(--sp-5); align-content: start; }
+.officina__logo { width: 11rem; height: auto; }
+.officina__lettera { color: var(--inchiostro); }
+.officina__lettera p { max-width: 58ch; }
+.officina__firma { margin-top: var(--sp-5); font-family: var(--font-titoli); font-weight: 800; font-size: var(--misura-lead); line-height: 1.2; }
+.officina__strappo { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-2) var(--sp-5); font-weight: 600; }
+.officina__foto { display: grid; gap: var(--sp-4); align-content: start; }
+.officina__foto .foto__didascalia { color: color-mix(in srgb, var(--sul-campo) 78%, var(--campo)); }
+.officina__bussole { width: min(60%, 18rem); justify-self: end; }
+.officina__recensioni { max-width: none; }
+@media (min-width: 64em) {
+  .officina__griglia { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
+  .officina__lettera-colonna { grid-column: 1 / span 6; }
+  .officina__foto { grid-column: 7 / -1; padding-top: var(--sp-8); }
+  .officina__bussole { width: 45%; margin-top: calc(var(--sp-8) * -1.5); position: relative; }
+  .officina__foto { grid-row: 1 / span 2; }
+  .officina__recensioni { grid-column: 1 / span 6; grid-row: 2; } /* sotto la lettera, dove le foto sono più lunghe */
+  .officina__griglia > .recensioni { grid-column: 1 / -1; }
+}
+.recensioni { display: grid; gap: var(--sp-5); }

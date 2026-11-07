@@ -3,3 +3,11 @@
 @import "./tokens.css";
 @import "./base.css";
 @import "./componenti.css";
+@import "./sezioni/comuni.css";
+@import "./sezioni/hero.css";
+@import "./sezioni/lavori.css";
+@import "./sezioni/galleria.css";
+@import "./sezioni/revisioni.css";
+@import "./sezioni/officina.css";
+@import "./sezioni/orari.css";
+@import "./sezioni/piede.css";

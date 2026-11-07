@@ -1,0 +1,77 @@
+/* 1. La scheda di accettazione: in cima alla pagina, la sua intestazione è la testata del sito. */
+.hero { padding-top: var(--margine); }
+.hero__testata { gap: var(--sp-3) var(--sp-6); }
+.hero__testata .logo img { width: clamp(9rem, 7rem + 6vw, 12.5rem); }
+.hero__qualifica { flex: 1 1 auto; }
+@media (min-width: 64em) { .hero__qualifica { text-align: center; } }
+
+.hero__corpo { display: grid; gap: var(--sp-6) var(--colonna-gap); }
+.hero__titolo { display: grid; gap: var(--sp-4); align-content: start; }
+.hero__titolo .lead { max-width: 40ch; }
+@media (min-width: 64em) {
+  .hero__corpo { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .hero__titolo { grid-column: 1 / span 7; grid-row: 1; }
+  .hero__veicolo { grid-column: 8 / -1; grid-row: 1; }
+  .hero__lavori { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* il riquadro "Veicolo", come il disegno dell'auto sulle schede vere */
+.hero__veicolo { margin: 0; display: grid; grid-template-rows: auto 1fr auto; gap: var(--sp-2); padding: var(--sp-4); background: var(--foglio-2); }
+.hero__disegno { position: relative; align-self: center; padding: 3.25rem 0.25rem 3.5rem; }
+.auto { width: 100%; height: auto; overflow: visible; }
+.auto__ombra { fill: var(--ombra-auto); }
+.auto__carrozzeria, .auto__montante { fill: var(--creta); }
+.auto__vetri { fill: var(--inchiostro); }
+.auto__linea { stroke: var(--creta-scura); stroke-width: 4; fill: none; }
+.auto__faro, .auto__targa { fill: var(--foglio); }
+.auto__fanale { fill: var(--creta-scura); }
+.auto__ruota circle { fill: var(--inchiostro); }
+.auto__ruota .auto__cerchio { fill: var(--creta-scura); }
+/* i segni sui punti dell'auto: vuoti come i cerchietti della scheda, verdi quando il lavoro è spuntato */
+.auto__punto { fill: var(--foglio); stroke: var(--inchiostro); stroke-width: 4; transition: fill var(--t-hover) var(--ease-ui), stroke var(--t-hover) var(--ease-ui); }
+.auto__punto.is-scelto { fill: var(--verde); stroke: var(--verde); }
+
+/* le zone: si toccano col pollice (44px), si spuntano come le caselle */
+.zona {
+  position: absolute; left: var(--x); top: var(--y);
+  align-items: center; gap: var(--sp-2); min-height: 2.75rem; padding: 0 var(--sp-3) 0 var(--sp-2);
+  background: var(--foglio); font-size: var(--misura-piccola); font-weight: 600; white-space: nowrap; cursor: pointer;
+  transition: transform var(--t-pressione) var(--ease-ui), background-color var(--t-hover) var(--ease-ui);
+}
+/* dove stanno le zone: una fila sopra l'auto e una sotto, mai sopra la carrozzeria */
+.zona[data-voce="luci"]      { --x: 2%;  --y: 11%; --ancora: 0%; }
+.zona[data-voce="tagliando"] { --x: 40%; --y: 11%; }
+.zona[data-voce="revisione"] { --x: 98%; --y: 11%; --ancora: -100%; }
+.zona[data-voce="freni"]     { --x: 24%; --y: 93%; }
+.zona[data-voce="gomme"]     { --x: 76%; --y: 93%; }
+.zona { transform: translate(var(--ancora, -50%), -50%); }
+.zona:active { scale: var(--scala-pressione); }
+.zona__segno { display: grid; place-items: center; width: 1.375rem; height: 1.375rem; border: 2px solid var(--inchiostro); background: var(--foglio); color: var(--sul-verde); }
+.zona__segno svg { width: 0.95rem; height: 0.95rem; opacity: 0; transition: opacity var(--t-hover) var(--ease-ui); }
+.zona[aria-pressed="true"] .zona__segno { background: var(--verde); border-color: var(--verde); }
+.zona[aria-pressed="true"] .zona__segno svg { opacity: 1; }
+@media (hover: hover) and (pointer: fine) { .zona:hover { background: color-mix(in srgb, var(--foglio) 88%, var(--inchiostro)); } }
+@media (max-width: 29.99em) {
+  /* telefono: le zone escono dal disegno e stanno in una griglia, due sopra e tre sotto; niente casellina
+     (le caselle vere sono subito sotto), la zona spuntata diventa verde come le spunte */
+  .hero__disegno { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--sp-2); padding: 0; }
+  .auto { grid-column: 1 / -1; grid-row: 2; margin-block: var(--sp-2); }
+  .zona { position: static; transform: none; justify-content: center; padding-inline: var(--sp-1); }
+  .zona[data-voce="luci"]      { grid-area: 1 / 1 / 2 / 4; }
+  .zona[data-voce="tagliando"] { grid-area: 1 / 4 / 2 / 7; }
+  .zona[data-voce="freni"]     { grid-area: 3 / 1 / 4 / 3; }
+  .zona[data-voce="gomme"]     { grid-area: 3 / 3 / 4 / 5; }
+  .zona[data-voce="revisione"] { grid-area: 3 / 5 / 4 / 7; }
+  .zona__segno { display: none; }
+  .zona[aria-pressed="true"] { background: var(--verde); color: var(--sul-verde); }
+}
+@media (max-width: 22.49em) { .hero__veicolo { padding: var(--sp-2); } }
+.hero__veicolo-nota { text-align: center; }
+
+.scheda-lavori__riepilogo { margin-top: var(--sp-3); font-weight: 600; }
+.hero .scheda-lavori__testa { min-height: 3rem; margin-bottom: var(--sp-3); }
+.hero__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-top: var(--sp-4); }
+@media (max-width: 47.99em) { .hero .hero__azioni { display: none; } } /* su telefono il bottone è quello della barra del pollice */
+.hero__lavori .stato { margin-top: var(--sp-4); }
+
+.hero__strappo { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-2) var(--sp-6); }

@@ -64,6 +64,28 @@ usarle.
 - Conferma che si può scrivere "officina autorizzata Renault e Dacia". Nessun logo delle case senza le loro
   regole d'uso del marchio.
 
+## Pagine legali (privacy, cookie)
+- Sono **bozze** scritte in modo semplice e onesto, con una riga evidenziata "Bozza da far verificare a un
+  consulente prima della pubblicazione". Vanno fatte rivedere prima del lancio.
+- Dicono il vero solo finché il sito resta com'è oggi:
+  - nessun modulo;
+  - nessun cookie;
+  - nessuna mappa, video o feed incorporato;
+  - font e foto ospitati nel sito.
+  Se cambia qualcosa (statistiche, mappa incorporata), vanno aggiornate e serve il banner.
+- Manca il **fornitore di hosting** (segnaposto evidenziato nella privacy), che si saprà quando si decide il deploy.
+- Email e P.IVA sono ancora segnaposto evidenziati, come nel resto del sito.
+
+## Decisioni sulla home (fase 3)
+- Delle 6 foto servizi previste in "Cosa facciamo", **2 restano spillate al listino** (tagliando e freni).
+  - Le altre 4 (gomme, sospensioni, cambio, motore) sono passate in "Dal lavoro di tutti i giorni", insieme ai 2
+    fotogrammi già previsti lì: 6 riquadri.
+  - Ogni foto tiene il cartellino col nome del servizio.
+  - Da approvare dal cliente.
+- Su telefono la scheda non ha bottoni propri: il bottone verde della barra del pollice diventa quello della
+  scheda ("Manda la richiesta · N lavori").
+  - Nel biglietto degli orari su telefono resta solo "Indicazioni".
+
 ## Rete
 - Dal 6/11 la rete della sessione è aperta a tutti i domini.
   - Si visitano solo domini che servono al lavoro: niente login, niente consenso ai cookie, nessun dato inviato.

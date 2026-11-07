@@ -1,0 +1,11 @@
+/* 2. Cosa facciamo: il listino stampato, con due foto spillate accanto. */
+.lavori__corpo { display: grid; gap: var(--sp-6) var(--colonna-gap); }
+.lavori__foto { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); align-items: start; }
+@media (min-width: 64em) {
+  .lavori__corpo { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
+  .lavori__listino { grid-column: 1 / span 7; grid-row: 1; }
+  .lavori__foto { grid-column: 8 / -1; grid-row: 1; grid-template-columns: 1fr; gap: 0; padding-top: var(--sp-8); }
+  /* spillate: la prima sporge sul bordo del listino, la seconda scende sfalsata a destra */
+  .lavori__spillata--prima { position: relative; z-index: 1; width: 72%; margin-left: calc(var(--colonna-gap) * -2); }
+  .lavori__spillata--seconda { width: 72%; justify-self: end; margin-top: calc(var(--sp-8) * -1); }
+}

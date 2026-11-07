@@ -1,0 +1,32 @@
+/* Pezzi comuni della home: salto al contenuto, testata fissa, intestazioni di sezione. */
+.salta {
+  position: absolute; left: var(--margine); top: var(--sp-2); z-index: 100;
+  padding: var(--sp-3) var(--sp-4); background: var(--inchiostro); color: var(--foglio); font-weight: 600;
+  transform: translateY(-200%); transition: transform var(--t-ui) var(--ease-ui);
+}
+.salta:focus-visible { transform: none; }
+
+/* testata sottile che compare su computer quando la scheda è passata */
+.testata-fissa {
+  position: fixed; inset: 0 0 auto 0; z-index: 40;
+  background: var(--foglio-2);
+  transform: translateY(-105%); transition: transform var(--t-ui) var(--ease-ui);
+}
+.testata-fissa.is-visibile { transform: none; }
+.testata-fissa__riga { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-5); min-height: 4rem; }
+.testata-fissa .logo img { width: 10rem; }
+.testata-fissa .bottone { min-height: 2.75rem; }
+@media (max-width: 47.99em) { .testata-fissa { display: none; } }
+
+.voci-contenitore { border: 0; margin: 0; padding: 0; min-width: 0; }
+
+/* le zone dell'auto e i bottoni della scheda esistono solo dove servono */
+.zona { display: none; }
+.js .zona { display: inline-flex; }
+
+/* su telefono WhatsApp sta nella barra del pollice: nella scheda e nel biglietto niente doppioni */
+@media (max-width: 47.99em) {
+  .orari .orari__whatsapp { display: none; }
+}
+
+.sezione-testa { display: grid; gap: var(--sp-4); max-width: 46rem; margin-bottom: var(--sp-7); }

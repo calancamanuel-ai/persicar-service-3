@@ -1,0 +1,4 @@
+/* 3. Dal lavoro di tutti i giorni: foto col cartellino attaccato sotto. */
+.galleria__griglia { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-6) var(--sp-3); }
+@media (min-width: 64em) { .galleria__griglia { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-7) var(--sp-4); } }
+.galleria .cartellino__riga { flex-wrap: wrap; }

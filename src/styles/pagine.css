@@ -1,0 +1,18 @@
+/* Pagine di servizio (privacy, cookie, 404): stesso foglio della home, una colonna di lettura. */
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./base.css";
+@import "./componenti.css";
+@import "./sezioni/comuni.css";
+
+.legale { padding-block: var(--margine); }
+.legale > .foglio { max-width: 46rem; margin-inline: auto; } /* il foglio è largo quanto la riga di lettura */
+.legale--breve { min-height: 100svh; display: grid; align-content: center; } /* la 404: un biglietto solo, al centro */
+.legale__testata .logo img { width: clamp(9rem, 7rem + 6vw, 12.5rem); }
+.legale__corpo { display: grid; gap: var(--sp-4); max-width: var(--misura-riga); }
+.legale__corpo h1 { margin-bottom: var(--sp-2); }
+.legale__corpo h2 { margin-top: var(--sp-6); font-size: var(--misura-lead); line-height: 1.2; }
+.legale__corpo .lead { max-width: 40ch; }
+.legale__bozza { margin-top: var(--sp-2); }
+.legale__azioni { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-4); }
+.legale__piede { max-width: 46rem; margin: var(--sp-6) auto 0; }
