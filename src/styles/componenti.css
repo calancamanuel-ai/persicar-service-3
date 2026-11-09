@@ -90,6 +90,17 @@
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Crect width='1' height='1'/%3E%3C/svg%3E") bottom / 100% calc(100% - var(--dente) + 1px) no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='14' r='14'/%3E%3C/svg%3E") top / 28px 14px round no-repeat;
 }
+/* denti sopra e sotto insieme (il listino, lo scontrino): tre strati, i denti in cima, il corpo, i denti in fondo */
+.foglio--denti-sopra.foglio--denti-sotto {
+  -webkit-mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='14' r='14'/%3E%3C/svg%3E") top / 28px 14px round no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Crect width='1' height='1'/%3E%3C/svg%3E") center / 100% calc(100% - 2 * var(--dente) + 2px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='0' r='14'/%3E%3C/svg%3E") bottom / 28px 14px round no-repeat;
+  mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='14' r='14'/%3E%3C/svg%3E") top / 28px 14px round no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Crect width='1' height='1'/%3E%3C/svg%3E") center / 100% calc(100% - 2 * var(--dente) + 2px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Ccircle cx='14' cy='0' r='14'/%3E%3C/svg%3E") bottom / 28px 14px round no-repeat;
+}
 .foglio__intestazione {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3) var(--sp-6);
   margin: calc(var(--dentro-foglio) * -1) calc(var(--dentro-foglio) * -1) var(--dentro-foglio);
@@ -150,6 +161,9 @@
 .cartellino__riga > :first-child { font-weight: 600; }
 .cartellino--scuro { background: var(--campo); color: var(--sul-campo); }
 .cartellino--foglio { background: var(--foglio); color: var(--inchiostro); }
+.cartellino--creta { background: var(--creta); color: var(--inchiostro); } /* 8:1 */
+.cartellino__riga--seconda > :first-child { font-weight: 400; }
+@media (max-width: 29.99em) { .cartellino__riga--seconda { display: none; } } /* telefono: resta solo il lavoro */
 
 /* ---------- campi pieni: il rosa del capannone e l'unico campo scuro ---------- */
 .campo-scuro { background: var(--campo); color: var(--sul-campo); }
@@ -190,6 +204,8 @@
   background: var(--foglio);
 }
 .barra-pollice .bottone { min-height: var(--tocco-barra); padding-inline: var(--sp-4); text-align: center; white-space: normal; }
+.barra-pollice .bottone:has(.barra-pollice__riga) { flex-direction: column; gap: 0.125rem; }
+.barra-pollice__nota { font-size: var(--misura-piccola); font-weight: 400; }
 @media (max-width: 22.49em) { .barra-pollice .bottone { padding-inline: var(--sp-2); } }
 @media (max-width: 47.99em) {
   body:has(.barra-pollice) { padding-bottom: calc(var(--tocco-barra) + var(--sp-4) + env(safe-area-inset-bottom)); }

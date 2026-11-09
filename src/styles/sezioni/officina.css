@@ -13,7 +13,7 @@
 @media (min-width: 64em) {
   .officina__griglia { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
   .officina__lettera-colonna { grid-column: 1 / span 6; }
-  .officina__foto { grid-column: 7 / -1; padding-top: var(--sp-8); }
+  .officina__foto { grid-column: 7 / -1; }
   .officina__bussole { width: 45%; margin-top: calc(var(--sp-8) * -1.5); position: relative; }
   .officina__foto { grid-row: 1 / span 2; }
   .officina__recensioni { grid-column: 1 / span 6; grid-row: 2; } /* sotto la lettera, dove le foto sono più lunghe */

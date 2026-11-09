@@ -9,6 +9,18 @@ export function messaggio(parole) {
   return `Buongiorno, vorrei prenotare: ${elenco(parole)}. Quando posso portarvi l'auto?`;
 }
 
+// barra del pollice: senza spunte "Scrivici su WhatsApp"; con le spunte due righe, il gesto e quanti lavori
+function etichettaBarra(barra, quanti) {
+  if (!quanti) { barra.textContent = 'Scrivici su WhatsApp'; return; }
+  const riga = document.createElement('span');
+  riga.className = 'barra-pollice__riga';
+  riga.textContent = 'Manda la richiesta';
+  const nota = document.createElement('span');
+  nota.className = 'barra-pollice__nota';
+  nota.textContent = `${quanti} ${quanti === 1 ? 'lavoro' : 'lavori'} · su WhatsApp`;
+  barra.replaceChildren(riga, nota);
+}
+
 export function avviaPrenota() {
   const caselle = [...document.querySelectorAll('input[name="lavori"]')];
   if (!caselle.length) return;
@@ -29,7 +41,7 @@ export function avviaPrenota() {
     }
     for (const p of punti) p.classList.toggle('is-scelto', caselle.some((x) => x.value === p.dataset.voce && x.checked));
     if (riepilogo) riepilogo.textContent = parole.length ? `Hai scelto: ${elenco(parole)}.` : 'Spunta i lavori, il messaggio lo scriviamo noi.';
-    if (barra) barra.textContent = parole.length ? `Manda la richiesta · ${parole.length} ${parole.length === 1 ? 'lavoro' : 'lavori'}` : 'Scrivici su WhatsApp';
+    if (barra) etichettaBarra(barra, parole.length);
   };
 
   for (const c of caselle) c.addEventListener('change', aggiorna);

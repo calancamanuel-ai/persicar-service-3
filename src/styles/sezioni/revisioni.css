@@ -1,18 +1,24 @@
-/* 4. Revisioni: a sinistra cosa sapere, a destra il percorso stampato su una ricevuta. */
+/* 4. Revisioni: a sinistra cosa sapere, a destra lo scontrino col percorso, posato sulla foto del ponte. */
 .revisioni { display: grid; gap: var(--sp-7) var(--colonna-gap); }
 .revisioni__testo { display: grid; gap: var(--sp-5); align-content: start; }
 .revisioni__fatti { display: grid; gap: var(--sp-4); margin: 0; }
 .revisioni__fatti dd { margin: 0; max-width: 44ch; }
-.revisioni__foto { width: min(100%, 28rem); margin-top: var(--sp-3); }
-.revisioni__foto img { aspect-ratio: 3 / 2; object-position: 50% 62%; }
-.revisioni__ricevuta { max-width: 30rem; width: 100%; }
+.revisioni__collage { display: grid; }
+.revisioni__foto { width: min(100%, 30rem); justify-self: end; }
+.revisioni__foto img { object-position: 50% 62%; }
+.revisioni__foto .foto__didascalia { text-align: right; }
+/* lo scontrino: stretto, coi denti sopra e sotto, e sale sul bordo basso della foto */
+.revisioni__ricevuta { position: relative; z-index: 1; width: min(100%, 26rem); margin-top: var(--sp-4); }
 .revisioni__ricevuta-titolo { font-size: var(--misura-lead); margin-bottom: var(--sp-5); }
 .percorso { display: grid; gap: var(--sp-4); margin: 0; }
-.percorso__passo { display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--sp-3); align-items: baseline; }
+.percorso__passo { display: grid; grid-template-columns: 6rem 1fr; gap: var(--sp-3); align-items: baseline; }
 .percorso__passo dt { font-weight: 600; }
 .percorso__passo dd { margin: 0; }
+.revisioni__piede { margin-top: var(--sp-4); text-align: center; }
 @media (min-width: 64em) {
-  .revisioni { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
-  .revisioni__testo { grid-column: 1 / span 6; }
-  .revisioni__ricevuta { grid-column: 8 / span 5; align-self: center; }
+  .revisioni { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: center; }
+  .revisioni__testo { grid-column: 1 / span 5; }
+  .revisioni__collage { grid-column: 7 / -1; }
+  .revisioni__foto { width: 78%; }
+  .revisioni__ricevuta { margin-top: calc(var(--sp-8) * -2); }
 }

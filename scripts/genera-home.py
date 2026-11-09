@@ -70,19 +70,22 @@ AUTO = '''<svg class="auto" viewBox="0 0 800 330" role="img" aria-labelledby="au
               <circle class="auto__punto" data-voce="gomme" cx="650" cy="226" r="12"/>
             </svg>'''
 
-LAVORO = [  # nome foto, alt, cartellino sinistra, destra, variante colore
-    ("gomme-pressione", "Guanto arancione col manometro sulla valvola della gomma", "Gomme", "la pressione, col manometro", ""),
-    ("sospensioni-ammortizzatore", "Mani coi guanti che montano un ammortizzatore", "Sospensioni", "ammortizzatore nuovo", " cartellino--scuro"),
-    ("cambio-coppa", "Guanti arancioni sulla coppa del cambio automatico, appena pulita", "Cambio automatico", "la coppa, pulita", " cartellino--foglio"),
-    ("motore-vano", "Vano motore di una spider anni Novanta col cofano aperto", "Motore", "spider anni '90", " cartellino--scuro"),
-    ("lavoro-sottoscocca", "Due mani coi guanti arancioni al lavoro sotto l'auto", "Sotto l'auto", "sul ponte", " cartellino--foglio"),
-    ("lavoro-recupero-olio", "Recupero dell'olio vecchio, coi ponti rossi dell'officina sullo sfondo", "Olio", "si recupera tutto", ""),
+# nome foto, alt, lavoro, dettaglio, gruppo del listino. I colori del cartellino girano su quattro coppie
+# (foglio-2, scuro, foglio, creta): in griglia da 3 e da 2 due foto vicine non hanno mai lo stesso colore.
+LAVORO = [
+    ("gomme-pressione", "Guanto arancione col manometro sulla valvola della gomma", "Gomme", "la pressione, col manometro", "Manutenzione"),
+    ("sospensioni-ammortizzatore", "Mani coi guanti che montano un ammortizzatore", "Sospensioni", "ammortizzatore nuovo", "Riparazioni"),
+    ("cambio-coppa", "Guanti arancioni sulla coppa del cambio automatico, appena pulita", "Cambio automatico", "la coppa, pulita", "Manutenzione"),
+    ("motore-vano", "Vano motore di una spider anni Novanta col cofano aperto", "Motore", "spider anni '90", "Riparazioni"),
+    ("lavoro-sottoscocca", "Due mani coi guanti arancioni al lavoro sotto l'auto", "Sotto l'auto", "sul ponte", "Riparazioni"),
+    ("lavoro-recupero-olio", "Recupero dell'olio vecchio, coi ponti rossi dell'officina sullo sfondo", "Olio", "si recupera tutto", "Manutenzione"),
 ]
+COPPIE = ["", " cartellino--scuro", " cartellino--foglio", " cartellino--creta"]
 galleria = "\n".join(
     f'''          <figure class="foto foto--verticale galleria__foto">
             {picture(n, alt, "(min-width: 64em) 30vw, (min-width: 48em) 45vw, 46vw")}
-            <figcaption class="cartellino{c}"><span class="cartellino__riga"><span>{escape(a)}</span><span>{escape(b)}</span></span></figcaption>
-          </figure>''' for n, alt, a, b, c in LAVORO)
+            <figcaption class="cartellino{COPPIE[i % 4]}"><span class="cartellino__riga"><span>{escape(a)}</span><span>{escape(b)}</span></span><span class="cartellino__riga cartellino__riga--seconda"><span>{g}</span><span>Via Cento 60</span></span></figcaption>
+          </figure>''' for i, (n, alt, a, b, g) in enumerate(LAVORO))
 
 LISTINO = [
     ("Manutenzione", [
@@ -210,12 +213,12 @@ html = f'''<!doctype html>
 
     <!-- 2. Cosa facciamo: il listino -->
     <section id="lavori" class="sezione pagina lavori" aria-labelledby="titolo-lavori">
-      <div class="lavori__testa sezione-testa">
-        <h2 id="titolo-lavori" class="titolo">Cosa facciamo</h2>
-        <p class="lead">Siamo autorizzati Renault e Dacia e lavoriamo su tutte le marche, dalla city car di tutti i giorni alle sportive.</p>
-      </div>
       <div class="lavori__corpo">
         <div class="foglio foglio--denti-sopra foglio--denti-sotto lavori__listino">
+          <div class="lavori__testa">
+            <h2 id="titolo-lavori" class="titolo">Cosa facciamo</h2>
+            <p>Siamo autorizzati Renault e Dacia e lavoriamo su tutte le marche, dalla city car di tutti i giorni alle sportive.</p>
+          </div>
           <div class="listino">
 {listino}
               <div class="listino__gruppo">
@@ -256,12 +259,13 @@ html = f'''<!doctype html>
           <div><dt class="forte">Quando</dt><dd>La prima revisione si fa quattro anni dopo l'immatricolazione, poi ogni due anni, entro il mese della scadenza.</dd></div>
           <div><dt class="forte">Cosa portare</dt><dd>Il documento unico, o la vecchia carta di circolazione.</dd></div>
         </dl>
-        <figure class="foto foto--verticale revisioni__foto">
+      </div>
+      <div class="revisioni__collage">
+        <figure class="foto foto--orizzontale revisioni__foto">
           {picture("revisione-ponte", "Una berlina sul ponte, sotto la volta dell'officina", "(min-width: 64em) 22vw, 60vw")}
           <figcaption class="foto__didascalia">Sul ponte, sotto la volta dell'officina.</figcaption>
         </figure>
-      </div>
-      <div class="foglio foglio--denti-sotto revisioni__ricevuta">
+        <div class="foglio foglio--denti-sopra foglio--denti-sotto revisioni__ricevuta">
         <h3 class="revisioni__ricevuta-titolo">Come funziona</h3>
         <dl class="percorso">
           <div class="percorso__passo"><dt>Prima</dt><dd>ci scrivi su WhatsApp e fissiamo il giorno.</dd></div>
@@ -270,6 +274,8 @@ html = f'''<!doctype html>
           <div class="percorso__passo"><dt>Alla fine</dt><dd>te la riconsegniamo pronta, con l'esito.</dd></div>
         </dl>
         <p class="strappo revisioni__nota">Se vuoi, prima facciamo un controllo o il tagliando: così la porti una volta sola.</p>
+        <p class="piccolo revisioni__piede cifre">Persicar Service · Via Cento 60 · 051 687 1521</p>
+        </div>
       </div>
     </section>
 
@@ -311,14 +317,15 @@ html = f'''<!doctype html>
         <table class="orari__tabella">
           <caption class="solo-schermo-lettore">Orari di apertura</caption>
           <tbody>
-            <tr><th scope="row">Lunedì–venerdì</th><td>8:30–12:30 e 14:30–18:15</td></tr>
+            <tr><th scope="row">Lunedì–venerdì</th><td><span class="intero">8:30–12:30</span> e <span class="intero">14:30–18:15</span></td></tr>
             <tr><th scope="row">Sabato e domenica</th><td>chiuso</td></tr>
           </tbody>
         </table>
         <p class="stato" data-stato>Lun–ven 8:30–12:30 e 14:30–18:15</p>
-        <p class="orari__contatti cifre"><a class="link" href="{TEL}">Telefono 051 687 1521</a> · <a class="link" href="{WA}" data-whatsapp>WhatsApp 366 721 2576</a></p>
+        <p class="orari__contatti cifre"><a class="link intero" href="{TEL}">Telefono 051 687 1521</a> · <a class="link intero" href="{WA}" data-whatsapp>WhatsApp 366 721 2576</a></p>
+        <p class="orari__mappa"><a class="link" href="{MAPPA}">Indicazioni per Via Cento 60</a></p>
         <div class="orari__azioni">
-          <a class="bottone bottone--secondario" href="{MAPPA}">Indicazioni</a>
+          <a class="bottone bottone--secondario orari__indicazioni" href="{MAPPA}">Indicazioni</a>
           <a class="bottone bottone--whatsapp orari__whatsapp" href="{WA}" data-whatsapp>Scrivici su WhatsApp</a>
         </div>
       </div>
@@ -341,6 +348,7 @@ html = f'''<!doctype html>
         <ul class="piede__lista">
           <li><a class="link" href="{WA}" data-whatsapp>WhatsApp 366 721 2576</a></li>
           <li><a class="link" href="{TEL}">Telefono 051 687 1521</a></li>
+          <li><a class="link" href="{MAPPA}">Via Cento 60, San Giovanni in Persiceto</a></li>
           <li><a class="link" href="mailto:officinapersicarservice@gmail.com">officinapersicarservice@<wbr>gmail.com</a></li>
           <li><a class="link" href="https://www.instagram.com/persicarservice/">Instagram @persicarservice</a></li>
         </ul>

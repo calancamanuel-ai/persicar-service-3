@@ -8,7 +8,11 @@
 .piede__lista { display: grid; gap: var(--sp-3); font-size: var(--misura-lead); line-height: 1.3; }
 .piede__timbro { justify-self: end; max-width: 100%; }
 @media (max-width: 22.49em) { .piede__timbro .timbro__piccolo { white-space: normal; } }
-.piede__imprint { grid-column: 1 / -1; max-width: none; }
+.piede__imprint { grid-column: 1 / -1; max-width: none; text-align: center; } /* l'imprint del tipografo, lungo il bordo basso */
 @media (min-width: 48em) {
   .piede__retro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64em) {
+  /* il retro della cartolina: fra le colonne 2 e 11, non a tutta larghezza */
+  .piede__retro { margin-inline: calc(100% / 12); }
 }

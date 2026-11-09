@@ -38,14 +38,16 @@ testo.
   - 2, 3 o 4 colonne secondo lo spazio (container query); su 2 colonne l'ultima voce dispari prende tutta la
     riga.
 - **Foglio**:
-  - `.foglio--denti-sotto` e `--denti-sopra` fanno i bordi a denti con una maschera SVG;
+  - `.foglio--denti-sotto` e `--denti-sopra` fanno i bordi a denti con una maschera SVG; insieme (listino,
+    scontrino della revisione) i denti stanno su entrambi i bordi;
   - `.foglio__intestazione` è la banda d'intestazione;
   - `.strappo` è la perforazione a puntini da 4px nel colore del piano.
 - **Listino** (`.listino > .riga`): nome, guida a puntini da 4px, valore. La guida resta sulla prima riga anche
   quando il valore va a capo.
 - **Banda**: la riga dell'indirizzo e degli orari, ricorrente.
 - **Foto**: angoli vivi, `--verticale` 4:5, `--alta` 2:3, `--orizzontale` 3:2, `--riempi` per riempire
-  un'altezza data. `.cartellino` attaccato sotto, in tre coppie di colori (foglio-2, scuro, foglio).
+  un'altezza data. `.cartellino` attaccato sotto, in quattro coppie di colori (foglio-2, scuro, foglio, creta) che
+  girano nella galleria, con una seconda riga (gruppo del listino e via) che su telefono sparisce.
 - **Campo scuro**: `.campo-scuro` (`.su-campo` per il focus chiaro), per la sezione sull'officina. Il rosa
   intonaco è stato tolto il 7/11.
 - **Timbro** (`.timbro`, `.timbro__grande`, `.timbro__piccolo`):
