@@ -366,5 +366,13 @@ html = f'''<!doctype html>
 </body>
 </html>
 '''
+def apostrofi(h):
+    """l'apostrofo dritto diventa ’ nel testo che si legge; attributi, script e stili restano com'erano."""
+    import re
+    pezzi = re.split(r'(<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)', h, flags=re.S)
+    return "".join(p if p.startswith("<") else p.replace("&#x27;", "’").replace("'", "’") for p in pezzi)
+
+
+html = apostrofi(html)
 open("index.html", "w", encoding="utf-8").write(html)
 print("index.html", len(html), "byte")

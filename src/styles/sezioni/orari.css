@@ -7,6 +7,11 @@
 .orari__tabella th { text-align: left; font-weight: 600; padding-right: var(--sp-4); }
 .orari__tabella td { text-align: right; }
 .orari .intero { white-space: nowrap; } /* gli orari e i numeri non si spezzano a metà */
+@media (max-width: 29.99em) {
+  /* telefono: il giorno sopra e l'orario sotto, invece di due colonne strette che vanno a capo */
+  .orari__tabella tr { display: grid; padding-block: var(--sp-2); }
+  .orari__tabella th, .orari__tabella td { display: block; padding: 0; text-align: left; }
+}
 /* il bottone sta a filo del bordo basso del biglietto e lo prende tutto in larghezza */
 .orari__azioni { display: grid; margin: var(--sp-2) calc(var(--dentro-foglio) * -1) calc(var(--dentro-foglio) * -1); }
 .orari__azioni .bottone { min-height: var(--tocco-barra); }

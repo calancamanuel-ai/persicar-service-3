@@ -25,7 +25,8 @@ ogni pezzo.
 | `--evidenziatore` | #F1E39A | dati da confermare: sparisce al lancio |
 
 ## Tipo
-Cinque misure: piccola 14px, testo 17–19px, lead 20–24px, titolo 32–56px, display 34–104px. Besley solo per titoli
+Cinque misure: piccola 14px, testo 17–19px, lead 20–24px, titolo 28–56px (29px a 390), display 30–88px (38px a 390,
+sotto i 400px cala con lo schermo per restare su due righe). Besley solo per titoli
 e display; Libre Franklin per tutto il resto. Interlinea 0,95 per il display, 1,05 per i titoli e 1,55 per il
 testo.
 

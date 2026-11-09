@@ -1,4 +1,6 @@
 /* 5. L'officina, sul campo scuro: la lettera dei tre fratelli su carta, accanto alle foto del posto. */
+/* il campo scuro ha intorno lo stesso spazio di sezione delle altre: dal contenuto vicino al suo bordo 120–240px */
+.officina { margin-block: calc(var(--sezione) / 2); }
 .officina__griglia { display: grid; gap: var(--sp-7) var(--colonna-gap); }
 .officina__lettera-colonna { display: grid; gap: var(--sp-5); align-content: start; }
 .officina__logo { width: 11rem; height: auto; }

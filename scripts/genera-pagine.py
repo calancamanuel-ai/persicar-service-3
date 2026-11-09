@@ -105,7 +105,14 @@ PAGINE = [
     ("404.html", "Pagina non trovata", "Questa pagina non c'è.", NON_TROVATA, False),
 ]
 
+def apostrofi(h):
+    """l'apostrofo dritto diventa ’ nel testo che si legge; attributi, script e stili restano com'erano."""
+    import re
+    pezzi = re.split(r'(<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)', h, flags=re.S)
+    return "".join(p if p.startswith("<") else p.replace("'", "’") for p in pezzi)
+
+
 for nome, titolo, descrizione, corpo, indicizza in PAGINE:
-    html = pagina(nome, titolo, descrizione, corpo, indicizza)
+    html = apostrofi(pagina(nome, titolo, descrizione, corpo, indicizza))
     open(nome, "w", encoding="utf-8").write(html)
     print(nome, len(html.encode("utf-8")), "byte")
