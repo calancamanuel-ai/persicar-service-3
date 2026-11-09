@@ -84,6 +84,20 @@ usarle.
 - Listino su telefono: nome e voce su una riga ("Freni · dischi e pastiglie"), i puntini solo da tablet in su.
   **Approvato** dal cliente, 7/11.
 
+## Auto 3D: da provare su un telefono vero
+- Le misure fatte qui sono su WebGL software (SwiftShader, senza scheda grafica):
+  - 11 fps a 390 px;
+  - 8 fps con la CPU rallentata 4 volte.
+  - È un limite basso, non il comportamento di un telefono.
+- Il costo è leggero:
+  - 35 chiamate di disegno;
+  - 13 mila triangoli;
+  - nessuna texture da scaricare;
+  - 150 KB compressi di three.js, scaricati dopo la pagina;
+  - pixel ratio al massimo 1,5 su telefono e 2 su computer.
+- Da verificare a mano su un telefono di qualche anno: che giri fluida e che lo scorrimento della pagina sopra
+  l'auto non si blocchi.
+
 ## Rete
 - Dal 6/11 la rete della sessione è aperta a tutti i domini.
   - Si visitano solo domini che servono al lavoro: niente login, niente consenso ai cookie, nessun dato inviato.

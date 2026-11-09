@@ -178,7 +178,9 @@ html = f'''<!doctype html>
           <figure class="hero__veicolo">
             <figcaption class="piccolo forte hero__veicolo-titolo">Veicolo</figcaption>
             <div class="hero__disegno">
+            <div class="hero__stage" data-auto3d>
             {AUTO}
+            </div>
 {zone}
             </div>
             <p class="piccolo tenue hero__veicolo-nota">Tocca l'auto dove serve, o spunta i lavori.</p>

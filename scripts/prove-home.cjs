@@ -157,6 +157,50 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
       const s = getComputedStyle(e); return s.display !== 'none' && (parseFloat(s.opacity) < 0.99 || s.visibility === 'hidden') && !e.closest('[hidden]');
     }).length);
     ok('reduced motion: tutto visibile', nascosti === 0, `${nascosti} elementi trasparenti`);
+    await page.waitForTimeout(1500);
+    const ripiego = await page.evaluate(() => ({ canvas: !!document.querySelector('canvas.auto3d'), svg: getComputedStyle(document.querySelector('svg.auto')).visibility }));
+    ok('reduced motion: niente 3D, resta il disegno', !ripiego.canvas && ripiego.svg === 'visible', JSON.stringify(ripiego));
+    await ctx.close();
+  }
+
+  // ---------- auto 3D ----------
+  for (const [larghezza, mobile] of [[1440, false], [390, true]]) {
+    const ctx = await browser.newContext({ viewport: { width: larghezza, height: 900 }, isMobile: mobile, hasTouch: mobile });
+    const page = await ctx.newPage();
+    const errori = [];
+    page.on('pageerror', (e) => errori.push(String(e)));
+    page.on('console', (m) => { if (m.type() === 'error') errori.push(m.text()); });
+    await page.goto(BASE + '/', { waitUntil: 'networkidle' });
+    const pronto = await page.waitForFunction(() => document.querySelector('[data-auto3d]')?.classList.contains('is-3d'), null, { timeout: 30000 }).then(() => true, () => false);
+    ok(`3D ${larghezza}: l'auto si monta dopo il caricamento`, pronto);
+    if (pronto) {
+      await page.waitForTimeout(1500);
+      // un tocco sull'auto, nel punto del cerchietto, spunta il lavoro come il bottone
+      for (const voce of ['tagliando', 'gomme']) {
+        const pos = await page.evaluate((v) => document.querySelector('[data-auto3d]').auto3d.posizione(v), voce);
+        if (mobile) await page.touchscreen.tap(pos.x, pos.y); else await page.mouse.click(pos.x, pos.y);
+        await page.waitForTimeout(300);
+      }
+      const spunte = await page.evaluate(() => ['tagliando', 'gomme'].map((v) => document.querySelector(`input[value="${v}"]`).checked));
+      const wa = await page.locator('[data-whatsapp]').first().getAttribute('href');
+      ok(`3D ${larghezza}: toccare l'auto spunta le caselle e scrive il messaggio`, spunte.every(Boolean) && /tagliando e gomme/.test(decodeURIComponent(wa)), JSON.stringify(spunte));
+      // un trascinamento orizzontale gira l'auto e non spunta niente
+      const prima = await page.evaluate(() => document.querySelector('[data-auto3d]').auto3d.imbardata());
+      const box = await page.locator('canvas.auto3d').boundingBox();
+      await page.mouse.move(box.x + box.width * 0.2, box.y + box.height * 0.5);
+      await page.mouse.down();
+      await page.mouse.move(box.x + box.width * 0.6, box.y + box.height * 0.5, { steps: 8 });
+      await page.mouse.up();
+      await page.waitForTimeout(900);
+      const dopo = await page.evaluate(() => document.querySelector('[data-auto3d]').auto3d.imbardata());
+      const ancora = await page.evaluate(() => document.querySelectorAll('input[name="lavori"]:checked').length);
+      ok(`3D ${larghezza}: trascinare gira l'auto senza spuntare`, Math.abs(dopo - prima) > 0.3 && ancora === 2, `imbardata ${prima.toFixed(2)} → ${dopo.toFixed(2)}, spunte ${ancora}`);
+      const info = await page.evaluate(() => document.querySelector('[data-auto3d]').auto3d.info());
+      ok(`3D ${larghezza}: meno di 60 chiamate di disegno`, info.chiamate < 60, JSON.stringify(info));
+      const tocco = await page.locator('canvas.auto3d').evaluate((c) => getComputedStyle(c).touchAction);
+      ok(`3D ${larghezza}: la pagina scorre anche sopra l'auto`, tocco === 'pan-y', tocco);
+    }
+    ok(`3D ${larghezza}: nessun errore in console`, errori.length === 0, errori.join(' | '));
     await ctx.close();
   }
 

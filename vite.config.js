@@ -5,6 +5,8 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   build: {
     target: 'es2020',
+    // il pezzo di three.js dell'auto 3D (circa 150 KB compressi) si scarica a parte, dopo il caricamento della pagina
+    chunkSizeWarningLimit: 700,
     rollupOptions: {
       input: {
         index: resolve(import.meta.dirname, 'index.html'),

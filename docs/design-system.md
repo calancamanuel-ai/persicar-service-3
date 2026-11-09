@@ -68,3 +68,35 @@ testo.
   (`<header>` in cima alla pagina). Così l'ispettore non la scambia per un'etichetta sopra il titolo.
 - **Bordo della casella**: è un campo di modulo, quindi la linea è ammessa dalle regole della casa (form fields).
 - **Perforazioni e guide a puntini**: puntini rotondi da 4px, cioè un bordo disegnato e non una riga sottile.
+
+## Auto 3D (fase 5)
+- **File**:
+  - `src/js/auto3d/avvio.js`: entra nel pacchetto principale. Decide se partire e quando.
+  - `src/js/auto3d/scena.js`: la scena, la luce, il tocco e il trascinamento.
+  - `src/js/auto3d/forma.js`: la forma dell'auto e le zone.
+  - three.js (circa 150 KB compressi) si scarica a parte, dopo il caricamento della pagina, quando il riquadro
+    dell'auto è vicino allo schermo.
+- **Forma**:
+  - è estrusa dallo stesso profilo del disegno SVG dell'hero: il disegno è il prospetto laterale dell'auto;
+  - è generica, color creta, senza loghi né griglie di marca;
+  - circa 35 chiamate di disegno e 13 mila triangoli.
+- **Luce**:
+  - `RoomEnvironment`, nessun file da scaricare;
+  - una luce calda, alta e di lato, come da una finestra;
+  - un'ombra di contatto disegnata (niente shadow map);
+  - tone mapping Neutral, così i colori restano quelli dei token.
+- **Gesti**:
+  - un tocco su una parte clicca il bottone della zona. È prenota.js che spunta e scrive il messaggio, poi manda
+    l'evento `lavori:aggiornati`, che accende i cerchietti dell'auto;
+  - un trascinamento orizzontale gira l'auto;
+  - la pagina continua a scorrere in verticale (`touch-action: pan-y`).
+- **Rendering**: si disegna solo mentre qualcosa si muove (entrata, giro, cerchietto che si spunta) e mai fuori
+  dallo schermo.
+- **Ripiego**: resta il disegno SVG, con le stesse zone e le stesse caselle, quando:
+  - non c'è WebGL2;
+  - è attivo "riduci movimento";
+  - c'è il risparmio dati;
+  - il telefono ha 2 GB di memoria o meno.
+  - Il disegno fa anche da segnaposto finché il 3D non è pronto, poi sparisce in dissolvenza.
+- **Laboratorio**: `lab-auto.html`, solo in sviluppo (`npx vite`), non entra nella build.
+

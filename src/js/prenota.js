@@ -42,6 +42,8 @@ export function avviaPrenota() {
     for (const p of punti) p.classList.toggle('is-scelto', caselle.some((x) => x.value === p.dataset.voce && x.checked));
     if (riepilogo) riepilogo.textContent = parole.length ? `Hai scelto: ${elenco(parole)}.` : 'Spunta i lavori, il messaggio lo scriviamo noi.';
     if (barra) etichettaBarra(barra, parole.length);
+    // l'auto 3D ascolta questo evento per accendere i suoi cerchietti
+    document.dispatchEvent(new CustomEvent('lavori:aggiornati', { detail: { voci: scelte.map((c) => c.value) } }));
   };
 
   for (const c of caselle) c.addEventListener('change', aggiorna);

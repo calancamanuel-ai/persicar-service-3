@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Laboratorio auto 3D · Persicar Service</title>
+  <link rel="stylesheet" href="/src/styles/sito.css">
+  <style>
+    /* solo per lo sviluppo: l'auto da sola, grande, con le zone e i numeri del disegno */
+    body { padding: var(--margine); }
+    .lab { display: grid; gap: var(--sp-4); max-width: 72rem; margin-inline: auto; }
+    .lab .hero__veicolo { padding: var(--sp-5); }
+    .lab__info { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+  <main class="lab">
+    <h1 class="titolo">Laboratorio: l'auto 3D</h1>
+    <div class="hero__veicolo">
+      <div class="hero__disegno">
+        <div class="hero__stage" data-auto3d></div>
+        <button type="button" class="zona" data-voce="luci" aria-pressed="false">Luci</button>
+        <button type="button" class="zona" data-voce="tagliando" aria-pressed="false">Tagliando</button>
+        <button type="button" class="zona" data-voce="revisione" aria-pressed="false">Revisione</button>
+        <button type="button" class="zona" data-voce="freni" aria-pressed="false">Freni</button>
+        <button type="button" class="zona" data-voce="gomme" aria-pressed="false">Gomme</button>
+      </div>
+    </div>
+    <div hidden>
+      <input type="checkbox" name="lavori" value="luci" data-parola="luci"><input type="checkbox" name="lavori" value="tagliando" data-parola="tagliando">
+      <input type="checkbox" name="lavori" value="revisione" data-parola="revisione"><input type="checkbox" name="lavori" value="freni" data-parola="freni">
+      <input type="checkbox" name="lavori" value="gomme" data-parola="gomme">
+    </div>
+    <p class="lab__info" data-info>…</p>
+  </main>
+  <script type="module">
+    import { avviaPrenota } from '/src/js/prenota.js';
+    import { monta } from '/src/js/auto3d/scena.js';
+    document.documentElement.classList.add('js');
+    avviaPrenota();
+    const api = await monta(document.querySelector('[data-auto3d]'));
+    setTimeout(() => { document.querySelector('[data-info]').textContent = JSON.stringify(api.info()); }, 1500);
+  </script>
+</body>
+</html>
