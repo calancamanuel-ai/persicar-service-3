@@ -282,7 +282,7 @@ html = f'''<!doctype html>
           <div class="foglio foglio--denti-sotto officina__lettera">
             <p>Siamo tre fratelli e questa è la nostra officina, in Via Cento 60.</p>
             <p>Siamo autorizzati Renault e Dacia, ma qui entra ogni marca: l'utilitaria che usi tutti i giorni come la sportiva della domenica.</p>
-            <p>Chi ti risponde su WhatsApp è chi lavora sulla tua auto. Niente centralino, niente passaggi: ci dici cosa serve, ti diciamo quando portarla.</p>
+            <p>Niente centralino: su WhatsApp ci dici cosa serve e ti diciamo quando portarla.</p>
             <p>E prima di mettere mano, ti spieghiamo cosa facciamo e perché.</p>
             <p class="officina__firma">I tre fratelli di Persicar Service</p>
             <p class="strappo officina__strappo cifre"><span>Via Cento 60</span><a class="link" href="{TEL}">051 687 1521</a></p>

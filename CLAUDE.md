@@ -33,6 +33,8 @@ telefono.
   "giovani", niente riferimenti che invecchiano ("nuova generazione", "da poco", "freschi di…").
 - Usa formule che restano vere nel tempo: "tre fratelli", "un'officina sola". **Niente nomi** e **niente anno**
   per ora: hanno preso l'officina nel 2022, ma non si scrive.
+- **Ruoli, solo per il tono**: due fratelli sono meccanici, il terzo segue amministrazione e prenotazioni. Nel sito i
+  ruoli non si spiegano. Mai scrivere che chi risponde su WhatsApp è chi lavora sull'auto, né "niente passaggi".
 - **Revisioni**: l'auto in revisione la portano loro e il cliente la lascia. Frase guida: "Alla revisione pensiamo
   noi". Mai "centro revisioni" né "la facciamo qui". Si scrive "la tua auto", senza elencare veicoli.
 - **Sempre del tu**, in ogni frase. Attenzione alle forme che sembrano un "lei" anche quando non lo sono:

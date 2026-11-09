@@ -92,9 +92,8 @@ Regole della voce: sempre del tu, col "noi"; niente età, nomi o anno; "Alla rev
   - Siamo tre fratelli e questa è la nostra officina, in Via Cento 60.
   - Siamo autorizzati Renault e Dacia, ma qui entra ogni marca: l'utilitaria che usi tutti i giorni come la
     sportiva della domenica.
-  - Chi ti risponde su WhatsApp è chi lavora sulla tua auto. Niente centralino, niente passaggi: ci dici cosa
-    serve, ti diciamo quando portarla.
-  - Ti spieghiamo cosa facciamo e perché, prima di farlo.
+  - Niente centralino: su WhatsApp ci dici cosa serve e ti diciamo quando portarla.
+  - E prima di mettere mano, ti spieghiamo cosa facciamo e perché.
   - Firma: "I tre fratelli di Persicar Service"
   - Striscia da strappare: Via Cento 60 · 051 687 1521
 - **Foto**: il capannone in Via Cento; le bussole al loro posto.
