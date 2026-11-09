@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>B · La firma sulla targa · Persicar Service (mockup)</title>
+  <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./b-targa.css">
+</head>
+<body class="b">
+<div class="b-schermo">
+<header class="b-testata">
+  <a class="b-logo" href="#"><img src="/brand/logo-scuro.svg" alt="Persicar Service" width="220" height="52"></a>
+  <p class="b-qualifica">Officina autorizzata Renault e Dacia · Revisioni</p>
+  <nav class="b-nav" aria-label="Sezioni"><a href="#">Lavori</a><a href="#">Revisioni</a><a href="#">Orari</a></nav>
+</header>
+<main class="b-hero">
+  <div class="b-testo">
+    <h1>Noi la tua auto<br>la conosciamo.</h1>
+    <p class="b-lead">Officina autorizzata Renault e Dacia in Via Cento 60, a San Giovanni in Persiceto. Scegli cosa serve alla tua auto: ti rispondiamo noi, su WhatsApp.</p>
+    <div class="b-azioni">
+      <a class="tasto tasto--wa" href="https://wa.me/393667212576?text=Buongiorno%2C%20vorrei%20prenotare%3A%20tagliando.%20Quando%20posso%20portarvi%20l%27auto%3F">Scrivici su WhatsApp</a>
+      <a class="tasto tasto--chiama" href="tel:+390516871521">Chiama 051 687 1521</a>
+    </div>
+    <p class="b-stato"><span class="b-stato__punto" aria-hidden="true"></span>Aperto adesso · fino alle 18:15</p>
+  </div>
+  <figure class="b-cornice">
+    <div class="b-finestra">
+    <svg class="auto" viewBox="0 0 800 330" role="img" aria-label="Disegno di un'auto generica, di profilo">
+      <ellipse class="auto__ombra" cx="400" cy="300" rx="350" ry="16"/>
+      <path class="auto__carrozzeria" d="M74 262 L62 236 Q56 206 86 196 L236 170 Q300 104 372 94 Q520 76 640 108 Q704 126 726 164 L742 204 Q752 236 738 262 L676 262 A66 66 0 0 0 544 262 L256 262 A66 66 0 0 0 124 262 Z"/>
+      <path class="auto__vetri" d="M262 168 Q318 114 376 106 Q500 92 612 114 Q652 128 676 166 Z"/>
+      <rect class="auto__montante" x="466" y="96" width="14" height="72"/>
+      <path class="auto__linea" d="M96 214 L728 214"/>
+      <path class="auto__faro" d="M70 214 Q72 200 90 198 L132 192 Q128 210 112 214 Z"/>
+      <rect class="auto__fanale" x="712" y="170" width="22" height="30"/>
+      <rect class="auto__targa" x="722" y="222" width="20" height="26"/>
+      <g class="auto__ruota"><circle cx="190" cy="264" r="56"/><circle class="auto__cerchio" cx="190" cy="264" r="32"/><circle cx="190" cy="264" r="9"/></g>
+      <g class="auto__ruota"><circle cx="610" cy="264" r="56"/><circle class="auto__cerchio" cx="610" cy="264" r="32"/><circle cx="610" cy="264" r="9"/></g>
+      <circle class="auto__punto" data-voce="luci" cx="102" cy="205" r="12"/>
+      <circle class="auto__punto is-scelto" data-voce="tagliando" cx="178" cy="186" r="12"/>
+      <circle class="auto__punto" data-voce="revisione" cx="732" cy="235" r="12"/>
+      <circle class="auto__punto" data-voce="freni" cx="150" cy="226" r="12"/>
+      <circle class="auto__punto" data-voce="gomme" cx="650" cy="226" r="12"/>
+    </svg>
+    <button type="button" class="zona" data-voce="luci" aria-pressed="false"><span class="solo-lettore">Fari: </span>Luci</button>
+    <button type="button" class="zona" data-voce="tagliando" aria-pressed="true"><span class="solo-lettore">Cofano: </span>Tagliando</button>
+    <button type="button" class="zona" data-voce="revisione" aria-pressed="false"><span class="solo-lettore">Targa: </span>Revisione</button>
+    <button type="button" class="zona" data-voce="freni" aria-pressed="false"><span class="solo-lettore">Ruota anteriore: </span>Freni</button>
+    <button type="button" class="zona" data-voce="gomme" aria-pressed="false"><span class="solo-lettore">Ruota posteriore: </span>Gomme</button>
+    </div>
+    <figcaption class="b-fascia"><img src="/brand/logo-scuro.svg" alt="" width="220" height="52"><span>Via Cento 60 · San Giovanni in Persiceto</span></figcaption>
+  </figure>
+</main>
+</div>
+<fieldset class="b-lavori">
+    <legend>Lavori richiesti</legend>
+    <div class="b-voci">
+      <label class="voce"><input type="checkbox" value="tagliando" checked><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span>Tagliando</span></label>
+      <label class="voce"><input type="checkbox" value="freni"><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span>Freni</span></label>
+      <label class="voce"><input type="checkbox" value="gomme"><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span>Gomme</span></label>
+      <label class="voce"><input type="checkbox" value="cambio"><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span>Cambio automatico</span></label>
+      <label class="voce"><input type="checkbox" value="clima"><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span>Clima</span></label>
+      <label class="voce"><input type="checkbox" value="diagnosi"><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span>Diagnosi e centraline</span></label>
+      <label class="voce"><input type="checkbox" value="luci"><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span>Luci ed elettrauto</span></label>
+      <label class="voce"><input type="checkbox" value="revisione"><span class="voce__casella" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span>Revisione</span></label>
+    </div>
+    <p class="b-riepilogo">Hai scelto: tagliando.</p>
+</fieldset>
+<nav class="barra" aria-label="Contatti rapidi">
+  <a class="tasto tasto--wa" href="https://wa.me/393667212576?text=Buongiorno%2C%20vorrei%20prenotare%3A%20tagliando.%20Quando%20posso%20portarvi%20l%27auto%3F">Manda la richiesta · 1 lavoro</a>
+  <a class="tasto tasto--chiama" href="tel:+390516871521">Chiama</a>
+</nav>
+</body>
+</html>

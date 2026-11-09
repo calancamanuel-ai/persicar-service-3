@@ -1,0 +1,544 @@
+{
+ "version": 1,
+ "at": "2026-11-09T13:16:25.910Z",
+ "seed": 1991370210,
+ "redraws": 0,
+ "input": {
+  "brief": "Officina meccanica autorizzata Renault e Dacia di tre fratelli, multimarca con qualche sportiva; prenotazione su WhatsApp da telefono; auto 3D stilizzata da toccare per scegliere i lavori",
+  "sector": "other",
+  "tone": "bold",
+  "have": [
+   "photography"
+  ],
+  "keep": [
+   "palette"
+  ],
+  "avoid": [],
+  "sections": [
+   "intro",
+   "features",
+   "showcase",
+   "cta",
+   "footer"
+  ],
+  "direction": "one-motif"
+ },
+ "imagery": "own",
+ "allow": [],
+ "direction": {
+  "id": "one-motif",
+  "name": "One motif",
+  "sectors": [
+   "saas",
+   "finance",
+   "consumer-app",
+   "ai-product",
+   "dev-tool",
+   "health",
+   "physical-product",
+   "restaurant",
+   "education",
+   "nonprofit",
+   "other"
+  ],
+  "tones": [
+   "playful",
+   "technical",
+   "warm",
+   "bold"
+  ],
+  "needs": [],
+  "idea": "Take one shape from the subject and let it run the whole system. A drilling tool's octagonal cross-section becomes the buttons, the image masks and the loader. A two-account money app becomes two circles that recur as icon, inline dot and section colour. A café's striped awning becomes every band on the page. Look at the product, the logo, the object or the word in the headline and find the simplest geometry in it (a circle, an arc, a chamfer, a stripe, a notch, a ring). Then use only that shape, at three or four very different scales, everywhere a designer would normally reach for a generic rounded rectangle.",
+  "composition": "Hero: the motif appears once at enormous scale as a flat filled shape, cropped by the viewport (a circle 120vh across entering from the right, a chamfered block filling the lower half), with a short headline at 6–8vw and one supporting sentence set on the remaining ground, left-aligned on a shared margin. Through the page the motif returns as: the mask for every photograph (via `clip-path` or `border-radius` made from the same geometry), the shape of the primary button, the bullet beside list items at text size, and one full-width band that separates the two halves of the page. Sections use simple two-column or single-column layouts so the shape is the only thing with character.",
+  "typography": "A clean geometric or grotesk face that echoes the shape (round bowls for circles, squared terminals for chamfers). Medium weight; headings 6–8vw in the hero and 3–4vw after.",
+  "typeClasses": [
+   "geometric",
+   "grotesk-tight",
+   "rounded-friendly"
+  ],
+  "colour": "The motif carries the accent colour at large scale, flat. Everything else is ground and ink. A second motif colour is allowed only if the subject has a real pair (two accounts, two modes).",
+  "paletteTags": [
+   "mono-accent",
+   "two-tone",
+   "pastel-fields"
+  ],
+  "imagery": "Photographs appear inside the motif's shape. If there is product interface to show, it sits on a flat colour stage shaped by the motif. Draw the shape with CSS or a simple inline SVG path; do not draw illustrations.",
+  "sectionTags": [
+   "colour-field",
+   "object-led",
+   "type-led"
+  ],
+  "motion": "shutter-image",
+  "richness": "One shape at many sizes. The giant cropped shape gives the hero mass and colour without a single image.",
+  "pitfalls": "One motif means one. A circle here, a hexagon there and a blob behind is the generated look this replaces. The motif must come from the subject and you must be able to say from where in one clause.",
+  "seenIn": [
+   "aww-sstr-friction-reduction",
+   "opl-tara",
+   "opl-boaxt",
+   "opl-midnight-2",
+   "opl-superlocal-2026",
+   "opl-billow"
+  ],
+  "allow": []
+ },
+ "hero": {
+  "id": "giant-cropped-shape",
+  "name": "Giant cropped shape",
+  "archetype": "colour-field",
+  "directions": [
+   "one-motif",
+   "colour-chapters"
+  ],
+  "needs": [],
+  "blueprint": "A plain ground with one flat shape at enormous scale. The shape is the simplest geometry found in the subject (a circle, a ring segment, a chamfered block, an arch), drawn in CSS or as a single inline SVG path and filled with the accent colour. It is about 120vh across and enters from the right, centred near 78% of the width and 55% of the height, so the top, right and bottom edges of the viewport crop it and its left boundary reaches column 7. If the subject has a true pair (two accounts, two modes), a second shape in a second flat colour overlaps the first by a quarter with `mix-blend-mode: multiply`. The headline sits on the bare ground on columns 1–6, vertically centred, flush left at 8% from the left edge: two lines at clamp(64px, 6.4vw, 100px), heavy weight, tracking -0.03em. Beneath it comes one supporting sentence at 19px, then the single action as a solid button cut to the same shape. A bold wordmark sits top-left at 32px; up to three text links sit top-right in the ground colour.",
+  "mobile": "The shape moves to the bottom: 130vw across, centred horizontally, its top at 56svh, cropped by the left, right and bottom edges. The headline sits above it at 11.5vw on two lines at a 16px margin, starting 15% down, with the sentence at 16px and the motif-shaped button beneath. Wordmark top-left; the links collapse to one word top-right.",
+  "headline": "Two lines of two or three words each, up to about 12 characters per line at 6.4vw.",
+  "motion": "shutter-image",
+  "seenIn": [
+   "opl-tara",
+   "opl-superlocal-2026",
+   "aww-sstr-friction-reduction"
+  ]
+ },
+ "type": {
+  "id": "albert-sans-semibold",
+  "name": "Albert Sans",
+  "class": "geometric",
+  "display": {
+   "family": "Albert Sans",
+   "source": "google",
+   "weights": [
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.035em · leading 1.0 · sentence case",
+   "css": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap\" rel=\"stylesheet\">"
+  },
+  "text": {
+   "family": "Albert Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "css": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap\" rel=\"stylesheet\">"
+  },
+  "standsInFor": [
+   "BT Steinhart",
+   "TT Norms Pro",
+   "Objektiv"
+  ],
+  "note": "A geometric grotesque with Scandinavian restraint: round letters, even colour, nothing decorative. Suits logistics, health, property and corporate sites that need to look clear and dependable.",
+  "seenIn": [
+   "aww-united-carriers",
+   "aww-likova"
+  ],
+  "links": [
+   "https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap"
+  ],
+  "scale": {
+   "step-small": "clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem)",
+   "step-body": "clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem)",
+   "step-lead": "clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem)",
+   "step-head": "clamp(2rem, 1.3rem + 3.2vw, 4rem)"
+  }
+ },
+ "palette": null,
+ "photos": {
+  "set": "fog-and-quiet",
+  "title": "Fog and quiet",
+  "note": "misty, muted, minimal landscapes and empty horizons; calm areas for text",
+  "treatment": null,
+  "others": [
+   "coast",
+   "mountain",
+   "forest",
+   "water"
+  ],
+  "photos": [
+   {
+    "id": 465,
+    "alt": "Dark rocky peak emerging from thick white cloud",
+    "tone": "light",
+    "colours": [
+     "white",
+     "charcoal",
+     "pale grey"
+    ],
+    "mono": false,
+    "calm": "left",
+    "quality": 5,
+    "ratio": 1.51,
+    "by": "Paula Vermeulen",
+    "page": "https://unsplash.com/photos/_f2m3mEkaaU"
+   },
+   {
+    "id": 70,
+    "alt": "Road lined with tall trees fading into thick fog",
+    "tone": "mid",
+    "colours": [
+     "grey",
+     "dark green"
+    ],
+    "mono": false,
+    "calm": "centre",
+    "quality": 5,
+    "ratio": 1.51,
+    "by": "Dorothy Lin",
+    "page": "https://unsplash.com/photos/OokBLPrkCNk"
+   },
+   {
+    "id": 926,
+    "alt": "Lone figure standing on a hilltop in thick beige fog",
+    "tone": "light",
+    "colours": [
+     "warm beige",
+     "olive grey"
+    ],
+    "mono": false,
+    "calm": "top",
+    "quality": 5,
+    "ratio": 1.78,
+    "by": "Harman Abiwardani",
+    "page": "https://unsplash.com/photos/mU_aX6JBYmg"
+   },
+   {
+    "id": 941,
+    "alt": "Small island on a pale, glassy sea beneath soft clouds",
+    "tone": "light",
+    "colours": [
+     "pale blue",
+     "soft white",
+     "grey"
+    ],
+    "mono": false,
+    "calm": "bottom",
+    "quality": 5,
+    "ratio": 1.5,
+    "by": "Ivan Slade",
+    "page": "https://unsplash.com/photos/RdyMe8KQAV0"
+   },
+   {
+    "id": 266,
+    "alt": "Three ships on a distant horizon across a calm blue sea",
+    "tone": "mid",
+    "colours": [
+     "pale blue",
+     "deep blue"
+    ],
+    "mono": false,
+    "calm": "all",
+    "quality": 5,
+    "ratio": 1.78,
+    "by": "John Maravelakis",
+    "page": "https://unsplash.com/photos/Vosp2wlY3Bs"
+   },
+   {
+    "id": 194,
+    "alt": "Wooden deck and a single rock disappearing into thick fog",
+    "tone": "mid",
+    "colours": [
+     "cool grey",
+     "weathered brown"
+    ],
+    "mono": false,
+    "calm": "top",
+    "quality": 5,
+    "ratio": 1.51,
+    "by": "Aleksi Tappura",
+    "page": "https://unsplash.com/photos/hVOv8me9ue8"
+   },
+   {
+    "id": 989,
+    "alt": "Low cloud covering a forested lakeshore under a pale sky",
+    "tone": "light",
+    "colours": [
+     "pale grey",
+     "dark teal",
+     "soft blue"
+    ],
+    "mono": false,
+    "calm": "top",
+    "quality": 5,
+    "ratio": 1.5,
+    "by": "Paul Jarvis",
+    "page": "https://unsplash.com/photos/eBDdgbM5dSo"
+   },
+   {
+    "id": 813,
+    "alt": "Still blue lake with a faint distant shoreline in haze",
+    "tone": "mid",
+    "colours": [
+     "slate blue",
+     "powder blue"
+    ],
+    "mono": false,
+    "calm": "all",
+    "quality": 5,
+    "ratio": 1.5,
+    "by": "Roger Burkhard",
+    "page": "https://unsplash.com/photos/rlX9J28Pd9g"
+   }
+  ]
+ },
+ "motion": {
+  "id": "shutter-image",
+  "name": "Shutter image",
+  "description": "The one hero or showcase image opens from an edge with a clip-path over about 1.1 seconds while the picture inside settles from 1.12 scale to rest. Use it once, on the image that matters most; later images simply are there. Recipe: 'Image shutter' in references/motion.md."
+ },
+ "sections": [
+  {
+   "id": "intro-inline-thumbnails",
+   "role": "intro",
+   "name": "Statement with inline thumbnails",
+   "shape": "statement",
+   "tags": [
+    "type-led",
+    "object-led"
+   ],
+   "directions": [
+    "sentence-as-layout",
+    "specimen-catalogue",
+    "one-motif",
+    "product-performs",
+    "hero-object"
+   ],
+   "needs": [],
+   "blueprint": "A centred statement of 18–28 words, four lines at clamp(32px, 4.2vw, 62px), medium or bold weight, leading 1.12, in a block 60–66% of the viewport wide with 22vh of empty ground above and below. Three to five small frames sit inline between words: each is an `inline-block` 0.85em tall and 0.85–1.3em wide, `vertical-align: -0.1em`, radius 0.14em, holding a tightly cropped photograph (or a crop of real interface) of the thing the neighbouring word names. Frames are part of the line, never floating over it, with 0.12em of space either side. No heading above and no paragraph below; the statement is set as a `p`. Directly under the section the page may split into two flat colour halves or begin the first product row, so the thumbnails read as a preview of what follows. On a motif-driven page every frame takes the motif's shape.",
+   "mobile": "Left-aligned instead of centred, at 8vw with leading 1.15, about seven lines inside 20px margins. Keep at most three inline frames, each exactly one cap-height tall, and make sure none lands at the start of a line. Vertical padding drops to 96px.",
+   "seenIn": [
+    "aww-noho",
+    "aww-butter",
+    "opl-sand-studio"
+   ]
+  },
+  {
+   "id": "features-shape-marked-small-points",
+   "role": "features",
+   "name": "Shape-marked small points",
+   "shape": "split",
+   "tags": [
+    "object-led",
+    "quiet"
+   ],
+   "directions": [
+    "one-motif",
+    "hero-object",
+    "product-performs",
+    "borrowed-category"
+   ],
+   "needs": [],
+   "blueprint": "For the many minor points that do not deserve a row each. Columns 1–5: one photograph inside a single large shape taken from the subject's own geometry (a circle, an arch, a chamfered block), made with clip-path or border-radius, about 78svh tall and pushed 12% past the section's left edge so the viewport crops it. Columns 7–12: the heading, two to four words at 40–48px, then 56px lower a grid of eight to twelve points in three columns with 40px column gaps and 44px row gaps, no cells and no fills. Each point is a title at 17px medium preceded by the same shape drawn at cap height (0.7em, flat fill, inline SVG or a styled span), then two lines at 15px in the soft ink. The small shapes take a different palette colour per column, which is the only colour on the right side.",
+   "mobile": "The shaped photograph comes first, 82vw wide, cropped by the left edge and no taller than 60svh. The heading follows at 30px. Points become one column with 28px between them; the small shape hangs in the margin to the left of each title, so titles and text share one edge.",
+   "seenIn": [
+    "opl-dabbit",
+    "aww-sstr-friction-reduction"
+   ]
+  },
+  {
+   "id": "showcase-object-on-a-disc",
+   "role": "showcase",
+   "name": "Object on a disc",
+   "shape": "index",
+   "tags": [
+    "object-led",
+    "colour-field"
+   ],
+   "directions": [
+    "one-motif",
+    "specimen-catalogue",
+    "hero-object",
+    "colour-chapters"
+   ],
+   "needs": [],
+   "blueprint": "One section about a viewport tall on a plain ground. A flat filled disc 64vh across, in one palette colour, sits with its centre at 58% of the width; swap the disc for the subject's own shape if it has one. A cut-out object photograph stands in front of it, centred on it, about 78% of the disc's height and breaking the disc's outline at the top. Bottom-left, starting on the margin and ending level with the disc's lower edge: a vertical list of four to six item names at clamp(28px, 2.9vw, 44px), leading 1.15. The selected name is in full ink and the rest at 25%; choosing a name swaps the object (300ms crossfade) and the disc's colour. The heading, two to four words at the same size as the names but in the soft ink, is the first line of that list. One fact about the selected item sits at the disc's right edge at 17px.",
+   "mobile": "The disc comes first, 86vw across and centred, with the object in front. The names follow as a single sideways-scrolling line at 26px with 24px gaps, the selected one in full ink. The fact sits under the names at 16px.",
+   "seenIn": [
+    "aww-cominvi",
+    "opl-tara"
+   ]
+  },
+  {
+   "id": "cta-action-tile-row",
+   "role": "cta",
+   "name": "The action tile",
+   "shape": "grid",
+   "tags": [
+    "dense",
+    "colour-field"
+   ],
+   "directions": [
+    "dense-tiles",
+    "colour-chapters",
+    "specimen-catalogue",
+    "one-motif",
+    "product-performs"
+   ],
+   "needs": [],
+   "blueprint": "The close is one row of the board. Three filled tiles sit side by side with 8–14px gaps, all 360px tall and sharing one radius: a wide centre tile spanning columns 3–10 in the accent colour, flanked by two narrow tiles (columns 1–2 and 11–12) that run off the left and right viewport edges, as if the row had been cropped from a longer one. The centre tile holds, left-aligned and vertically centred with 40px padding: a heading of three to five words at 40px, two lines at 17px, and the action. The action is either one rectangular button or an email field 420px wide in the paper colour with the submit button nested inside its right end. The flanking tiles hold no text: one is a photograph covering the tile, the other a flat palette colour. No shadows, no outlines.",
+   "mobile": "The accent tile runs full width, about 300px tall, heading at 28px, field and button stacked at full width. The two flanking tiles follow beneath as a pair, each half width and 120px tall, with the same gap and the same radius.",
+   "seenIn": [
+    "opl-shelf"
+   ]
+  },
+  {
+   "id": "footer-mark-built-from-shapes",
+   "role": "footer",
+   "name": "The mark, built large",
+   "shape": "band",
+   "tags": [
+    "colour-field",
+    "object-led"
+   ],
+   "directions": [
+    "one-motif",
+    "specimen-catalogue",
+    "colour-chapters",
+    "loud-flat-poster",
+    "dense-tiles",
+    "borrowed-category"
+   ],
+   "needs": [],
+   "blueprint": "On a flat colour field, the brand closes the page as a construction rather than as set type. Across the full content width and about 34svh tall, the wordmark is built from blocks: each letter is knocked out of its own solid rectangle in a palette colour, the rectangles differ in height (60–100% of the band) and butt together with 4px gaps, bottoms on one line. Where the project has a simple geometric mark or motif, enlarge that instead, drawn as inline SVG from flat rectangles, circles and quarter-arcs with the same 4px gaps. Below, 56px lower: four columns of plain links at 15px across columns 1–8, and two addresses or contact lines in columns 9–12. A last row carries the copyright at the left and one small filled button at the right. Space and the block construction do all the separating.",
+   "mobile": "The block wordmark spans the full width at about 22svh tall; a long name breaks into two rows of blocks. Link columns go two across at 15px, contact lines beneath at full width, then copyright and the small button on one row.",
+   "seenIn": [
+    "aww-house-of-honey-1",
+    "opl-woblo",
+    "aww-2xa-studio",
+    "opl-uglycash"
+   ]
+  }
+ ],
+ "references": [
+  {
+   "id": "opl-billow",
+   "name": "Billow",
+   "url": "https://www.billow.so",
+   "source": "One Page Love",
+   "kind": "saas",
+   "score": 6.9,
+   "idea": "A conventional product page softened by a cloud motif: the logo's cloud silhouette is blown up and blurred into a blue stage for the app.",
+   "mood": [
+    "soft",
+    "clean",
+    "reassuring",
+    "bright"
+   ],
+   "archetype": "centred-statement-media-below",
+   "hero": "Centred stack on near-white. Nav inside a 1230px container: cloud logo left, four links centred, outline Log in and navy pill right. A small outlined pill badge, then a two-line title-case serif headline at 6.4vw with -0.05em tracking in deep navy, a three-line 18px paragraph whose opening phrase sits on a pale-blue highlighter block, a glossy blue gradient pill button and an 11px reassurance line. The bottom third is a huge blurred cobalt-to-cyan cloud silhouette, the logo enlarged to full width, with the top of a white app window rising from the fold and a handwritten note with a scribbled arrow at its right corner.",
+   "type": "Lastik, a high-contrast display serif, regular weight, title case, -0.05em tracking at 92px so letters nearly touch; reused at 28-40px for section and card titles. Open Runde, a rounded Inter variant, for body at 15-18px and all UI. About a 5x jump.",
+   "colour": "#fcfdff #0b1f33 #0077fe #eaf5fb #22c4ff #e5e8ea — White and very pale blue with deep navy text and one electric blue for the button and the cloud glow, which shades to cyan at its edges. Sections never change ground. Cool.",
+   "imagery": "Light-mode app screenshots, large, with edges and lower halves dissolving into the page; cropped UI fragments inside cards with one element sharpened and lifted. Soft cloud and sky washes behind sections.",
+   "layout": "1230px container, centred hero, then a repeating module of heading, short copy and a large faded screenshot. One three-card row. Soft blue cloud washes replace hard section breaks; about twelve screens.",
+   "sections": [
+    {
+     "role": "how-it-works",
+     "description": "Centred pill eyebrow and two-line serif heading, a short centred paragraph, then three equal cards (about 400px wide, 1px pale border, 12px radius, faint blue glow at the top). Each card's upper 55% is a cropped, softened fragment of product UI with one sharp element popped forward (a blue chip, a figure, a tooltip); below, a serif card title and three lines of centred grey text."
+    },
+    {
+     "role": "features",
+     "description": "Repeated feature row: a two-line serif heading at about 28px on the left whose second line is a paler slate-blue, a two-line paragraph on the right starting at the 55% mark, then a full-width app screenshot whose sides and lower part dissolve into the white page rather than sitting in a frame. Faint cloud texture drifts behind."
+    },
+    {
+     "role": "cta",
+     "description": "A three-column checklist of features with round blue tick bullets, unreleased items greyed and tagged with tiny chips, and a blue gradient pill button beneath, all over a soft photographic sky wash. The footer continues on the same wash with an app-icon tile and three link columns under serif headings."
+    }
+   ],
+   "steal": [
+    "Enlarge the logo silhouette to full width, blur it heavily, and use it as the coloured stage behind the product screenshot.",
+    "Mark the opening phrase of the sub-headline with a pale highlighter block instead of bolding it.",
+    "Let product screenshots dissolve into the page at their edges rather than boxing them in a browser frame."
+   ]
+  },
+  {
+   "id": "opl-superlocal-2026",
+   "name": "Superlocal 2026",
+   "url": "https://www.superlocaldesign.com/",
+   "source": "One Page Love",
+   "kind": "event",
+   "score": 7.4,
+   "idea": "Everything is a circle: a dot-matrix logotype whose dots become floating photo circles and glowing orbs across a grey-to-orange field.",
+   "mood": [
+    "playful",
+    "experimental",
+    "warm",
+    "kinetic"
+   ],
+   "archetype": "immersive-webgl",
+   "hero": "Mid-grey field with a faint dot grid (one dot every 33px) that fades through the lower half into saturated orange at the bottom edge. The captured first paint contains one element: a 270×80px logotype dead centre, built from black ellipses of varying size, its letters progressively compressed to the right. No nav or text yet. After loading, a cluster of four small pills (one black, three white) appears top-centre; the logo turns white inside a 330px ring of about fifty tiny circles — round photo crops, glowing orbs, coins; and the bottom edge carries the event name left and dates right in an outlined dot-matrix face 40px tall.",
+   "type": "Display text is an outlined dot-matrix face drawn on canvas, about 40px caps, modules flickering. All other text is one tight bold grotesk ('fontSans') from 12 to 24px with negative tracking. The logotype is built from ellipses on the same matrix.",
+   "colour": "#bcbcbc #ff641e #1a1302 #ffb740 #c13bff #ffffff — Every screen repeats a vertical fade from flat grey to hot orange. Orbs add magenta-violet cores; the footer swaps to a soft yellow glow. Text is near-black, nav pills black and white.",
+   "imagery": "Event photographs cropped to circles from 60 to 240px, floating without a grid alongside hard-edged radial-gradient orbs and coin images; some pairs overlap. The logo and footer art are generated dot matrices.",
+   "layout": "No visible grid: circles drift across each screen while text locks to the bottom corners (statement bottom-left, description bottom-right). A four-pill nav stays top-centre. The footer resolves into three text columns over a screen-filling dot-matrix glow.",
+   "sections": [
+    {
+     "role": "gallery",
+     "description": "No grid. Circular photo crops between 60 and 240px across float over the grey-to-orange field, a few overlapping in pairs. A flat radial orb (orange rim, magenta-violet core, about 160px) sits among them and others are cut by the viewport edges. The pill nav stays top-centre; nothing else is fixed."
+    },
+    {
+     "role": "intro",
+     "description": "Bottom-left: a small bold date line, then a two-line statement in the outlined dot-matrix face at about 36px, some modules lit orange mid-animation. Bottom-right: a two-line 12px bold description. Above them three photo circles (190px portrait near centre, poster collage left, stage shot right) and a large orb top-right."
+    },
+    {
+     "role": "footer",
+     "description": "Grey field with a huge soft yellow radial glow. The dot-matrix logo is enlarged to fill the screen, its ellipses knocked out of the yellow in grey. On top: three columns of bold 18px text (contact message and email left, press list centre, socials right), a tiny credits list, and a bottom line with dates, year and city in the same three columns."
+    }
+   ],
+   "steal": [
+    "Build the logotype from a dot matrix of ellipses of varying size, then reuse the same matrix at screen-filling scale as the footer background.",
+    "Crop every photo to a circle at wildly different diameters and let them float with coloured orbs instead of sitting in a gallery grid.",
+    "Fade each screen from flat grey into one saturated colour at its bottom edge so the viewport itself carries the brand colour."
+   ]
+  },
+  {
+   "id": "aww-aspen-search",
+   "name": "Aspen Search",
+   "url": "https://www.aspensearch.com/",
+   "source": "Awwwards Site of the Day",
+   "kind": "other",
+   "score": 8.2,
+   "idea": "The page is a ruled tile system with no margins: the two-word name is split across cells that alternate type, dithered canvas, black and one mint green.",
+   "mood": [
+    "brutalist",
+    "precise",
+    "technical",
+    "stark",
+    "confident"
+   ],
+   "archetype": "giant-wordmark",
+   "hero": "A 60px top bar ruled into cells: black logo square, local time, nav links starting at the centre line, a theme toggle and a black contact cell flush right. Below, the viewport is a two-by-two grid divided by 1px black lines, no outer margin. Top-left is white with the first word of the name at 12.5vw, weight 450, sitting bottom-left. Top-right and bottom-left cells hold a black-and-white dithered canvas crossed by large pale-grey blade shapes that ignore cell borders. The bottom-right quadrant splits into a black cell (24px white summary, mono caps action row at its base) and a mint cell (second statement, client-logo marquee along the bottom).",
+   "type": "Suisse Intl at weight 450 for everything, tracking about -0.02em; Suisse Intl Mono in small caps for actions, bullet lists and footer. Wordmark 180px against 24px statements and 16px body. Later headings switch to all caps at about 9vw with leading near 0.9.",
+   "colour": "#ffffff #232323 #d9d9d9 #a1ffcb #969797 — White, near-black and two greys fill the cells; a single mint green floods whole tiles (a statement, a stat, the closing call to action) as the only colour. Cool and flat.",
+   "imagery": "A canvas of 1-bit ordered-dither dots with soft tonal blobs, overlaid with flat pale-grey shards taken from the logo; services get white wireframe line drawings of spheres. No photography anywhere.",
+   "layout": "Zero page margin: everything is edge-to-edge cells on a two-column grid with halves subdivided, separated by 1px rules. Sections differ only by cell fill and cell height. Type always sits top-left or bottom-left in its cell with about 20px padding; some cells are left deliberately empty.",
+   "sections": [
+    {
+     "role": "intro",
+     "description": "The second screen continues the hero grid: a black cell carries a two-line all-caps slogan at about 9vw set hard against its left edge; a light grey cell top-right holds the second word of the name at the same giant size as the first, bottom-aligned; dither canvas fills the rest. Then a white row where the left half is empty and a 24px long-form text runs only in the right column."
+    },
+    {
+     "role": "stats",
+     "description": "Stair-stepped tiles instead of a row. A tall mint cell fills the left half with one figure at about 5vw in its top-left corner and nothing else. On the right, a shorter black tile starts higher with a white figure top-left and a small caption at its bottom edge; a grey tile sits to its right, stepped down, same internal layout. The tiles' unequal heights leave white notches."
+    },
+    {
+     "role": "features",
+     "description": "Left half: a light grey cell with a three-line all-caps heading whose middle line is pushed to the right edge, a small paragraph low in the cell and a black mono-caps button bottom-right. Right half: black, split by hairlines into stacked rows; each row has a tiny mono index, a 28px title, a short paragraph in a second column, a white wireframe drawing and a mono caps list with small mint square bullets."
+    },
+    {
+     "role": "footer",
+     "description": "A grid of cells: white cell with a short statement top-left; a cell with a plain nav list; a cell with two small analogue clock icons and city times; a hairline row with email left and a social link right. Below, a black cell with the logo and lowercase wordmark centred large, beside a mint cell with a heading top-left and a thin diagonal arrow drawn into its bottom-right corner."
+    }
+   ],
+   "steal": [
+    "Rule the whole viewport into cells with 1px lines and no page margin, then give the nav, the headline, the summary and the proof each its own cell with a flat fill.",
+    "Split a two-word brand name across two cells on consecutive screens at the same giant size, so scrolling completes the name.",
+    "Use a 1-bit ordered-dither texture as the picture in otherwise empty cells and let large flat logo fragments cross the cell borders to tie the grid together."
+   ],
+   "media": "One halftone canvas of the brand mark is seen only through chosen cells of the tile grid, about half the hero area, and returns in sticky half panels and as a full-bleed canvas behind knockout words. Portraits are high-key black and white in a staggered row with offset heights, client logos keep their brand colours inside their own tiles, and there is no video and no rounded corner anywhere.",
+   "motion": "A dark screen gives way at about 1.2s to a small mark on a 20s coin spin, the white grid arrives by 2.5s with the name rising through a mask, and the dither resolves by 4.5s. Lenis drives CSS sticky stacking (12 sticky elements, no pins): hero rows slide over each other and stat tiles lock under the header one by one; text fades in by line over 1000ms cubic-bezier(0.23,1,0.32,1) in 100ms steps (193 WAAPI calls), and a theme toggle wipes the page with a 1.2s clip-path sweep."
+  }
+ ],
+ "scenes": []
+}

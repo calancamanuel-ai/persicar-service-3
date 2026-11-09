@@ -1,0 +1,127 @@
+/* B "La firma sulla targa" (one-motif): la cornice targa nera "PERSICAR SERVICE", che l'officina mette su ogni
+   auto, è l'unico segno del sistema. Qui solo l'hero, per il confronto con "La scheda". */
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url("/fonts/barlow-condensed-700-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 400; font-display: swap; src: url("/fonts/barlow-400-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 500; font-display: swap; src: url("/fonts/barlow-500-latin.woff2") format("woff2"); }
+
+:root {
+  --asfalto: #1B1F1D;      /* il fondo dell'hero */
+  --cornice: #000000;      /* la cornice targa, nera come quella vera */
+  --gesso: #F3F3F0;        /* testo sullo scuro e la "targa" dentro la cornice */
+  --grigio: #9AA09C;       /* note sullo scuro (7:1 sull'asfalto) */
+  --rilievo: #262B29;      /* caselle e bottone secondario sullo scuro */
+  --verde: #2E7D55;        /* solo WhatsApp e spunte */
+  --verde-premuto: #256846;
+  --carrozzeria: #AEB2AE;
+  --margine: clamp(1rem, 0.4rem + 2.6vw, 3rem);
+  --titoli: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --testo: "Barlow", Arial, sans-serif;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--asfalto); color: var(--gesso); font: 400 clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem)/1.5 var(--testo); }
+h1, p, figure, fieldset { margin: 0; }
+a { color: inherit; }
+img, svg { display: block; max-width: 100%; }
+.solo-lettore { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* taste-skill-ignore */
+
+/* testata: logo e qualifica a sinistra sull'asfalto, tre link in alto a destra sopra la targa bianca */
+.b-testata { position: relative; z-index: 3; display: flex; align-items: center; gap: 0.75rem 2rem; flex-wrap: wrap; padding: var(--margine); padding-bottom: 0; }
+.b-logo img { width: clamp(9.5rem, 7rem + 6vw, 13rem); height: auto; }
+.b-qualifica { font-weight: 500; font-size: 0.9375rem; color: var(--grigio); }
+.b-nav { display: none; }
+
+.b-schermo { position: relative; overflow: clip; }
+.b-hero { position: relative; }
+.b-testo { position: relative; z-index: 2; padding: clamp(1.5rem, 1rem + 3vw, 4rem) var(--margine) 0; display: grid; gap: 1.25rem; justify-items: start; }
+h1 { font: 700 clamp(2.75rem, 0.8rem + 9.6vw, 5.75rem)/0.9 var(--titoli); text-transform: uppercase; letter-spacing: -0.01em; }
+.b-lead { max-width: 38ch; color: var(--gesso); }
+.b-azioni { display: none; gap: 0.75rem; flex-wrap: wrap; }
+.b-stato { display: flex; align-items: center; gap: 0.6rem; font-weight: 500; font-size: 1rem; color: var(--grigio); }
+.b-stato__punto { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--gesso); }
+
+/* i tasti hanno la forma della targa: rettangolo con gli angoli appena tondi */
+.tasto { display: inline-flex; align-items: center; justify-content: center; min-height: 3.5rem; padding: 0 1.5rem; border-radius: 0.5rem; font: 500 1.0625rem/1.1 var(--testo); text-decoration: none; transition: background-color 180ms var(--ease), transform 120ms var(--ease); }
+.tasto:active { transform: scale(0.97); }
+.tasto--wa { background: var(--verde); color: #fff; }
+.tasto--chiama { background: var(--rilievo); color: var(--gesso); }
+@media (hover: hover) and (pointer: fine) { .tasto--wa:hover { background: var(--verde-premuto); } }
+
+/* la cornice: anello nero spesso, fascia bassa più alta col logo, dentro la "targa" bianca con l'auto */
+.b-cornice {
+  position: relative; z-index: 1;
+  width: 112vw; margin: 2rem 0 0 -6vw;
+  padding: 4.5vw 4.5vw 0; border-radius: 8vw;
+  background: var(--cornice);
+}
+.b-finestra { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.5rem; padding: 1rem calc(6vw - 4.5vw + 1rem); border-radius: 4vw; background: var(--gesso); color: var(--asfalto); }
+.b-fascia { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; padding: 0.9rem 0 1.1rem; }
+.b-fascia img { width: clamp(9rem, 6rem + 10vw, 15rem); height: auto; }
+.b-fascia span { font: 500 0.875rem/1.2 var(--testo); color: var(--grigio); }
+
+.auto { grid-column: 1 / -1; grid-row: 2; width: 100%; height: auto; overflow: visible; margin-block: 0.25rem; }
+.auto__ombra { fill: rgb(18 21 20 / 0.16); }
+.auto__carrozzeria, .auto__montante { fill: var(--carrozzeria); }
+.auto__vetri, .auto__ruota circle { fill: var(--asfalto); }
+.auto__ruota .auto__cerchio { fill: #6F7471; }
+.auto__linea { stroke: #8D928E; stroke-width: 4; fill: none; }
+.auto__faro, .auto__targa { fill: var(--gesso); }
+.auto__fanale { fill: #6F7471; }
+.auto__punto { fill: var(--gesso); stroke: var(--asfalto); stroke-width: 4; }
+.auto__punto.is-scelto { fill: var(--verde); stroke: var(--verde); }
+
+/* le zone: targhette nere, come piccole cornici; spuntate diventano verdi */
+.zona { min-height: 2.75rem; padding: 0 0.5rem; border: 0; border-radius: 0.4rem; background: var(--cornice); color: var(--gesso); font: 500 1rem/1 var(--testo); cursor: pointer; transition: background-color 180ms var(--ease), transform 120ms var(--ease); }
+.zona:active { transform: scale(0.97); }
+.zona[aria-pressed="true"] { background: var(--verde); }
+.zona[data-voce="luci"]      { grid-area: 1 / 1 / 2 / 4; }
+.zona[data-voce="tagliando"] { grid-area: 1 / 4 / 2 / 7; }
+.zona[data-voce="freni"]     { grid-area: 3 / 1 / 4 / 3; }
+.zona[data-voce="gomme"]     { grid-area: 3 / 3 / 4 / 5; }
+.zona[data-voce="revisione"] { grid-area: 3 / 5 / 4 / 7; }
+
+/* caselle: sempre visibili su telefono, sotto la cornice */
+.b-lavori { border: 0; padding: 1.75rem var(--margine) 2rem; min-width: 0; }
+.b-lavori legend { padding: 0; margin-bottom: 1rem; font: 700 1.5rem/1 var(--titoli); text-transform: uppercase; }
+.b-voci { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+.voce { display: flex; align-items: center; gap: 0.75rem; min-height: 3.25rem; padding: 0.5rem 0.75rem; border-radius: 0.4rem; background: var(--rilievo); font-weight: 500; line-height: 1.2; cursor: pointer; }
+.voce input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.voce__casella { flex: none; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border: 2px solid var(--gesso); border-radius: 0.25rem; color: #fff; }
+.voce__casella svg { width: 1rem; opacity: 0; }
+.voce:has(input:checked) .voce__casella { background: var(--verde); border-color: var(--verde); }
+.voce:has(input:checked) .voce__casella svg { opacity: 1; }
+.voce:has(input:focus-visible) { outline: 3px solid var(--gesso); outline-offset: 2px; }
+.b-riepilogo { margin-top: 1rem; font-weight: 500; }
+
+/* barra del pollice: piatta, sull'asfalto */
+.barra { position: fixed; inset: auto 0 0 0; z-index: 10; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0.5rem; padding: 0.5rem var(--margine) calc(0.5rem + env(safe-area-inset-bottom)); background: var(--asfalto); }
+.barra .tasto { padding-inline: 0.75rem; text-align: center; }
+body { padding-bottom: 5rem; }
+
+@media (min-width: 64em) {
+  body { padding-bottom: 0; }
+  .barra { display: none; }
+  .b-testata { padding: 2rem 0 0 6vw; }
+  .b-nav { display: flex; gap: 2rem; position: absolute; top: 2.25rem; right: 3vw; }
+  .b-nav a { color: var(--asfalto); font-weight: 500; text-decoration: none; }
+  .b-schermo { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; }
+  .b-hero { position: static; display: grid; grid-template-columns: 6vw 40vw 1fr; }
+  .b-testo { grid-column: 2; align-self: center; padding: 0 0 6vh; gap: 1.5rem; }
+  h1 { font-size: clamp(4rem, 0.6rem + 4.9vw, 7rem); }
+  .b-azioni { display: flex; }
+  /* la cornice entra da destra, tagliata in alto e a destra; la fascia col logo resta intera */
+  .b-cornice { position: absolute; top: -3vw; right: -7vw; bottom: 6vh; left: 48vw; width: auto; margin: 0; padding: 3vw 3vw 0; border-radius: 4vw; display: grid; grid-template-rows: 1fr auto; }
+  .b-finestra { padding: 6.5rem 10vw 2.5rem 3vw; border-radius: 1.6vw; align-content: center; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .auto { margin-block: 1rem; }
+  .zona { font-size: 1.0625rem; }
+  .zona[data-voce="luci"]      { grid-area: 1 / 1 / 2 / 3; }
+  .zona[data-voce="tagliando"] { grid-area: 1 / 3 / 2 / 5; }
+  .b-fascia { flex-direction: row; justify-content: space-between; padding: 1.2rem 7vw 1.4rem 1vw; }
+  .b-fascia img { width: 15rem; }
+  .b-fascia span { font-size: 1rem; }
+  .b-lavori { padding: 3rem 6vw; }
+  .b-voci { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) { .tasto, .zona { transition: none; } }
