@@ -1,4 +1,4 @@
-// Avvio dell'auto 3D. Il disegno SVG resta come ripiego (e come segnaposto finché il 3D non è pronto) quando:
+// Avvio dell'auto 3D. Il disegno SVG resta come ripiego quando:
 // non c'è WebGL2, è attivo "riduci movimento", c'è il risparmio dati, oppure il telefono ha 2 GB di memoria o meno.
 // three.js si scarica solo dopo il caricamento della pagina, quando il riquadro dell'auto è vicino allo schermo.
 function puoi3D() {
@@ -8,14 +8,18 @@ function puoi3D() {
   try { return Boolean(document.createElement('canvas').getContext('webgl2')); } catch { return false; }
 }
 
+// Lo script in testa mette html.auto-3d quando il 3D è atteso: dal primo fotogramma si vede la foto della stessa auto
+// nella stessa posa, e il 3D prende il suo posto senza che cambi niente. Se il 3D non può partire torna il disegno.
+const ripiego = (stage) => { document.documentElement.classList.remove('auto-3d'); stage?.classList.remove('is-3d'); };
+
 export function avviaAuto3D() {
   const stage = document.querySelector('[data-auto3d]');
-  if (!stage || !puoi3D()) return;
+  if (!stage || !puoi3D()) { ripiego(stage); return; }
   const parti = () => {
     const io = new IntersectionObserver(([v]) => {
       if (!v.isIntersecting) return;
       io.disconnect();
-      import('./scena.js').then((m) => m.monta(stage)).catch(() => stage.classList.remove('is-3d'));
+      import('./scena.js').then((m) => m.monta(stage)).catch(() => ripiego(stage));
     }, { rootMargin: '200px' });
     io.observe(stage);
   };

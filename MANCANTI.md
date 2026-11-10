@@ -94,7 +94,7 @@ usarle.
   - 13 mila triangoli;
   - nessuna texture da scaricare;
   - 150 KB compressi di three.js, scaricati dopo la pagina;
-  - pixel ratio al massimo 1,5 su telefono e 2 su computer.
+  - pixel ratio al massimo 2 (il riquadro su telefono è di circa 280 × 120 px).
 - Da verificare a mano su un telefono di qualche anno: che giri fluida e che lo scorrimento della pagina sopra
   l'auto non si blocchi.
 - Dalla fase 7 l'auto gira anche mentre la scheda scorre via: sul telefono vero va guardato che il giro segua il

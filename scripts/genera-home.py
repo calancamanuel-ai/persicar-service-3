@@ -51,6 +51,15 @@ zone = "\n".join(
     for v, parte, lab, x, y, al in ZONE)
 
 # l'auto: una compatta a cinque porte di profilo, il tetto disegnato come la linea del logo. Muso a sinistra.
+# la foto di attesa del 3D: la stessa auto, nella posa da cui parte (la genera scripts/foto-auto.cjs).
+# Si vede dal primo fotogramma solo quando il 3D è atteso (html.auto-3d); il 3D prende il suo posto senza cambiare niente.
+POSA = (
+    '<picture class="auto__posa" aria-hidden="true">'
+    '<source type="image/avif" srcset="/img/auto-posa-616.avif 616w, /img/auto-posa-1232.avif 1232w" sizes="(min-width: 64em) 33vw, (min-width: 48em) 80vw, 72vw">'
+    '<img src="/img/auto-posa-616.webp" srcset="/img/auto-posa-616.webp 616w, /img/auto-posa-1232.webp 1232w" sizes="(min-width: 64em) 33vw, (min-width: 48em) 80vw, 72vw" width="1232" height="540" alt="" fetchpriority="high" decoding="async">'
+    '</picture>'
+)
+
 AUTO = '''<svg class="auto" viewBox="0 0 800 330" role="img" aria-labelledby="auto-titolo">
               <title id="auto-titolo">Disegno di un'auto generica, di profilo</title>
               <ellipse class="auto__ombra" cx="400" cy="300" rx="350" ry="16"/>
@@ -129,7 +138,7 @@ html = f'''<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js'); if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !navigator.connection?.saveData && !(navigator.deviceMemory <= 2)) document.documentElement.classList.add('auto-3d');</script>
   <title>Persicar Service · Officina Renault e Dacia a San Giovanni in Persiceto</title>
   <meta name="description" content="Officina autorizzata Renault e Dacia in Via Cento 60 a San Giovanni in Persiceto. Tagliandi, freni, gomme, cambio automatico, clima, diagnosi; alla revisione pensiamo noi. Prenoti su WhatsApp.">
   <meta name="theme-color" content="#D7D6D1">
@@ -181,6 +190,7 @@ html = f'''<!doctype html>
             <div class="hero__disegno">
             <div class="hero__stage" data-auto3d>
             {AUTO}
+            {POSA}
             </div>
 {zone}
             </div>

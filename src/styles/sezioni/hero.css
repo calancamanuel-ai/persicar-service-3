@@ -19,12 +19,18 @@
 /* il riquadro "Veicolo", come il disegno dell'auto sulle schede vere */
 .hero__veicolo { margin: 0; display: grid; grid-template-rows: auto 1fr auto; gap: var(--sp-2); padding: var(--sp-4); background: var(--foglio-2); }
 .hero__disegno { position: relative; align-self: center; padding: 3.25rem 0.25rem 3.5rem; }
-/* il palco dell'auto: il disegno SVG è il ripiego e il segnaposto; quando il 3D è pronto lo sostituisce in dissolvenza */
+/* il palco dell'auto. Quando il 3D è atteso (html.auto-3d, dallo script in testa) si vede dal primo fotogramma la foto
+   della stessa auto nella posa da cui parte il 3D; il 3D prende il suo posto senza dissolvenza, perché è identico.
+   Senza 3D (niente WebGL, riduci movimento, risparmio dati, senza JavaScript) resta il disegno SVG. */
 .hero__stage { position: relative; display: grid; place-items: center; aspect-ratio: 800 / 350; }
-.auto { width: 100%; height: auto; overflow: visible; transition: opacity var(--t-ui) var(--ease-ui); }
-.auto3d { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; touch-action: pan-y; cursor: grab; transition: opacity var(--t-ui) var(--ease-ui); }
+.auto { width: 100%; height: auto; overflow: visible; }
+.auto__posa { display: none; }
+.auto-3d .hero__stage .auto { visibility: hidden; }
+.auto-3d .auto__posa { display: block; position: absolute; inset: 0; }
+.auto__posa img { width: 100%; height: 100%; object-fit: contain; }
+.auto3d { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; touch-action: pan-y; cursor: grab; }
 .hero__stage.is-3d .auto3d { opacity: 1; }
-.hero__stage.is-3d .auto { opacity: 0; visibility: hidden; }
+.hero__stage.is-3d .auto, .hero__stage.is-3d .auto__posa { visibility: hidden; }
 .auto__ombra { fill: var(--ombra-auto); }
 .auto__carrozzeria, .auto__montante { fill: var(--creta); }
 .auto__vetri { fill: var(--inchiostro); }

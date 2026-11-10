@@ -10,8 +10,7 @@ import { costruisciAuto } from './forma.js';
 import { numero, tempo } from '../movimento.js';
 
 // pose e gesti dell'auto; i tempi vengono dai token (tokens.css), come per il resto del sito
-const IMBARDATA_RIPOSO = 0.42;  // radianti: tre quarti anteriore, il muso verso chi guarda
-const IMBARDATA_INGRESSO = 0.95;
+const IMBARDATA_RIPOSO = 0.42;  // radianti: tre quarti anteriore, il muso verso chi guarda (è la posa della foto di attesa)
 const SMORZAMENTO = 9;          // costante fisica, non un tempo: l'auto raggiunge la posa voluta con un ease-out esponenziale (≈0,25 s)
 const SOGLIA_TOCCO = 6;         // px: sotto è un tocco, sopra è un trascinamento
 const GIRI_PER_PX = 0.0105;
@@ -28,7 +27,9 @@ export async function monta(stage) {
 
   const tattile = matchMedia('(pointer: coarse)').matches;
   const renderer = new WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, tattile ? 1.5 : 2));
+  // al massimo 2: il riquadro è piccolo (su telefono circa 280 × 120 px), quindi costa poco, e il 3D resta nitido
+  // quanto la foto di attesa che sostituisce
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = NeutralToneMapping;
   renderer.toneMappingExposure = 0.92;
   renderer.setClearColor(0x000000, 0);
@@ -88,7 +89,8 @@ export async function monta(stage) {
   };
 
   // stato del movimento: la posa voluta è riposo + quanto l'hai girata tu + quanto è scorsa la pagina
-  let imbardata = IMBARDATA_INGRESSO, girata = 0, voluta = IMBARDATA_RIPOSO;
+  // il 3D parte fermo nella posa della foto di attesa (public/img/auto-posa-*): quando prende il suo posto non cambia niente
+  let imbardata = IMBARDATA_RIPOSO, girata = 0, voluta = IMBARDATA_RIPOSO;
   // la scena di scroll: mentre la scheda esce dallo schermo l'auto gira, lineare con lo scorrimento (da 0 a 1
   // fra la cima della pagina e il momento in cui il riquadro dell'auto è uscito in alto). Niente pin.
   const giroScroll = () => {
@@ -189,6 +191,7 @@ export async function monta(stage) {
 
   inquadra();
   aggiornaVoluta();
+  imbardata = voluta;
   await renderer.compileAsync(scene, camera);
   renderer.render(scene, camera);
   stage.classList.add('is-3d');

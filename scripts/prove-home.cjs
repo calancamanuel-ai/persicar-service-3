@@ -159,7 +159,8 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
     ok('reduced motion: tutto visibile', nascosti === 0, `${nascosti} elementi trasparenti`);
     await page.waitForTimeout(1500);
     const ripiego = await page.evaluate(() => ({ canvas: !!document.querySelector('canvas.auto3d'), svg: getComputedStyle(document.querySelector('svg.auto')).visibility }));
-    ok('reduced motion: niente 3D, resta il disegno', !ripiego.canvas && ripiego.svg === 'visible', JSON.stringify(ripiego));
+    ripiego.posa = await page.evaluate(() => getComputedStyle(document.querySelector('.auto__posa')).display);
+    ok('reduced motion: niente 3D, resta il disegno', !ripiego.canvas && ripiego.svg === 'visible' && ripiego.posa === 'none', JSON.stringify(ripiego));
     const fermo = await page.evaluate(() => ({ classi: document.documentElement.className, entra: document.querySelectorAll('[data-entra]').length }));
     ok('reduced motion: niente entrate né scorrimento morbido', !/entrate|lenis/.test(fermo.classi) && fermo.entra === 0, JSON.stringify(fermo));
     await ctx.close();
@@ -175,6 +176,8 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
     await page.goto(BASE + '/', { waitUntil: 'networkidle' });
     const pronto = await page.waitForFunction(() => document.querySelector('[data-auto3d]')?.classList.contains('is-3d'), null, { timeout: 30000 }).then(() => true, () => false);
     ok(`3D ${larghezza}: l'auto si monta dopo il caricamento`, pronto);
+    const dopoMontata = await page.evaluate(() => ({ posa: getComputedStyle(document.querySelector('.auto__posa')).visibility, canvas: getComputedStyle(document.querySelector('canvas.auto3d') || document.body).opacity }));
+    ok(`3D ${larghezza}: il 3D prende il posto della foto di attesa`, pronto && dopoMontata.posa === 'hidden' && dopoMontata.canvas === '1', JSON.stringify(dopoMontata));
     if (pronto) {
       await page.waitForTimeout(1500);
       // un tocco sull'auto, nel punto del cerchietto, spunta il lavoro come il bottone
@@ -286,6 +289,20 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
     await ctx.close();
   }
 
+  // ---------- la foto di attesa del 3D: dal primo fotogramma, al posto del disegno ----------
+  for (const [larghezza, mobile] of [[1440, false], [390, true]]) {
+    const ctx = await browser.newContext({ viewport: { width: larghezza, height: 900 }, isMobile: mobile, hasTouch: mobile });
+    const page = await ctx.newPage();
+    await page.route('**/scena-*.js', (r) => new Promise(() => {})); // three.js non arriva mai: si guarda l'attesa
+    await page.goto(BASE + '/', { waitUntil: 'load' });
+    const attesa = await page.evaluate(() => {
+      const img = document.querySelector('.auto__posa img');
+      return { classe: document.documentElement.classList.contains('auto-3d'), posa: getComputedStyle(document.querySelector('.auto__posa')).display, foto: img.complete && img.naturalWidth > 0, disegno: getComputedStyle(document.querySelector('svg.auto')).visibility };
+    });
+    ok(`3D ${larghezza}: finché il 3D non c'è si vede la sua foto, non il disegno`, attesa.classe && attesa.posa === 'block' && attesa.foto && attesa.disegno === 'hidden', JSON.stringify(attesa));
+    await ctx.close();
+  }
+
   // ---------- senza JavaScript ----------
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
@@ -295,6 +312,8 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
     const caselle = await page.locator('.voce').count();
     const wa = await page.locator('[data-barra]').getAttribute('href');
     ok('senza JS: caselle visibili, zone nascoste, WhatsApp funziona', zoneVisibili === 0 && caselle === 8 && wa === NUMERO, `zone=${zoneVisibili} caselle=${caselle} wa=${wa}`);
+    const disegno = await page.evaluate(() => ({ svg: getComputedStyle(document.querySelector('svg.auto')).visibility, posa: getComputedStyle(document.querySelector('.auto__posa')).display }));
+    ok('senza JS: resta il disegno, niente foto di attesa', disegno.svg === 'visible' && disegno.posa === 'none', JSON.stringify(disegno));
     await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
     await page.waitForTimeout(300);
     const coperti = await page.evaluate(() => [...document.querySelectorAll('main h1, main h2, main p, main figure, main picture, main li, main tr, footer p, footer li, .timbro:not(.timbro--ricevuto)')].filter((e) => { const s = getComputedStyle(e); return parseFloat(s.opacity) < 0.99 || s.transform !== 'none' && !e.matches('.timbro') || s.clipPath !== 'none'; }).map((e) => e.className || e.tagName));

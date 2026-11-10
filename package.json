@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "pagine": "python3 scripts/genera-home.py && python3 scripts/genera-pagine.py",
     "foto": "node scripts/foto.mjs",
-    "prove": "node scripts/prove-home.cjs"
+    "prove": "node scripts/prove-home.cjs",
+    "foto-auto": "node scripts/foto-auto.cjs"
   },
   "devDependencies": {
     "@playwright/cli": "0.1.22",

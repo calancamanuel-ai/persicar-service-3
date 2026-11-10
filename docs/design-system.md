@@ -93,13 +93,18 @@ testo.
     l'evento `lavori:aggiornati`, che accende i cerchietti dell'auto;
   - un trascinamento orizzontale gira l'auto;
   - la pagina continua a scorrere in verticale (`touch-action: pan-y`).
-- **Rendering**: si disegna solo mentre qualcosa si muove (entrata, giro, cerchietto che si spunta) e mai fuori
+- **Rendering**: si disegna solo mentre qualcosa si muove (giro, scorrimento, cerchietto che si spunta) e mai fuori
   dallo schermo.
 - **Ripiego**: resta il disegno SVG, con le stesse zone e le stesse caselle, quando:
   - non c'è WebGL2;
   - è attivo "riduci movimento";
   - c'è il risparmio dati;
   - il telefono ha 2 GB di memoria o meno.
-  - Il disegno fa anche da segnaposto finché il 3D non è pronto, poi sparisce in dissolvenza.
+- **Foto di attesa**: quando il 3D è atteso (lo decide lo script in testa: niente "riduci movimento", niente
+  risparmio dati, più di 2 GB), dal primo fotogramma si vede `public/img/auto-posa-*`, la stessa auto 3D
+  fotografata nella posa da cui parte (circa 5–9 KB in AVIF). Quando three.js è pronto il 3D prende il suo posto
+  senza dissolvenza: è identico, quindi non cambia niente a vista. Se il 3D non può partire torna il disegno.
+  - La foto si rifà con `npm run foto-auto` (con `npx vite preview` acceso) ogni volta che cambiano la forma, la
+    luce o l'inquadratura dell'auto, poi si rifà la build.
 - **Laboratorio**: `lab-auto.html`, solo in sviluppo (`npx vite`), non entra nella build.
 

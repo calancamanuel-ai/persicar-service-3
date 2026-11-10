@@ -36,8 +36,9 @@ Solo CSS, dipende da `html.js` (uno script in linea in testa), ferma entro 1,2 s
 2. la frase d'apertura sale di 16 px;
 3. la scheda dei lavori sale di 24 px.
 
-Restano ferme l'intestazione, la navigazione, la striscia dello strappo e il riquadro dell'auto. Il 3D parte solo a
-sequenza finita, compare in dissolvenza e gira fino alla sua posa.
+Restano ferme l'intestazione, la navigazione, la striscia dello strappo e il riquadro dell'auto. Nel riquadro, dal
+primo fotogramma, c'è la foto della stessa auto 3D nella posa da cui parte; il 3D si carica a sequenza finita e
+prende il suo posto senza che cambi niente (vedi "Foto di attesa" in `docs/design-system.md`).
 
 ## Le entrate delle sezioni
 Una volta sola, quando l'elemento arriva all'88% dello schermo. Quello che entra nello stesso momento si mette in
