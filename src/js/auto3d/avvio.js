@@ -20,5 +20,12 @@ export function avviaAuto3D() {
     io.observe(stage);
   };
   const quandoLibero = () => ('requestIdleCallback' in window ? requestIdleCallback(parti, { timeout: 1500 }) : setTimeout(parti, 200));
-  if (document.readyState === 'complete') quandoLibero(); else addEventListener('load', quandoLibero, { once: true });
+  // si parte a sequenza d'apertura finita (titolo, frase e scheda già fermi): il 3D non le ruba il primo secondo.
+  // L'ultima a fermarsi è la scheda dei lavori; se la sua entrata non c'è (o è già finita) si parte subito.
+  const dopoApertura = () => {
+    const entrata = document.querySelector('.hero__lavori')?.getAnimations?.().find((a) => a.animationName === 'entra');
+    if (!entrata) { quandoLibero(); return; }
+    entrata.finished.then(quandoLibero, quandoLibero);
+  };
+  if (document.readyState === 'complete') dopoApertura(); else addEventListener('load', dopoApertura, { once: true });
 }

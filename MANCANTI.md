@@ -97,6 +97,8 @@ usarle.
   - pixel ratio al massimo 1,5 su telefono e 2 su computer.
 - Da verificare a mano su un telefono di qualche anno: che giri fluida e che lo scorrimento della pagina sopra
   l'auto non si blocchi.
+- Dalla fase 7 l'auto gira anche mentre la scheda scorre via: sul telefono vero va guardato che il giro segua il
+  dito senza scatti, e che le entrate delle sezioni non rallentino lo scorrimento.
 
 ## Rete
 - Dal 6/11 la rete della sessione è aperta a tutti i domini.

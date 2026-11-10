@@ -22,7 +22,8 @@ img { height: auto; }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { background: none; border: 0; padding: 0; cursor: pointer; }
 a { color: inherit; }
-:target { scroll-margin-top: 6rem; }
+:target, main section[id] { scroll-margin-top: 6rem; } /* sotto la testata fissa; lo legge anche lo scorrimento morbido */
+main section[tabindex="-1"]:focus { outline: none; } /* il focus arriva sulla sezione dopo un link interno: non è un controllo */
 ::selection { background: var(--inchiostro); color: var(--foglio); }
 :focus-visible { outline: 3px solid var(--inchiostro); outline-offset: 3px; }
 .su-campo :focus-visible { outline-color: var(--sul-campo); }

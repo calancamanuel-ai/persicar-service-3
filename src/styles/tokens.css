@@ -70,10 +70,20 @@
   --t-pressione: 120ms;
   --t-hover: 180ms;
   --t-ui: 240ms;                                  /* sotto i 300ms per tutto ciò che risponde a un gesto */
-  --t-entrata: 720ms;
-  --ritardo-parti: 70ms;                          /* fra titolo, testo e immagine di una sezione */
+  --t-uscita: 170ms;                              /* ciò che se ne va: circa il 70% dell'entrata, stessa curva (mai ease-in) */
+  --t-entrata: 720ms;                             /* entrate delle parti di una sezione: non rispondono a un gesto */
+  --t-apertura: 700ms;                            /* foto che si scoprono, lo scontrino che esce: niente resta coperto oltre 0,9 s */
+  --ritardo-parti: 70ms;                          /* fra titolo, testo e immagine di una sezione, e fra le voci di un elenco */
+  --ritardo-righe: 90ms;                          /* fra le righe di un titolo */
   --salita: 24px;                                 /* quanto salgono le parti entrando */
+  --salita-corta: 16px;                           /* voci di un elenco, cartellini, frasi brevi */
   --scala-pressione: 0.97;
+  --scala-timbro: 1.18;                           /* il timbro si posa da qui a 1 */
+
+  /* letti dal JS (src/js/movimento.js): nessun numero del movimento sta scritto nei file .js */
+  --soglia-entrata: 12%;                          /* le entrate partono quando l'elemento è all'88% dello schermo */
+  --lenis-lerp: 0.12;                             /* scorrimento morbido, solo su computer: peso, non scivolata */
+  --auto-giro-scroll: 0.6;                        /* radianti: quanto gira l'auto 3D mentre la scheda esce */
 }
 /* telefono stretto: il titolo della scheda cala con lo schermo (30px a 320, 38px a 390) e resta su due righe */
 @media (max-width: 24.99em) {

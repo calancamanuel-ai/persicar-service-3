@@ -1,0 +1,76 @@
+/* Movimento: la sequenza d'apertura della scheda, le entrate delle sezioni e le risposte ai gesti.
+   Tempi, curve e distanze stanno tutti in tokens.css; la coreografia (cosa entra e come) in src/js/movimento.js.
+   Gli stati nascosti esistono solo su schermo e senza "riduci movimento":
+   - l'hero dipende da html.js, che mette uno script in linea in testa: la sequenza è solo CSS;
+   - il resto dipende da html.entrate, che mette movimento.js quando l'observer è pronto.
+   Senza JavaScript, o se lo script non parte, non resta nascosto niente. Con "riduci movimento" la pagina è già
+   finita. Si animano solo opacity, transform e clip-path. */
+
+/* il titolo della scheda: due righe scritte a mano, ognuna entra per conto suo */
+.display .linea { display: block; }
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* ---------- la scheda, al primo fotogramma: tre cose, ferme entro 1,2 s ---------- */
+  .js .hero .display .linea {
+    animation: entra var(--t-entrata) var(--ease-entrata) backwards;
+    animation-delay: var(--ritardo-parti);
+  }
+  .js .hero .display .linea:nth-child(2) { animation-delay: calc(var(--ritardo-parti) + var(--ritardo-righe)); }
+  .js .hero__titolo .lead { animation: entra-corta var(--t-entrata) var(--ease-entrata) calc(var(--ritardo-parti) * 3) backwards; }
+  .js .hero__lavori { animation: entra var(--t-entrata) var(--ease-entrata) calc(var(--ritardo-parti) * 4) backwards; }
+
+  /* ---------- le entrate delle sezioni: una volta sola, all'88% dello schermo ---------- */
+  .entrate [data-entra] {
+    transition-property: opacity, transform, clip-path;
+    transition-duration: var(--t-entrata);
+    transition-timing-function: var(--ease-entrata);
+    transition-delay: calc(var(--i, 0) * var(--ritardo-parti));
+  }
+  /* sale: un pezzo di carta che si posa */
+  .entrate [data-entra="sale"]:not(.is-dentro) { opacity: 0; transform: translateY(var(--salita)); }
+  /* fila: le voci di un elenco, una dopo l'altra */
+  .entrate [data-entra="fila"]:not(.is-dentro) { opacity: 0; transform: translateY(var(--salita-corta)); }
+  /* righe: il titolo diviso nelle sue righe (lo divide il JS quando i font sono pronti, poi lo rimette intero) */
+  .entrate [data-entra="righe"] { transition: none; }
+  .entrate [data-entra="righe"] .linea {
+    display: block;
+    transition: opacity var(--t-entrata) var(--ease-entrata), transform var(--t-entrata) var(--ease-entrata);
+    transition-delay: calc(var(--i, 0) * var(--ritardo-parti) + var(--r, 0) * var(--ritardo-righe));
+  }
+  .entrate [data-entra="righe"]:not(.is-dentro) .linea { opacity: 0; transform: translateY(var(--salita)); }
+  /* apre: la foto si scopre dal suo bordo, senza mai ingrandirla. Non la si maschera (con clip-path il browser
+     non scarica le foto "lazy" finché non si aprono): la copre una lastra del colore del piano, che si ritira. */
+  .entrate [data-entra^="apre"] { position: relative; }
+  .entrate [data-entra^="apre"]::after {
+    content: ""; position: absolute; inset: -1px; background: var(--copertura, var(--piano));
+    transform-origin: 50% 100%; transform: scale(1, 0); pointer-events: none;
+    transition: transform var(--t-apertura) var(--ease-entrata) calc(var(--i, 0) * var(--ritardo-parti));
+  }
+  .entrate [data-entra^="apre"]:not(.is-dentro)::after { transform: none; }
+  .entrate [data-entra="apre-basso"]::after { transform-origin: 50% 0; }
+  .entrate [data-entra="apre-lato"]::after { transform-origin: 100% 50%; transform: scale(0, 1); }
+  .entrate .campo-scuro { --copertura: var(--campo); }
+  /* stampa: lo scontrino esce dall'alto, come da una stampante */
+  .entrate [data-entra="stampa"] { clip-path: inset(0); transition-duration: var(--t-apertura); }
+  .entrate [data-entra="stampa"]:not(.is-dentro) { clip-path: inset(0 0 100% 0); transform: translateY(calc(var(--salita) * -1)); }
+  /* timbro: si posa come il "Ricevuto" della scheda, dopo il resto del biglietto */
+  .entrate [data-entra="timbro"] {
+    transition-duration: var(--t-ui); transition-timing-function: var(--ease-ui);
+    transition-delay: calc((var(--i, 0) + 4) * var(--ritardo-parti));
+  }
+  .entrate [data-entra="timbro"]:not(.is-dentro) { opacity: 0; transform: rotate(-4deg) scale(var(--scala-timbro)); }
+
+  /* ---------- risposte ai gesti ---------- */
+  /* la barra del pollice cambia testo quando spunti un lavoro: la nuova etichetta compare, non salta */
+  .barra-pollice .is-viva > span { animation: compare var(--t-hover) var(--ease-ui) backwards; }
+}
+
+@keyframes entra { from { opacity: 0; transform: translateY(var(--salita)); } }
+@keyframes entra-corta { from { opacity: 0; transform: translateY(var(--salita-corta)); } }
+@keyframes compare { from { opacity: 0; } }
+
+/* Lenis (scorrimento morbido, solo su computer): le sue poche regole, qui invece del suo file CSS */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }

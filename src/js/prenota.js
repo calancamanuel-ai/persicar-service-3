@@ -9,9 +9,17 @@ export function messaggio(parole) {
   return `Buongiorno, vorrei prenotare: ${elenco(parole)}. Quando posso portarvi l'auto?`;
 }
 
-// barra del pollice: senza spunte "Scrivici su WhatsApp"; con le spunte due righe, il gesto e quanti lavori
+// barra del pollice: senza spunte "Scrivici su WhatsApp"; con le spunte due righe, il gesto e quanti lavori.
+// Dopo il primo giro la barra è "viva": ogni etichetta nuova compare in dissolvenza (movimento.css).
 function etichettaBarra(barra, quanti) {
-  if (!quanti) { barra.textContent = 'Scrivici su WhatsApp'; return; }
+  const testo = barra.textContent;
+  if (!quanti) {
+    const sola = document.createElement('span');
+    sola.textContent = 'Scrivici su WhatsApp';
+    barra.replaceChildren(sola);
+    segnaCambio(barra, testo);
+    return;
+  }
   const riga = document.createElement('span');
   riga.className = 'barra-pollice__riga';
   riga.textContent = 'Manda la richiesta';
@@ -19,7 +27,9 @@ function etichettaBarra(barra, quanti) {
   nota.className = 'barra-pollice__nota';
   nota.textContent = `${quanti} ${quanti === 1 ? 'lavoro' : 'lavori'} · su WhatsApp`;
   barra.replaceChildren(riga, nota);
+  segnaCambio(barra, testo);
 }
+const segnaCambio = (barra, prima) => { if (prima && prima !== barra.textContent) barra.classList.add('is-viva'); };
 
 export function avviaPrenota() {
   const caselle = [...document.querySelectorAll('input[name="lavori"]')];

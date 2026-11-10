@@ -11,6 +11,8 @@ ogni pezzo.
 - `src/styles/tokens.css`: colori, cinque misure di testo, spazi, forme, movimento.
 - `src/styles/base.css`: reset, tipo, griglia, link, segnaposto `data-da-confermare`, reduced motion.
 - `src/styles/componenti.css`: i componenti.
+- `src/styles/movimento.css` e `src/js/movimento.js`: entrate, sequenza d'apertura e scorrimento morbido; le regole
+  e le eccezioni sono in `docs/movimento.md`.
 - `public/brand/`: `logo-chiaro.svg`, `logo-scuro.svg` e `favicon.svg` (la "P" del logo col filetto tricolore).
 
 ## Colori (ruoli)

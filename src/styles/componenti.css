@@ -12,8 +12,12 @@
   min-height: 4.5rem; padding-block: var(--sp-4);
 }
 .testata__nav { display: flex; align-items: center; gap: clamp(var(--sp-4), 2vw, var(--sp-6)); }
-.testata__link { font-weight: 600; text-decoration: none; padding-block: var(--sp-2); }
-.testata__link:hover { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 0.08em; }
+.testata__link {
+  font-weight: 600; padding-block: var(--sp-2);
+  text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 0.08em;
+  text-decoration-color: transparent; transition: text-decoration-color var(--t-hover) var(--ease-ui);
+}
+@media (hover: hover) and (pointer: fine) { .testata__link:hover { text-decoration-color: currentColor; } }
 @media (max-width: 63.99em) { .testata__link { display: none; } }
 /* su telefono il bottone WhatsApp sta nella barra del pollice: niente doppione in testata */
 @media (max-width: 47.99em) { .testata .testata__azione { display: none; } }

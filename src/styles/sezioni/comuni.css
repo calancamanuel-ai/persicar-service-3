@@ -10,9 +10,9 @@
 .testata-fissa {
   position: fixed; inset: 0 0 auto 0; z-index: 40;
   background: var(--foglio-2);
-  transform: translateY(-105%); transition: transform var(--t-ui) var(--ease-ui);
+  transform: translateY(-105%); transition: transform var(--t-uscita) var(--ease-ui); /* esce più svelta di come entra */
 }
-.testata-fissa.is-visibile { transform: none; }
+.testata-fissa.is-visibile { transform: none; transition-duration: var(--t-ui); }
 .testata-fissa__riga { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-5); min-height: 4rem; }
 .testata-fissa .logo img { width: 10rem; }
 .testata-fissa .bottone { min-height: 2.75rem; }

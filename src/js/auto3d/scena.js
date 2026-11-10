@@ -7,14 +7,16 @@ import {
 } from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { costruisciAuto } from './forma.js';
+import { numero, tempo } from '../movimento.js';
 
-// movimento (da riportare nel file unico dei token del movimento in fase 7)
+// pose e gesti dell'auto; i tempi vengono dai token (tokens.css), come per il resto del sito
 const IMBARDATA_RIPOSO = 0.42;  // radianti: tre quarti anteriore, il muso verso chi guarda
 const IMBARDATA_INGRESSO = 0.95;
-const SMORZAMENTO = 9;          // quanto in fretta l'auto raggiunge la posizione voluta (ease-out esponenziale)
+const SMORZAMENTO = 9;          // costante fisica, non un tempo: l'auto raggiunge la posa voluta con un ease-out esponenziale (≈0,25 s)
 const SOGLIA_TOCCO = 6;         // px: sotto è un tocco, sopra è un trascinamento
 const GIRI_PER_PX = 0.0105;
-const IMPULSO = 0.24;           // s: il cerchietto che si spunta cresce e torna, sotto i 300 ms
+const IMPULSO = tempo('--t-ui') / 1000;          // s: il cerchietto che si spunta cresce e torna, sotto i 300 ms
+const GIRO_SCROLL = numero('--auto-giro-scroll') || 0; // radianti: quanto gira mentre la scheda esce dallo schermo
 const DIAMETRO_SEGNO = 30;      // unità del disegno (≈ 17 cm): il cerchietto si vede come nel disegno
 
 export async function monta(stage) {
@@ -85,8 +87,15 @@ export async function monta(stage) {
     richiedi();
   };
 
-  // stato del movimento
-  let imbardata = IMBARDATA_INGRESSO, voluta = IMBARDATA_RIPOSO;
+  // stato del movimento: la posa voluta è riposo + quanto l'hai girata tu + quanto è scorsa la pagina
+  let imbardata = IMBARDATA_INGRESSO, girata = 0, voluta = IMBARDATA_RIPOSO;
+  // la scena di scroll: mentre la scheda esce dallo schermo l'auto gira, lineare con lo scorrimento (da 0 a 1
+  // fra la cima della pagina e il momento in cui il riquadro dell'auto è uscito in alto). Niente pin.
+  const giroScroll = () => {
+    const fondo = stage.getBoundingClientRect().bottom + scrollY;
+    return fondo > 0 ? Math.min(1, Math.max(0, scrollY / fondo)) * GIRO_SCROLL : 0;
+  };
+  const aggiornaVoluta = () => { voluta = IMBARDATA_RIPOSO + girata + giroScroll(); };
   const timer = new Timer();
   timer.connect(document);
   let attivo = false;
@@ -144,7 +153,7 @@ export async function monta(stage) {
   };
   let inizio = null;
   canvas.addEventListener('pointerdown', (e) => {
-    inizio = { x: e.clientX, y: e.clientY, imbardata: voluta, trascina: false, id: e.pointerId };
+    inizio = { x: e.clientX, y: e.clientY, girata, trascina: false, id: e.pointerId };
   });
   canvas.addEventListener('pointermove', (e) => {
     if (!inizio) {
@@ -157,7 +166,7 @@ export async function monta(stage) {
       canvas.setPointerCapture(inizio.id);
       canvas.style.cursor = 'grabbing';
     }
-    if (inizio.trascina) { voluta = inizio.imbardata + dx * GIRI_PER_PX; richiedi(); }
+    if (inizio.trascina) { girata = inizio.girata + dx * GIRI_PER_PX; aggiornaVoluta(); richiedi(); }
   });
   const fine = (e) => {
     if (!inizio) return;
@@ -173,9 +182,13 @@ export async function monta(stage) {
 
   new ResizeObserver(inquadra).observe(canvas);
   // fuori dallo schermo non si disegna niente
-  new IntersectionObserver(([v]) => { if (v.isIntersecting) richiedi(); else { renderer.setAnimationLoop(null); attivo = false; } }).observe(canvas);
+  let inVista = true;
+  new IntersectionObserver(([v]) => { inVista = v.isIntersecting; if (inVista) { aggiornaVoluta(); richiedi(); } else { renderer.setAnimationLoop(null); attivo = false; } }).observe(canvas);
+  // lo scorrimento muove solo la posa voluta; il fotogramma la raggiunge con lo smorzamento di sempre
+  addEventListener('scroll', () => { if (inVista && GIRO_SCROLL) { aggiornaVoluta(); richiedi(); } }, { passive: true });
 
   inquadra();
+  aggiornaVoluta();
   await renderer.compileAsync(scene, camera);
   renderer.render(scene, camera);
   stage.classList.add('is-3d');
@@ -191,7 +204,8 @@ export async function monta(stage) {
     },
     info: () => ({ chiamate: renderer.info.render.calls, triangoli: renderer.info.render.triangles, texture: renderer.info.memory.textures }),
     imbardata: () => imbardata,
-    gira(a) { voluta = a; richiedi(); },
+    gira(a) { girata = a - IMBARDATA_RIPOSO - giroScroll(); aggiornaVoluta(); richiedi(); },
+    voluta: () => voluta,
     ingombro: () => new Box3().setFromObject(auto),
   };
   return stage.auto3d;

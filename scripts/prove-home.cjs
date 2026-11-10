@@ -160,6 +160,8 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
     await page.waitForTimeout(1500);
     const ripiego = await page.evaluate(() => ({ canvas: !!document.querySelector('canvas.auto3d'), svg: getComputedStyle(document.querySelector('svg.auto')).visibility }));
     ok('reduced motion: niente 3D, resta il disegno', !ripiego.canvas && ripiego.svg === 'visible', JSON.stringify(ripiego));
+    const fermo = await page.evaluate(() => ({ classi: document.documentElement.className, entra: document.querySelectorAll('[data-entra]').length }));
+    ok('reduced motion: niente entrate né scorrimento morbido', !/entrate|lenis/.test(fermo.classi) && fermo.entra === 0, JSON.stringify(fermo));
     await ctx.close();
   }
 
@@ -195,12 +197,92 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
       const dopo = await page.evaluate(() => document.querySelector('[data-auto3d]').auto3d.imbardata());
       const ancora = await page.evaluate(() => document.querySelectorAll('input[name="lavori"]:checked').length);
       ok(`3D ${larghezza}: trascinare gira l'auto senza spuntare`, Math.abs(dopo - prima) > 0.3 && ancora === 2, `imbardata ${prima.toFixed(2)} → ${dopo.toFixed(2)}, spunte ${ancora}`);
+      // la scena di scroll: mentre la scheda esce l'auto gira, e torna quando si risale
+      const ferma = await page.evaluate(() => document.querySelector('[data-auto3d]').auto3d.voluta());
+      await page.evaluate(() => scrollTo(0, 300));
+      await page.waitForTimeout(400);
+      const scorsa = await page.evaluate(() => document.querySelector('[data-auto3d]').auto3d.voluta());
+      await page.evaluate(() => scrollTo(0, 0));
+      await page.waitForTimeout(400);
+      const tornata = await page.evaluate(() => document.querySelector('[data-auto3d]').auto3d.voluta());
+      ok(`3D ${larghezza}: l'auto gira mentre la scheda scorre via`, scorsa - ferma > 0.15 && Math.abs(tornata - ferma) < 0.01, `posa ${ferma.toFixed(2)} → ${scorsa.toFixed(2)} → ${tornata.toFixed(2)}`);
       const info = await page.evaluate(() => document.querySelector('[data-auto3d]').auto3d.info());
       ok(`3D ${larghezza}: meno di 60 chiamate di disegno`, info.chiamate < 60, JSON.stringify(info));
       const tocco = await page.locator('canvas.auto3d').evaluate((c) => getComputedStyle(c).touchAction);
       ok(`3D ${larghezza}: la pagina scorre anche sopra l'auto`, tocco === 'pan-y', tocco);
     }
     ok(`3D ${larghezza}: nessun errore in console`, errori.length === 0, errori.join(' | '));
+    await ctx.close();
+  }
+
+  // ---------- movimento (fase 7) ----------
+  for (const [larghezza, mobile] of [[1440, false], [390, true]]) {
+    const ctx = await browser.newContext({ viewport: { width: larghezza, height: mobile ? 844 : 900 }, isMobile: mobile, hasTouch: mobile });
+    const page = await ctx.newPage();
+    const errori = [];
+    page.on('pageerror', (e) => errori.push(String(e)));
+    page.on('console', (m) => { if (m.type() === 'error') errori.push(m.text()); });
+    // la sequenza d'apertura, misurata a ogni fotogramma dal primo
+    await page.addInitScript(() => {
+      window.__apertura = null;
+      const giro = () => {
+        const parti = [...document.querySelectorAll('.hero .display .linea, .hero__titolo .lead, .hero__lavori')];
+        if (parti.length === 4 && parti.every((e) => parseFloat(getComputedStyle(e).opacity) >= 0.99 && getComputedStyle(e).transform === 'none')) { window.__apertura = performance.now(); return; }
+        if (performance.now() < 4000) requestAnimationFrame(giro);
+      };
+      requestAnimationFrame(giro);
+    });
+    await page.goto(BASE + '/', { waitUntil: 'networkidle' });
+    await page.waitForTimeout(1000);
+    const apertura = await page.evaluate(() => ({ fine: window.__apertura, fcp: performance.getEntriesByName('first-contentful-paint')[0]?.startTime }));
+    const durata = apertura.fine && apertura.fcp ? Math.round(apertura.fine - apertura.fcp) : null;
+    ok(`movimento ${larghezza}: titolo, frase e scheda fermi entro 1,2 s dal primo fotogramma`, durata !== null && durata <= 1200, `${durata} ms`);
+
+    // Lenis solo con mouse o trackpad
+    const lenis = await page.evaluate(() => document.documentElement.classList.contains('lenis'));
+    ok(`movimento ${larghezza}: scorrimento morbido ${mobile ? 'spento col tocco' : 'acceso col mouse'}`, lenis === !mobile, `lenis=${lenis}`);
+
+    // le transizioni dei controlli: al massimo 300 ms, sempre con la curva dell'interfaccia (mai ease-in)
+    const controlli = await page.evaluate(() => {
+      const numeri = (c) => (c.match(/-?\d*\.?\d+/g) || []).map(Number).join(','); // ".23" e "0.23" sono la stessa curva
+      const curva = numeri(getComputedStyle(document.documentElement).getPropertyValue('--ease-ui'));
+      const fuori = [];
+      for (const sel of ['.bottone', '.voce', '.voce__casella', '.zona', '.link', '.testata__link', '.testata-fissa', '.timbro--ricevuto', '.salta']) {
+        for (const e of document.querySelectorAll(sel)) {
+          const s = getComputedStyle(e);
+          const durate = s.transitionDuration.split(',').map((d) => parseFloat(d) * (d.trim().endsWith('ms') ? 1 : 1000));
+          const curve = s.transitionTimingFunction.replace(/\s+/g, '').split(/,(?![^(]*\))/);
+          durate.forEach((d, i) => { if (d > 300 || (d > 0 && numeri(curve[i % curve.length]) !== curva)) fuori.push(`${sel} ${d}ms ${curve[i % curve.length]}`); });
+        }
+      }
+      return [...new Set(fuori)];
+    });
+    ok(`movimento ${larghezza}: controlli sotto i 300 ms, curva dell'interfaccia`, controlli.length === 0, controlli.join(' | '));
+
+    // uno scorrimento piano fino in fondo: ogni parte entra, niente resta nascosto
+    const preparati = await page.evaluate(() => document.querySelectorAll('[data-entra]').length);
+    const altezza = await page.evaluate(() => document.documentElement.scrollHeight);
+    for (let y = 0; y <= altezza; y += 250) { await page.evaluate((y) => scrollTo(0, y), y); await page.waitForTimeout(90); }
+    await page.waitForTimeout(1800);
+    const rimasti = await page.evaluate(() => [...document.querySelectorAll('[data-entra]')].map((e) => `${e.dataset.entra} ${e.className || e.tagName}`));
+    const trasparenti = await page.evaluate(() => [...document.querySelectorAll('main *, footer *')].filter((e) => e.offsetParent && !e.matches('input, .timbro--ricevuto, .timbro--ricevuto *') && parseFloat(getComputedStyle(e).opacity) < 0.99).map((e) => e.className || e.tagName));
+    ok(`movimento ${larghezza}: dopo lo scorrimento tutte le parti sono entrate`, preparati > 20 && rimasti.length === 0 && trasparenti.length === 0, `preparate ${preparati}, rimaste ${rimasti.join(', ') || 0}, trasparenti ${trasparenti.join(', ') || 0}`);
+
+    if (!mobile) {
+      // un link della testata: scorre morbido, la sezione arriva sotto la testata fissa, il focus la segue
+      await page.evaluate(() => scrollTo(0, 0));
+      await page.waitForTimeout(600);
+      await page.locator('.hero .testata__link[href="#revisioni"]').click();
+      await page.waitForTimeout(2500);
+      const arrivo = await page.evaluate(() => {
+        const s = document.querySelector('#revisioni').getBoundingClientRect();
+        const t = document.querySelector('.testata-fissa').getBoundingClientRect();
+        return { cima: Math.round(s.top), testata: Math.round(t.bottom), hash: location.hash, focus: document.activeElement?.id };
+      });
+      const margine = await page.evaluate(() => parseFloat(getComputedStyle(document.querySelector('#revisioni')).scrollMarginTop));
+      ok('movimento 1440: il link "Revisioni" porta alla sezione, sotto la testata fissa', arrivo.hash === '#revisioni' && arrivo.focus === 'revisioni' && arrivo.cima >= arrivo.testata - 1 && Math.abs(arrivo.cima - margine) <= 2, JSON.stringify({ ...arrivo, margine }));
+    }
+    ok(`movimento ${larghezza}: nessun errore in console`, errori.length === 0, errori.join(' | '));
     await ctx.close();
   }
 
@@ -213,6 +295,10 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
     const caselle = await page.locator('.voce').count();
     const wa = await page.locator('[data-barra]').getAttribute('href');
     ok('senza JS: caselle visibili, zone nascoste, WhatsApp funziona', zoneVisibili === 0 && caselle === 8 && wa === NUMERO, `zone=${zoneVisibili} caselle=${caselle} wa=${wa}`);
+    await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
+    await page.waitForTimeout(300);
+    const coperti = await page.evaluate(() => [...document.querySelectorAll('main h1, main h2, main p, main figure, main picture, main li, main tr, footer p, footer li, .timbro:not(.timbro--ricevuto)')].filter((e) => { const s = getComputedStyle(e); return parseFloat(s.opacity) < 0.99 || s.transform !== 'none' && !e.matches('.timbro') || s.clipPath !== 'none'; }).map((e) => e.className || e.tagName));
+    ok('senza JS: nessuna parte resta nascosta in attesa di un\'entrata', coperti.length === 0, coperti.join(', '));
     await ctx.close();
   }
 
