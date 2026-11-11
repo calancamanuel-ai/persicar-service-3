@@ -289,6 +289,30 @@ const testoWa = (href) => { const u = new URL(href); return u.searchParams.get('
     await ctx.close();
   }
 
+  // ---------- il titolo della scheda: sempre due righe, a ogni larghezza ----------
+  {
+    const ctx = await browser.newContext({ reducedMotion: 'reduce' });
+    const page = await ctx.newPage();
+    const righe = [];
+    for (const larghezza of [320, 390, 768, 1023, 1024, 1280, 1440, 1920]) {
+      await page.setViewportSize({ width: larghezza, height: 900 });
+      if (!righe.length) await page.goto(BASE + '/', { waitUntil: 'networkidle' });
+      righe.push([larghezza, await page.evaluate(() => {
+        // le righe vere sono le righe del testo: si contano le altezze distinte dei pezzi di testo
+        const h = document.querySelector('.hero .display'); const cime = new Set();
+        const giro = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+        for (let t = giro.nextNode(); t; t = giro.nextNode()) {
+          if (!t.textContent.trim()) continue;
+          const g = document.createRange(); g.selectNodeContents(t);
+          for (const r of g.getClientRects()) if (r.width > 1) cime.add(Math.round(r.top));
+        }
+        return cime.size;
+      })]);
+    }
+    ok('titolo della scheda su due righe a ogni larghezza', righe.every(([, n]) => n === 2), righe.map(([w, n]) => `${w}:${n}`).join(' '));
+    await ctx.close();
+  }
+
   // ---------- la foto di attesa del 3D: dal primo fotogramma, al posto del disegno ----------
   for (const [larghezza, mobile] of [[1440, false], [390, true]]) {
     const ctx = await browser.newContext({ viewport: { width: larghezza, height: 900 }, isMobile: mobile, hasTouch: mobile });

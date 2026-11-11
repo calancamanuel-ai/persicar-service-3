@@ -1,4 +1,4 @@
-/* 6. Orari e dove siamo: il biglietto da visita, posato accanto alla foto della Focus appena uscita. */
+/* 6. Orari e dove siamo: il biglietto da visita, posato sul bordo di una foto dell'officina, sotto la volta. */
 .orari { display: grid; gap: var(--sp-5) var(--colonna-gap); }
 .orari__biglietto { display: grid; gap: var(--sp-4); align-content: start; position: relative; z-index: 1; }
 .orari__indirizzo { font-style: normal; font-size: var(--misura-lead); line-height: 1.35; }
@@ -17,6 +17,7 @@
 .orari__azioni .bottone { min-height: var(--tocco-barra); }
 .orari__mappa { display: none; }
 .orari__foto { width: 100%; } /* su telefono dopo il biglietto: la didascalia non finisce sopra il titolo */
+.orari__foto img { object-position: 50% 70%; } /* nel taglio 4:5 restano l'auto e la cornice sulla targa */
 
 @media (min-width: 48em) {
   /* dove non c'è la barra del pollice: Indicazioni diventa un link, il bottone in fondo è WhatsApp */
@@ -25,6 +26,8 @@
 }
 @media (min-width: 64em) {
   .orari { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: center; }
-  .orari__biglietto { grid-column: 1 / span 6; grid-row: 1; }
-  .orari__foto { grid-column: 6 / span 5; grid-row: 1; }
+  /* la foto a sinistra, il biglietto a destra posato sul suo bordo (dove c'è il ponte): resta in vista la cornice
+     della targa. Dopo il campo dell'officina, con la lettera a sinistra, i lati si alternano */
+  .orari__foto { grid-column: 2 / span 5; grid-row: 1; }
+  .orari__biglietto { grid-column: 6 / span 6; grid-row: 1; }
 }

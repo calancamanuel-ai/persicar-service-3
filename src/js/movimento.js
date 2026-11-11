@@ -19,23 +19,23 @@ const COREOGRAFIA = [
   ['.lavori__testa > p', 'sale'],
   ['.listino__gruppo', 'fila'],
   ['.lavori__spillata', 'sale'],
-  // Dal lavoro di tutti i giorni: le tessere si scoprono, il cartellino segue la sua foto
+  // Dal lavoro di tutti i giorni: le tessere si posano, il cartellino segue la sua foto
   ['#titolo-galleria', 'righe'],
   ['.galleria__testa .lead', 'sale'],
-  ['.galleria__foto picture', 'apre', 'figure'],
+  ['.galleria__foto picture', 'sale', 'figure'],
   ['.galleria__foto .cartellino', 'fila', 'figure'],
-  // Revisioni: i fatti in fila, la foto del ponte di lato, lo scontrino che esce
+  // Revisioni: i fatti in fila, la foto del ponte, lo scontrino che esce
   ['#titolo-revisioni', 'righe'],
   ['.revisioni__testo > .lead', 'sale'],
   ['.revisioni__fatti > div', 'fila'],
-  ['.revisioni__foto picture', 'apre-lato', 'figure'],
+  ['.revisioni__foto picture', 'sale', 'figure'],
   ['.revisioni__foto figcaption', 'fila', 'figure'],
   ['.revisioni__ricevuta', 'stampa'],
   // L'officina, sul campo scuro: la lettera arriva un paragrafo alla volta, mentre si legge
   ['.officina__logo', 'sale'],
   ['#titolo-officina', 'righe'],
   ['.officina__lettera > p', 'fila'],
-  ['.officina__foto picture', 'apre', 'figure'],
+  ['.officina__foto picture', 'sale', 'figure'],
   ['.officina__foto figcaption', 'fila', 'figure'],
   ['.officina__recensioni', 'sale'],
   // Orari e dove siamo: il biglietto si compila riga per riga
@@ -43,7 +43,7 @@ const COREOGRAFIA = [
   ['.orari__indirizzo', 'sale'],
   ['.orari__tabella tr', 'fila'],
   ['.orari__biglietto > .stato, .orari__contatti, .orari__mappa, .orari__azioni', 'fila'],
-  ['.orari__foto picture', 'apre-basso', 'figure'],
+  ['.orari__foto picture', 'sale', 'figure'],
   ['.orari__foto figcaption', 'fila', 'figure'],
   // Il retro della cartolina: il saluto, i contatti, e per ultimo il timbro che si posa
   ['.piede__saluto > *', 'sale'],
@@ -89,7 +89,7 @@ function pulisci(el) {
   el.style.removeProperty('--i');
   if (!el.getAttribute('style')) el.removeAttribute('style');
 }
-const PROPRIETA_FINALE = { sale: 'opacity', fila: 'opacity', timbro: 'transform', righe: 'opacity', apre: 'transform', 'apre-lato': 'transform', 'apre-basso': 'transform', stampa: 'clip-path' }; // apre: è la lastra (::after) che si ritira
+const PROPRIETA_FINALE = { sale: 'opacity', fila: 'opacity', timbro: 'transform', righe: 'opacity', stampa: 'clip-path' };
 
 function entra(el, passo, subito = false) {
   if (!el.dataset.entra || el.classList.contains('is-dentro')) return;

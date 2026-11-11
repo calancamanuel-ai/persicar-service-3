@@ -34,7 +34,7 @@
   --misura-testo: clamp(1.0625rem, 1.02rem + 0.18vw, 1.1875rem); /* 17–19px: il testo corrente */
   --misura-lead: clamp(1.25rem, 1.12rem + 0.55vw, 1.5rem);      /* 20–24px: frasi d'apertura, voci della scheda */
   --misura-titolo: clamp(1.75rem, 1.1rem + 2.9vw, 3.5rem);      /* 28–56px: titoli di sezione (29px a 390) */
-  --misura-display: clamp(2.375rem, 0.6rem + 5.6vw, 5.5rem);    /* 38–88px: il titolo della scheda, sempre su due righe */
+  --misura-display: clamp(2.375rem, 0.6rem + 5.6vw, 5.5rem);    /* 38–67px fino a 1023px; da computer vedi sotto: il titolo della scheda, sempre su due righe */
 
   --interlinea-display: 0.95;  /* solo per il titolo grande del primo schermo */
   --interlinea-titoli: 1.05;   /* titoli di sezione: a 32px su telefono le righe non si toccano */
@@ -88,4 +88,9 @@
 /* telefono stretto: il titolo della scheda cala con lo schermo (30px a 320, 38px a 390) e resta su due righe */
 @media (max-width: 24.99em) {
   :root { --misura-display: clamp(1.875rem, -0.4rem + 11.4vw, 2.375rem); }
+}
+/* computer: il titolo sta in sei colonne accanto all'auto. Una riga ("Noi la tua auto") è larga circa 7,9 volte la
+   misura del carattere, quindi 52px a 1024, 65px a 1280, 74px a 1440, al massimo 76px: sempre due righe */
+@media (min-width: 64em) {
+  :root { --misura-display: clamp(3.25rem, 5.4vw - 0.25rem, 4.75rem); }
 }

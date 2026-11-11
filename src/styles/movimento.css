@@ -26,7 +26,7 @@
     transition-timing-function: var(--ease-entrata);
     transition-delay: calc(var(--i, 0) * var(--ritardo-parti));
   }
-  /* sale: un pezzo di carta che si posa */
+  /* sale: un pezzo di carta (o una foto) che si posa; le foto non si mascherano mai, così non sembrano tagliate */
   .entrate [data-entra="sale"]:not(.is-dentro) { opacity: 0; transform: translateY(var(--salita)); }
   /* fila: le voci di un elenco, una dopo l'altra */
   .entrate [data-entra="fila"]:not(.is-dentro) { opacity: 0; transform: translateY(var(--salita-corta)); }
@@ -38,18 +38,6 @@
     transition-delay: calc(var(--i, 0) * var(--ritardo-parti) + var(--r, 0) * var(--ritardo-righe));
   }
   .entrate [data-entra="righe"]:not(.is-dentro) .linea { opacity: 0; transform: translateY(var(--salita)); }
-  /* apre: la foto si scopre dal suo bordo, senza mai ingrandirla. Non la si maschera (con clip-path il browser
-     non scarica le foto "lazy" finché non si aprono): la copre una lastra del colore del piano, che si ritira. */
-  .entrate [data-entra^="apre"] { position: relative; }
-  .entrate [data-entra^="apre"]::after {
-    content: ""; position: absolute; inset: -1px; background: var(--copertura, var(--piano));
-    transform-origin: 50% 100%; transform: scale(1, 0); pointer-events: none;
-    transition: transform var(--t-apertura) var(--ease-entrata) calc(var(--i, 0) * var(--ritardo-parti));
-  }
-  .entrate [data-entra^="apre"]:not(.is-dentro)::after { transform: none; }
-  .entrate [data-entra="apre-basso"]::after { transform-origin: 50% 0; }
-  .entrate [data-entra="apre-lato"]::after { transform-origin: 100% 50%; transform: scale(0, 1); }
-  .entrate .campo-scuro { --copertura: var(--campo); }
   /* stampa: lo scontrino esce dall'alto, come da una stampante */
   .entrate [data-entra="stampa"] { clip-path: inset(0); transition-duration: var(--t-apertura); }
   .entrate [data-entra="stampa"]:not(.is-dentro) { clip-path: inset(0 0 100% 0); transform: translateY(calc(var(--salita) * -1)); }

@@ -20,7 +20,7 @@ l'auto 3D; tutto il resto si posa una volta sola e poi sta fermo.
 | `--t-ui` | 240 ms | testata fissa che entra, timbri, il cerchietto dell'auto che si spunta |
 | `--t-uscita` | 170 ms | ciò che se ne va (la testata fissa): circa il 70% dell'entrata |
 | `--t-entrata` | 720 ms | le parti di una sezione |
-| `--t-apertura` | 700 ms | le foto che si scoprono, lo scontrino che esce |
+| `--t-apertura` | 700 ms | lo scontrino che esce |
 | `--ritardo-parti` | 70 ms | fra un passo e l'altro di una sequenza |
 | `--ritardo-righe` | 90 ms | fra le righe di un titolo |
 | `--salita` / `--salita-corta` | 24 / 16 px | quanto salgono le parti entrando |
@@ -47,9 +47,8 @@ fila in ordine di lettura, al massimo in quattro passi. Ogni sezione ha il suo m
 | Modo | Cosa fa | Dove |
 | --- | --- | --- |
 | `righe` | il titolo si divide nelle righe in cui è andato a capo, ognuna sale; poi torna testo semplice | i titoli h2 |
-| `sale` | 24 px e opacità, come un foglio che si posa | frasi d'apertura, foto spillate, logo, saluto |
+| `sale` | 24 px e opacità, come un foglio che si posa | frasi d'apertura, tutte le foto, logo, saluto |
 | `fila` | 16 px, una voce dopo l'altra | gruppi del listino, fatti, paragrafi della lettera, righe degli orari, contatti, cartellini |
-| `apre` | una lastra del colore del piano si ritira dal bordo della foto | tessere, foto del ponte (di lato), esterno, bussole, foto della Focus (dal basso) |
 | `stampa` | lo scontrino si scopre dall'alto in basso scendendo di 24 px | la ricevuta delle revisioni |
 | `timbro` | il timbro si posa da 1.18 a 1, dopo il resto | il timbro del footer |
 
@@ -78,8 +77,9 @@ del browser.
   Niente resta coperto più di 0,9 s.
 - Lo smorzamento dell'auto (`SMORZAMENTO` in `scena.js`) è una costante fisica, non un tempo: la posa voluta si
   raggiunge con un ease-out esponenziale di circa 0,25 s.
-- Le foto non si scoprono con `clip-path`: il browser non scaricherebbe le foto "lazy" finché sono mascherate. Le
-  copre una lastra (`::after`) che si ritira.
+- Le foto non si mascherano mai: entrano intere, salendo. Una lastra che si ritirava dal bordo (prima versione)
+  le faceva sembrare tagliate ai bordi delle sezioni (cliente, 11/11); con `clip-path`, inoltre, il browser non
+  scarica le foto "lazy" finché sono mascherate.
 
 ## Cosa non si usa, e perché
 - **GSAP**: senza pin e senza scrub lunghi bastano CSS e un observer, e il telefono scarica circa 45 KB in meno.

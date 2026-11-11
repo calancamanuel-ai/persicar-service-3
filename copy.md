@@ -108,7 +108,7 @@ Regole della voce: sempre del tu, col "noi"; niente età, nomi o anno; "Alla rev
 - **Stato**: come nell'hero
 - **Telefono**: 051 687 1521 · **WhatsApp**: 366 721 2576
 - **Bottoni**: "Indicazioni" (Google Maps) · "Scrivici su WhatsApp" (solo computer)
-- **Foto**: Una Focus RS appena uscita dal tagliando.
+- **Foto**: Dentro l'officina, in Via Cento 60. (Una spider nera sul ponte, sotto la volta.)
 
 ## 7. Footer: il retro della scheda
 - **Saluto**: A presto in Via Cento.

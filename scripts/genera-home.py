@@ -55,8 +55,8 @@ zone = "\n".join(
 # Si vede dal primo fotogramma solo quando il 3D è atteso (html.auto-3d); il 3D prende il suo posto senza cambiare niente.
 POSA = (
     '<picture class="auto__posa" aria-hidden="true">'
-    '<source type="image/avif" srcset="/img/auto-posa-616.avif 616w, /img/auto-posa-1232.avif 1232w" sizes="(min-width: 64em) 33vw, (min-width: 48em) 80vw, 72vw">'
-    '<img src="/img/auto-posa-616.webp" srcset="/img/auto-posa-616.webp 616w, /img/auto-posa-1232.webp 1232w" sizes="(min-width: 64em) 33vw, (min-width: 48em) 80vw, 72vw" width="1232" height="540" alt="" fetchpriority="high" decoding="async">'
+    '<source type="image/avif" srcset="/img/auto-posa-616.avif 616w, /img/auto-posa-1232.avif 1232w" sizes="(min-width: 64em) 42vw, (min-width: 48em) 80vw, 72vw">'
+    '<img src="/img/auto-posa-616.webp" srcset="/img/auto-posa-616.webp 616w, /img/auto-posa-1232.webp 1232w" sizes="(min-width: 64em) 42vw, (min-width: 48em) 80vw, 72vw" width="1232" height="540" alt="" fetchpriority="high" decoding="async">'
     '</picture>'
 )
 
@@ -343,8 +343,8 @@ html = f'''<!doctype html>
         </div>
       </div>
       <figure class="foto foto--verticale orari__foto">
-        {picture("arrivo-focus", "Una Focus RS bianca, appena uscita dal tagliando, col sole dietro", "(min-width: 64em) 38vw, 92vw")}
-        <figcaption class="foto__didascalia">Una Focus RS appena uscita dal tagliando.</figcaption>
+        {picture("officina-volta", "Una spider nera sul ponte col cofano aperto, sotto la volta dell'officina", "(min-width: 64em) 38vw, 92vw")}
+        <figcaption class="foto__didascalia">Dentro l'officina, in Via Cento 60.</figcaption>
       </figure>
     </section>
   </main>

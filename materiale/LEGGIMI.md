@@ -28,11 +28,12 @@ I numeri si riferiscono a `anteprima-fotogrammi.jpg`.
 | `officina-bussole` | Chi siamo | fotogramma 11 (v5, 15,5 s) |
 | `lavoro-sottoscocca` | Dal lavoro di tutti i giorni | fotogramma 15 (v4, 28,75 s) |
 | `lavoro-recupero-olio` | Dal lavoro di tutti i giorni | fotogramma 9 (v3, 14 s) |
-| `arrivo-focus` | Orari e dove siamo, come immagine di arrivo (aggiunta il 6/11) | fotogramma 4 (v5, 118,5 s), Ford e RS sfocati |
+| `officina-volta` | Orari e dove siamo (dall'11/11, al posto di `arrivo-focus`) | vecchio sito (`lavoro-z3`/`z3-sul-ponte`), 720×982 |
 
-- **`arrivo-focus`**: viene dal reel "Tagliando lampo sulla Focus RS". Didascalia onesta: "Una Focus RS appena
-  uscita dal tagliando". Non va presentata come l'esterno dell'officina, perché lo sfondo non si riconosce. È
-  l'auto di un cliente: la cornice targa è la vostra, la targa non si vede.
+- **`officina-volta`** (11/11): la Focus controluce non diceva abbastanza dell'officina (richiesta del cliente).
+  Al suo posto la spider nera sul ponte, sotto la volta: si vedono l'interno, le luci, il ponte blu e la cornice
+  "PERSICAR SERVICE" sulla targa. Nessun logo visibile, nessuna targa. Didascalia: "Dentro l'officina, in Via
+  Cento 60". `arrivo-focus` è tornata fra le riserve.
 - **Miglioramento senza generare nulla** (`scripts/tratta-foto.py`, da `foto-scelte/` a `foto-trattate/`):
   - denoise spaziale leggero (nlmeans), poi livelli allo 0,4% e mezza correzione verso un'unica temperatura
     colore, saturazione al 94% e maschera di contrasto leggera;
@@ -47,7 +48,7 @@ I numeri si riferiscono a `anteprima-fotogrammi.jpg`.
   il reel della Mercedes: non serve chiedere permessi (cliente, 7/11).
 
 ## Foto di riserva (`foto-riserva/`, non pubblicate)
-Fotogrammi 1, 5, 8, 10 e 13, più quattro vecchie foto (Z3 sul ponte, carrello attrezzi, vano motore col guanto, straccio sulla coppa).
+Fotogrammi 1, 4 (`arrivo-focus`, la Focus controluce, tolta dagli orari l'11/11), 5, 8, 10 e 13, più tre vecchie foto (carrello attrezzi, vano motore col guanto, straccio sulla coppa). La Z3 sul ponte è diventata `officina-volta`.
 
 ## Foto di persicar-service-2 (`foto-originali/`)
 - Copiate tutte, tranne `hero.webp` (doppione di `esterno.webp`) e `clima.webp` (generata con l'IA).

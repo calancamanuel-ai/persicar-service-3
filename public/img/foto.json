@@ -1,23 +1,5 @@
 [
  {
-  "nome": "arrivo-focus",
-  "originale": "940×1440",
-  "varianti": [
-   {
-    "larghezza": 640,
-    "altezza": 980,
-    "avif": 38832,
-    "webp": 56648
-   },
-   {
-    "larghezza": 940,
-    "altezza": 1440,
-    "avif": 63353,
-    "webp": 93204
-   }
-  ]
- },
- {
   "nome": "cambio-coppa",
   "originale": "940×1440",
   "varianti": [
@@ -158,6 +140,24 @@
     "altezza": 816,
     "avif": 156679,
     "webp": 188618
+   }
+  ]
+ },
+ {
+  "nome": "officina-volta",
+  "originale": "720×982",
+  "varianti": [
+   {
+    "larghezza": 640,
+    "altezza": 873,
+    "avif": 16842,
+    "webp": 25096
+   },
+   {
+    "larghezza": 720,
+    "altezza": 982,
+    "avif": 20832,
+    "webp": 28690
    }
   ]
  },
